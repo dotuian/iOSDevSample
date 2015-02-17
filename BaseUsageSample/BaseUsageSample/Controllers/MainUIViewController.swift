@@ -22,15 +22,19 @@ class MainUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self._tableView = UITableView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
         self._tableView.dataSource = self
         self._tableView.delegate = self
-
         
         
         self._dataSource.append("UITextField")
         self._dataSource.append("UIDatePicker")
+        self._dataSource.append("UIPickerView")
+        self._dataSource.append("UIAlertView")
+        self._dataSource.append("UIActionSheet")
+        self._dataSource.append("UIProgressView")
+        self._dataSource.append("UIWebView")
+        self._dataSource.append("UISearchBar")
+        self._dataSource.append("UINavigationBar")
+        self._dataSource.append("UIImagePickerController")
 
-
-        
-        
         self.view.addSubview(self._tableView)
         
     }
@@ -75,6 +79,30 @@ class MainUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case "UIDatePicker" :
             detailViewController = _DatePickerViewController()
             break
+            
+        case "UIPickerView" :
+            detailViewController = _PickerViewViewController()
+            
+        case "UIAlertView" :
+            detailViewController = _AlertViewViewController()
+            
+        case "UIActionSheet":
+            detailViewController = _ActionSheetViewController()
+
+        case "UIProgressView":
+            detailViewController = _ProgressViewViewController()
+            
+        case "UIWebView":
+            detailViewController = _WebViewViewController()
+            
+        case "UISearchBar":
+            detailViewController = _SearchBarViewController()
+            
+        case "UINavigationBar" :
+            detailViewController = _NavigationBarViewController()
+            
+        case "UIImagePickerController" :
+            detailViewController = _ImagePickerViewController()
             
         default:
             break

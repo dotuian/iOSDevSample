@@ -7,17 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47234BED1A91BFED0053482A /* _AlertViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BE71A91BFED0053482A /* _AlertViewViewController.swift */; };
+		47234BEE1A91BFED0053482A /* _DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BE81A91BFED0053482A /* _DatePickerViewController.swift */; };
+		47234BEF1A91BFED0053482A /* _PickerViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BE91A91BFED0053482A /* _PickerViewViewController.swift */; };
+		47234BF01A91BFED0053482A /* _TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BEA1A91BFED0053482A /* _TextFieldViewController.swift */; };
+		47234BF11A91BFED0053482A /* MainDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BEB1A91BFED0053482A /* MainDBViewController.swift */; };
+		47234BF21A91BFED0053482A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BEC1A91BFED0053482A /* MainViewController.swift */; };
+		47234BF41A91CDD30053482A /* _ActionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BF31A91CDD30053482A /* _ActionSheetViewController.swift */; };
+		47234BF61A91D2EF0053482A /* _ProgressViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BF51A91D2EF0053482A /* _ProgressViewViewController.swift */; };
+		47234BF81A91DD5B0053482A /* _WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BF71A91DD5B0053482A /* _WebViewViewController.swift */; };
+		47234BFA1A91E2A50053482A /* _SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BF91A91E2A50053482A /* _SearchBarViewController.swift */; };
+		47234BFC1A91E4050053482A /* _NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BFB1A91E4050053482A /* _NavigationBarViewController.swift */; };
+		47234C0B1A91ED830053482A /* xlarge_icons-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C0A1A91ED830053482A /* xlarge_icons-25.png */; };
+		47234C0D1A91EDEA0053482A /* content-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C0C1A91EDEA0053482A /* content-25.png */; };
+		47234C0F1A91EDF40053482A /* geo_fence-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C0E1A91EDF40053482A /* geo_fence-25.png */; };
+		47234C151A91EE250053482A /* settings-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C141A91EE250053482A /* settings-25.png */; };
+		47234C171A91EE320053482A /* geography-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C161A91EE320053482A /* geography-25.png */; };
+		47234C191A91EFE40053482A /* _ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234C181A91EFE40053482A /* _ImagePickerViewController.swift */; };
 		4798F6FC1A918933002B927C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F6FB1A918933002B927C /* AppDelegate.swift */; };
 		4798F6FF1A918933002B927C /* BaseUsageSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4798F6FD1A918933002B927C /* BaseUsageSample.xcdatamodeld */; };
-		4798F7011A918933002B927C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F7001A918933002B927C /* MainViewController.swift */; };
 		4798F7061A918933002B927C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4798F7051A918933002B927C /* Images.xcassets */; };
 		4798F7091A918933002B927C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4798F7071A918933002B927C /* LaunchScreen.xib */; };
 		4798F7151A918933002B927C /* BaseUsageSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F7141A918933002B927C /* BaseUsageSampleTests.swift */; };
 		4798F7221A918AEB002B927C /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F7211A918AEB002B927C /* MainUIViewController.swift */; };
-		4798F7241A918B78002B927C /* MainDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F7231A918B78002B927C /* MainDBViewController.swift */; };
 		4798F7261A918EC2002B927C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4798F7251A918EC2002B927C /* Main.storyboard */; };
-		4798F7281A919053002B927C /* _TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F7271A919053002B927C /* _TextFieldViewController.swift */; };
-		4798F72A1A9190DB002B927C /* _DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F7291A9190DB002B927C /* _DatePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,21 +44,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		47234BE71A91BFED0053482A /* _AlertViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _AlertViewViewController.swift; path = Controllers/_AlertViewViewController.swift; sourceTree = "<group>"; };
+		47234BE81A91BFED0053482A /* _DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _DatePickerViewController.swift; path = Controllers/_DatePickerViewController.swift; sourceTree = "<group>"; };
+		47234BE91A91BFED0053482A /* _PickerViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _PickerViewViewController.swift; path = Controllers/_PickerViewViewController.swift; sourceTree = "<group>"; };
+		47234BEA1A91BFED0053482A /* _TextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _TextFieldViewController.swift; path = Controllers/_TextFieldViewController.swift; sourceTree = "<group>"; };
+		47234BEB1A91BFED0053482A /* MainDBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainDBViewController.swift; path = Controllers/MainDBViewController.swift; sourceTree = "<group>"; };
+		47234BEC1A91BFED0053482A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
+		47234BF31A91CDD30053482A /* _ActionSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ActionSheetViewController.swift; sourceTree = "<group>"; };
+		47234BF51A91D2EF0053482A /* _ProgressViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _ProgressViewViewController.swift; path = Controllers/_ProgressViewViewController.swift; sourceTree = "<group>"; };
+		47234BF71A91DD5B0053482A /* _WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _WebViewViewController.swift; sourceTree = "<group>"; };
+		47234BF91A91E2A50053482A /* _SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SearchBarViewController.swift; sourceTree = "<group>"; };
+		47234BFB1A91E4050053482A /* _NavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _NavigationBarViewController.swift; sourceTree = "<group>"; };
+		47234C0A1A91ED830053482A /* xlarge_icons-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xlarge_icons-25.png"; sourceTree = "<group>"; };
+		47234C0C1A91EDEA0053482A /* content-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "content-25.png"; sourceTree = "<group>"; };
+		47234C0E1A91EDF40053482A /* geo_fence-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "geo_fence-25.png"; sourceTree = "<group>"; };
+		47234C141A91EE250053482A /* settings-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-25.png"; sourceTree = "<group>"; };
+		47234C161A91EE320053482A /* geography-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "geography-25.png"; sourceTree = "<group>"; };
+		47234C181A91EFE40053482A /* _ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ImagePickerViewController.swift; sourceTree = "<group>"; };
 		4798F6F61A918933002B927C /* BaseUsageSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseUsageSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4798F6FA1A918933002B927C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4798F6FB1A918933002B927C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4798F6FE1A918933002B927C /* BaseUsageSample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaseUsageSample.xcdatamodel; sourceTree = "<group>"; };
-		4798F7001A918933002B927C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4798F7051A918933002B927C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4798F7081A918933002B927C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4798F70E1A918933002B927C /* BaseUsageSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaseUsageSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4798F7131A918933002B927C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4798F7141A918933002B927C /* BaseUsageSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUsageSampleTests.swift; sourceTree = "<group>"; };
 		4798F7211A918AEB002B927C /* MainUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainUIViewController.swift; path = Controllers/MainUIViewController.swift; sourceTree = "<group>"; };
-		4798F7231A918B78002B927C /* MainDBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDBViewController.swift; sourceTree = "<group>"; };
 		4798F7251A918EC2002B927C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
-		4798F7271A919053002B927C /* _TextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TextFieldViewController.swift; sourceTree = "<group>"; };
-		4798F7291A9190DB002B927C /* _DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DatePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +92,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47234C031A91ECB40053482A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				47234C161A91EE320053482A /* geography-25.png */,
+				47234C141A91EE250053482A /* settings-25.png */,
+				47234C0E1A91EDF40053482A /* geo_fence-25.png */,
+				47234C0C1A91EDEA0053482A /* content-25.png */,
+				47234C0A1A91ED830053482A /* xlarge_icons-25.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		4798F6ED1A918932002B927C = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				4798F6FB1A918933002B927C /* AppDelegate.swift */,
+				47234C031A91ECB40053482A /* Images */,
 				4798F7201A918961002B927C /* Models */,
 				4798F71F1A91895B002B927C /* Views */,
 				4798F71E1A918952002B927C /* Controllers */,
@@ -128,11 +167,19 @@
 		4798F71E1A918952002B927C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				47234BEC1A91BFED0053482A /* MainViewController.swift */,
+				47234BEB1A91BFED0053482A /* MainDBViewController.swift */,
 				4798F7211A918AEB002B927C /* MainUIViewController.swift */,
-				4798F7001A918933002B927C /* MainViewController.swift */,
-				4798F7231A918B78002B927C /* MainDBViewController.swift */,
-				4798F7271A919053002B927C /* _TextFieldViewController.swift */,
-				4798F7291A9190DB002B927C /* _DatePickerViewController.swift */,
+				47234BE71A91BFED0053482A /* _AlertViewViewController.swift */,
+				47234BE81A91BFED0053482A /* _DatePickerViewController.swift */,
+				47234BE91A91BFED0053482A /* _PickerViewViewController.swift */,
+				47234BEA1A91BFED0053482A /* _TextFieldViewController.swift */,
+				47234BF31A91CDD30053482A /* _ActionSheetViewController.swift */,
+				47234BF51A91D2EF0053482A /* _ProgressViewViewController.swift */,
+				47234BF71A91DD5B0053482A /* _WebViewViewController.swift */,
+				47234BF91A91E2A50053482A /* _SearchBarViewController.swift */,
+				47234BFB1A91E4050053482A /* _NavigationBarViewController.swift */,
+				47234C181A91EFE40053482A /* _ImagePickerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -232,8 +279,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4798F7261A918EC2002B927C /* Main.storyboard in Resources */,
+				47234C0D1A91EDEA0053482A /* content-25.png in Resources */,
 				4798F7091A918933002B927C /* LaunchScreen.xib in Resources */,
+				47234C151A91EE250053482A /* settings-25.png in Resources */,
 				4798F7061A918933002B927C /* Images.xcassets in Resources */,
+				47234C171A91EE320053482A /* geography-25.png in Resources */,
+				47234C0F1A91EDF40053482A /* geo_fence-25.png in Resources */,
+				47234C0B1A91ED830053482A /* xlarge_icons-25.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +303,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4798F7011A918933002B927C /* MainViewController.swift in Sources */,
-				4798F7241A918B78002B927C /* MainDBViewController.swift in Sources */,
+				47234BEF1A91BFED0053482A /* _PickerViewViewController.swift in Sources */,
 				4798F6FF1A918933002B927C /* BaseUsageSample.xcdatamodeld in Sources */,
-				4798F72A1A9190DB002B927C /* _DatePickerViewController.swift in Sources */,
 				4798F6FC1A918933002B927C /* AppDelegate.swift in Sources */,
+				47234BF11A91BFED0053482A /* MainDBViewController.swift in Sources */,
+				47234BED1A91BFED0053482A /* _AlertViewViewController.swift in Sources */,
+				47234BF21A91BFED0053482A /* MainViewController.swift in Sources */,
+				47234BF81A91DD5B0053482A /* _WebViewViewController.swift in Sources */,
+				47234C191A91EFE40053482A /* _ImagePickerViewController.swift in Sources */,
+				47234BFA1A91E2A50053482A /* _SearchBarViewController.swift in Sources */,
+				47234BF41A91CDD30053482A /* _ActionSheetViewController.swift in Sources */,
+				47234BF01A91BFED0053482A /* _TextFieldViewController.swift in Sources */,
+				47234BF61A91D2EF0053482A /* _ProgressViewViewController.swift in Sources */,
 				4798F7221A918AEB002B927C /* MainUIViewController.swift in Sources */,
-				4798F7281A919053002B927C /* _TextFieldViewController.swift in Sources */,
+				47234BFC1A91E4050053482A /* _NavigationBarViewController.swift in Sources */,
+				47234BEE1A91BFED0053482A /* _DatePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +503,7 @@
 				4798F71A1A918933002B927C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4798F71B1A918933002B927C /* Build configuration list for PBXNativeTarget "BaseUsageSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +512,7 @@
 				4798F71D1A918933002B927C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

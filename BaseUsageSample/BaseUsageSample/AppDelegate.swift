@@ -19,20 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        let nav1 = UINavigationController(rootViewController: MainUIViewController())
-        let nav2 = UINavigationController(rootViewController: MainDBViewController())
-//        let nav3 = UINavigationController(rootViewController: ThreeViewController())
-        
-
-        nav1.tabBarItem = UITabBarItem(title: "UI", image: nil, tag: 1)
-        nav2.tabBarItem = UITabBarItem(title: "DB", image: nil, tag: 2)
-//        nav3.tabBarItem = UITabBarItem(title: "Three", image: nil, tag: 3)
-        
-        let tab = UITabBarController(nibName: nil, bundle: nil)
-        tab.viewControllers = [nav1, nav2]
-
         self.window?.rootViewController = UINavigationController(rootViewController: MainUIViewController())
         
+        
+//        let nav1 = UINavigationController(rootViewController: MainUIViewController())
+//        let nav2 = UINavigationController(rootViewController: MainDBViewController())
+//        let nav3 = UINavigationController(rootViewController: MainViewController())
+//        let nav4 = UINavigationController(rootViewController: MainViewController())
+//
+//
+//        nav1.tabBarItem = UITabBarItem(title: "UI", image: UIImage(named: "geography-25.png"), tag: 1)
+//        nav2.tabBarItem = UITabBarItem(title: "DB", image: UIImage(named: "settings-25.png"), tag: 2)
+//        nav3.tabBarItem = UITabBarItem(title: "Content", image: UIImage(named: "content-25.png"), tag: 3)
+//        nav4.tabBarItem = UITabBarItem(title: "Setting", image: UIImage(named: "xlarge_icons-25.png"), tag: 4)
+//
+//        
+//        let tab = UITabBarController()
+//        tab.viewControllers = [nav1, nav2, nav3, nav4]
+//        
+//        self.window?.rootViewController = tab
         
         return true
     }

@@ -39,17 +39,17 @@ class _TextFieldViewController : UIViewController, UITextFieldDelegate {
         //
         textfield1.placeholder = "test word."
         // 设置键盘类型
-//        case Default // Default type for the current input method.
-//        case ASCIICapable // Displays a keyboard which can enter ASCII characters, non-ASCII keyboards remain active
-//        case NumbersAndPunctuation // Numbers and assorted punctuation.
-//        case URL // A type optimized for URL entry (shows . / .com prominently).
-//        case NumberPad // A number pad (0-9). Suitable for PIN entry.
-//        case PhonePad // A phone pad (1-9, *, 0, #, with letters under the numbers).
-//        case NamePhonePad // A type optimized for entering a person's name or phone number.
-//        case EmailAddress // A type optimized for multiple email address entry (shows space @ . prominently).
-//        case DecimalPad // A number pad with a decimal point.
-//        case Twitter // A type optimized for twitter text entry (easy access to @ #)
-//        case WebSearch // A default keyboard type with URL-oriented addition (shows space . prominently).
+//        UIKeyboardType.Default // Default type for the current input method.
+//        UIKeyboardType.ASCIICapable // Displays a keyboard which can enter ASCII characters, non-ASCII keyboards remain active
+//        UIKeyboardType.NumbersAndPunctuation // Numbers and assorted punctuation.
+//        UIKeyboardType.URL // A type optimized for URL entry (shows . / .com prominently).
+//        UIKeyboardType.NumberPad // A number pad (0-9). Suitable for PIN entry.
+//        UIKeyboardType.PhonePad // A phone pad (1-9, *, 0, #, with letters under the numbers).
+//        UIKeyboardType.NamePhonePad // A type optimized for entering a person's name or phone number.
+//        UIKeyboardType.EmailAddress // A type optimized for multiple email address entry (shows space @ . prominently).
+//        UIKeyboardType.DecimalPad // A number pad with a decimal point.
+//        UIKeyboardType.Twitter // A type optimized for twitter text entry (easy access to @ #)
+//        UIKeyboardType.WebSearch // A default keyboard type with URL-oriented addition (shows space . prominently).
         textfield1.keyboardType = UIKeyboardType.NumberPad
         // 设置清除按钮显示的时刻
         textfield1.clearButtonMode = UITextFieldViewMode.Always
