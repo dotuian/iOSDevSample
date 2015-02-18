@@ -13,17 +13,12 @@
 		47234BF01A91BFED0053482A /* _TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BEA1A91BFED0053482A /* _TextFieldViewController.swift */; };
 		47234BF11A91BFED0053482A /* MainDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BEB1A91BFED0053482A /* MainDBViewController.swift */; };
 		47234BF21A91BFED0053482A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BEC1A91BFED0053482A /* MainViewController.swift */; };
-		47234BF41A91CDD30053482A /* _ActionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BF31A91CDD30053482A /* _ActionSheetViewController.swift */; };
 		47234BF61A91D2EF0053482A /* _ProgressViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BF51A91D2EF0053482A /* _ProgressViewViewController.swift */; };
-		47234BF81A91DD5B0053482A /* _WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BF71A91DD5B0053482A /* _WebViewViewController.swift */; };
-		47234BFA1A91E2A50053482A /* _SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BF91A91E2A50053482A /* _SearchBarViewController.swift */; };
-		47234BFC1A91E4050053482A /* _NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234BFB1A91E4050053482A /* _NavigationBarViewController.swift */; };
 		47234C0B1A91ED830053482A /* xlarge_icons-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C0A1A91ED830053482A /* xlarge_icons-25.png */; };
 		47234C0D1A91EDEA0053482A /* content-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C0C1A91EDEA0053482A /* content-25.png */; };
 		47234C0F1A91EDF40053482A /* geo_fence-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C0E1A91EDF40053482A /* geo_fence-25.png */; };
 		47234C151A91EE250053482A /* settings-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C141A91EE250053482A /* settings-25.png */; };
 		47234C171A91EE320053482A /* geography-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 47234C161A91EE320053482A /* geography-25.png */; };
-		47234C191A91EFE40053482A /* _ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47234C181A91EFE40053482A /* _ImagePickerViewController.swift */; };
 		4798F6FC1A918933002B927C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F6FB1A918933002B927C /* AppDelegate.swift */; };
 		4798F6FF1A918933002B927C /* BaseUsageSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4798F6FD1A918933002B927C /* BaseUsageSample.xcdatamodeld */; };
 		4798F7061A918933002B927C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4798F7051A918933002B927C /* Images.xcassets */; };
@@ -31,6 +26,11 @@
 		4798F7151A918933002B927C /* BaseUsageSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F7141A918933002B927C /* BaseUsageSampleTests.swift */; };
 		4798F7221A918AEB002B927C /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798F7211A918AEB002B927C /* MainUIViewController.swift */; };
 		4798F7261A918EC2002B927C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4798F7251A918EC2002B927C /* Main.storyboard */; };
+		47D214D81A945DA5009B5FC4 /* _ActionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D214D31A945DA5009B5FC4 /* _ActionSheetViewController.swift */; };
+		47D214D91A945DA5009B5FC4 /* _ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D214D41A945DA5009B5FC4 /* _ImagePickerViewController.swift */; };
+		47D214DA1A945DA5009B5FC4 /* _NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D214D51A945DA5009B5FC4 /* _NavigationBarViewController.swift */; };
+		47D214DB1A945DA5009B5FC4 /* _SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D214D61A945DA5009B5FC4 /* _SearchBarViewController.swift */; };
+		47D214DC1A945DA5009B5FC4 /* _WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D214D71A945DA5009B5FC4 /* _WebViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,17 +50,12 @@
 		47234BEA1A91BFED0053482A /* _TextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _TextFieldViewController.swift; path = Controllers/_TextFieldViewController.swift; sourceTree = "<group>"; };
 		47234BEB1A91BFED0053482A /* MainDBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainDBViewController.swift; path = Controllers/MainDBViewController.swift; sourceTree = "<group>"; };
 		47234BEC1A91BFED0053482A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
-		47234BF31A91CDD30053482A /* _ActionSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ActionSheetViewController.swift; sourceTree = "<group>"; };
 		47234BF51A91D2EF0053482A /* _ProgressViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _ProgressViewViewController.swift; path = Controllers/_ProgressViewViewController.swift; sourceTree = "<group>"; };
-		47234BF71A91DD5B0053482A /* _WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _WebViewViewController.swift; sourceTree = "<group>"; };
-		47234BF91A91E2A50053482A /* _SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SearchBarViewController.swift; sourceTree = "<group>"; };
-		47234BFB1A91E4050053482A /* _NavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _NavigationBarViewController.swift; sourceTree = "<group>"; };
 		47234C0A1A91ED830053482A /* xlarge_icons-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xlarge_icons-25.png"; sourceTree = "<group>"; };
 		47234C0C1A91EDEA0053482A /* content-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "content-25.png"; sourceTree = "<group>"; };
 		47234C0E1A91EDF40053482A /* geo_fence-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "geo_fence-25.png"; sourceTree = "<group>"; };
 		47234C141A91EE250053482A /* settings-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-25.png"; sourceTree = "<group>"; };
 		47234C161A91EE320053482A /* geography-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "geography-25.png"; sourceTree = "<group>"; };
-		47234C181A91EFE40053482A /* _ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ImagePickerViewController.swift; sourceTree = "<group>"; };
 		4798F6F61A918933002B927C /* BaseUsageSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseUsageSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4798F6FA1A918933002B927C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4798F6FB1A918933002B927C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +67,11 @@
 		4798F7141A918933002B927C /* BaseUsageSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUsageSampleTests.swift; sourceTree = "<group>"; };
 		4798F7211A918AEB002B927C /* MainUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainUIViewController.swift; path = Controllers/MainUIViewController.swift; sourceTree = "<group>"; };
 		4798F7251A918EC2002B927C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		47D214D31A945DA5009B5FC4 /* _ActionSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _ActionSheetViewController.swift; path = Controllers/_ActionSheetViewController.swift; sourceTree = "<group>"; };
+		47D214D41A945DA5009B5FC4 /* _ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _ImagePickerViewController.swift; path = Controllers/_ImagePickerViewController.swift; sourceTree = "<group>"; };
+		47D214D51A945DA5009B5FC4 /* _NavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _NavigationBarViewController.swift; path = Controllers/_NavigationBarViewController.swift; sourceTree = "<group>"; };
+		47D214D61A945DA5009B5FC4 /* _SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _SearchBarViewController.swift; path = Controllers/_SearchBarViewController.swift; sourceTree = "<group>"; };
+		47D214D71A945DA5009B5FC4 /* _WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _WebViewViewController.swift; path = Controllers/_WebViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +167,11 @@
 		4798F71E1A918952002B927C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				47D214D31A945DA5009B5FC4 /* _ActionSheetViewController.swift */,
+				47D214D41A945DA5009B5FC4 /* _ImagePickerViewController.swift */,
+				47D214D51A945DA5009B5FC4 /* _NavigationBarViewController.swift */,
+				47D214D61A945DA5009B5FC4 /* _SearchBarViewController.swift */,
+				47D214D71A945DA5009B5FC4 /* _WebViewViewController.swift */,
 				47234BEC1A91BFED0053482A /* MainViewController.swift */,
 				47234BEB1A91BFED0053482A /* MainDBViewController.swift */,
 				4798F7211A918AEB002B927C /* MainUIViewController.swift */,
@@ -174,12 +179,7 @@
 				47234BE81A91BFED0053482A /* _DatePickerViewController.swift */,
 				47234BE91A91BFED0053482A /* _PickerViewViewController.swift */,
 				47234BEA1A91BFED0053482A /* _TextFieldViewController.swift */,
-				47234BF31A91CDD30053482A /* _ActionSheetViewController.swift */,
 				47234BF51A91D2EF0053482A /* _ProgressViewViewController.swift */,
-				47234BF71A91DD5B0053482A /* _WebViewViewController.swift */,
-				47234BF91A91E2A50053482A /* _SearchBarViewController.swift */,
-				47234BFB1A91E4050053482A /* _NavigationBarViewController.swift */,
-				47234C181A91EFE40053482A /* _ImagePickerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -303,20 +303,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D214D81A945DA5009B5FC4 /* _ActionSheetViewController.swift in Sources */,
 				47234BEF1A91BFED0053482A /* _PickerViewViewController.swift in Sources */,
+				47D214DA1A945DA5009B5FC4 /* _NavigationBarViewController.swift in Sources */,
+				47D214DB1A945DA5009B5FC4 /* _SearchBarViewController.swift in Sources */,
 				4798F6FF1A918933002B927C /* BaseUsageSample.xcdatamodeld in Sources */,
 				4798F6FC1A918933002B927C /* AppDelegate.swift in Sources */,
 				47234BF11A91BFED0053482A /* MainDBViewController.swift in Sources */,
 				47234BED1A91BFED0053482A /* _AlertViewViewController.swift in Sources */,
 				47234BF21A91BFED0053482A /* MainViewController.swift in Sources */,
-				47234BF81A91DD5B0053482A /* _WebViewViewController.swift in Sources */,
-				47234C191A91EFE40053482A /* _ImagePickerViewController.swift in Sources */,
-				47234BFA1A91E2A50053482A /* _SearchBarViewController.swift in Sources */,
-				47234BF41A91CDD30053482A /* _ActionSheetViewController.swift in Sources */,
+				47D214DC1A945DA5009B5FC4 /* _WebViewViewController.swift in Sources */,
+				47D214D91A945DA5009B5FC4 /* _ImagePickerViewController.swift in Sources */,
 				47234BF01A91BFED0053482A /* _TextFieldViewController.swift in Sources */,
 				47234BF61A91D2EF0053482A /* _ProgressViewViewController.swift in Sources */,
 				4798F7221A918AEB002B927C /* MainUIViewController.swift in Sources */,
-				47234BFC1A91E4050053482A /* _NavigationBarViewController.swift in Sources */,
 				47234BEE1A91BFED0053482A /* _DatePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

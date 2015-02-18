@@ -47,7 +47,7 @@ class  _NavigationBarViewController : UIViewController {
         self.toolbarItems = [addItem, flexibleSpace, actionItem]
         
     }
-    
+
     
     func buttonAction(){
         let alertView = UIAlertView(title: "相机", message: "打开相机", delegate: nil, cancelButtonTitle: "OK")

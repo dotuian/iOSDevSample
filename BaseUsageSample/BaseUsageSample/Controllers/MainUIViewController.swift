@@ -39,7 +39,13 @@ class MainUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // 显示屏幕底部的工具栏
+        self.navigationController?.toolbarHidden = true
+
+    }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
