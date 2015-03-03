@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		471551A61A95D5620022CC97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471551A51A95D5620022CC97 /* AppDelegate.swift */; };
+		471551A91A95D5620022CC97 /* PhotoSeer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 471551A71A95D5620022CC97 /* PhotoSeer.xcdatamodeld */; };
+		471551AB1A95D5620022CC97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471551AA1A95D5620022CC97 /* ViewController.swift */; };
+		471551AE1A95D5620022CC97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471551AC1A95D5620022CC97 /* Main.storyboard */; };
+		471551B01A95D5620022CC97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 471551AF1A95D5620022CC97 /* Images.xcassets */; };
+		471551B31A95D5620022CC97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471551B11A95D5620022CC97 /* LaunchScreen.xib */; };
+		471551BF1A95D5620022CC97 /* PhotoSeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471551BE1A95D5620022CC97 /* PhotoSeerTests.swift */; };
+		471551E21A95D57B0022CC97 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471551CB1A95D57B0022CC97 /* ELCAlbumPickerController.m */; };
+		471551E31A95D57B0022CC97 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 471551CD1A95D57B0022CC97 /* ELCAsset.m */; };
+		471551E41A95D57B0022CC97 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 471551CF1A95D57B0022CC97 /* ELCAssetCell.m */; };
+		471551E51A95D57B0022CC97 /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 471551D31A95D57B0022CC97 /* ELCAssetTablePicker.m */; };
+		471551E61A95D57B0022CC97 /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 471551D51A95D57B0022CC97 /* ELCConsole.m */; };
+		471551E71A95D57B0022CC97 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471551D71A95D57B0022CC97 /* ELCImagePickerController.m */; };
+		471551E81A95D57B0022CC97 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 471551DA1A95D57B0022CC97 /* ELCOverlayImageView.m */; };
+		471551E91A95D57B0022CC97 /* ELCAlbumPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471551DC1A95D57B0022CC97 /* ELCAlbumPickerController.xib */; };
+		471551EA1A95D57B0022CC97 /* ELCAssetPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471551DD1A95D57B0022CC97 /* ELCAssetPicker.xib */; };
+		471551EB1A95D57B0022CC97 /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471551DE1A95D57B0022CC97 /* ELCAssetTablePicker.xib */; };
+		471551EC1A95D57B0022CC97 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 471551DF1A95D57B0022CC97 /* Overlay.png */; };
+		471551ED1A95D57B0022CC97 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 471551E01A95D57B0022CC97 /* Overlay@2x.png */; };
+		471551EF1A95D5AD0022CC97 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 471551EE1A95D5AD0022CC97 /* MobileCoreServices.framework */; };
+		471551F11A95D5C70022CC97 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471551F01A95D5C70022CC97 /* RootViewController.swift */; };
+		471551F31A95E25D0022CC97 /* image-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 471551F21A95E25D0022CC97 /* image-1.jpg */; };
+		471551F51A96D1640022CC97 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471551F41A96D1640022CC97 /* ImageCollectionViewCell.swift */; };
+		47D21A461A96FBEC002AA389 /* ImageCollectionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D21A451A96FBEC002AA389 /* ImageCollectionSectionView.swift */; };
+		47D21A481A96FEB7002AA389 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D21A471A96FEB7002AA389 /* ImageScrollView.swift */; };
+		47D21A4A1A9706F8002AA389 /* PreviewPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D21A491A9706F8002AA389 /* PreviewPhotoController.swift */; };
+		47F890B81A97348C00C3908C /* EditViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F890B71A97348C00C3908C /* EditViewContoller.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		471551B91A95D5620022CC97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 471551981A95D5610022CC97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4715519F1A95D5620022CC97;
+			remoteInfo = PhotoSeer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		471551A01A95D5620022CC97 /* PhotoSeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		471551A41A95D5620022CC97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		471551A51A95D5620022CC97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		471551A81A95D5620022CC97 /* PhotoSeer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotoSeer.xcdatamodel; sourceTree = "<group>"; };
+		471551AA1A95D5620022CC97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		471551AD1A95D5620022CC97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		471551AF1A95D5620022CC97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		471551B21A95D5620022CC97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		471551B81A95D5620022CC97 /* PhotoSeerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoSeerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		471551BD1A95D5620022CC97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		471551BE1A95D5620022CC97 /* PhotoSeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSeerTests.swift; sourceTree = "<group>"; };
+		471551CA1A95D57B0022CC97 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
+		471551CB1A95D57B0022CC97 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
+		471551CC1A95D57B0022CC97 /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
+		471551CD1A95D57B0022CC97 /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
+		471551CE1A95D57B0022CC97 /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
+		471551CF1A95D57B0022CC97 /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
+		471551D01A95D57B0022CC97 /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
+		471551D11A95D57B0022CC97 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
+		471551D21A95D57B0022CC97 /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
+		471551D31A95D57B0022CC97 /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
+		471551D41A95D57B0022CC97 /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
+		471551D51A95D57B0022CC97 /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
+		471551D61A95D57B0022CC97 /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
+		471551D71A95D57B0022CC97 /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
+		471551D81A95D57B0022CC97 /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
+		471551D91A95D57B0022CC97 /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
+		471551DA1A95D57B0022CC97 /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
+		471551DC1A95D57B0022CC97 /* ELCAlbumPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAlbumPickerController.xib; sourceTree = "<group>"; };
+		471551DD1A95D57B0022CC97 /* ELCAssetPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetPicker.xib; sourceTree = "<group>"; };
+		471551DE1A95D57B0022CC97 /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
+		471551DF1A95D57B0022CC97 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
+		471551E01A95D57B0022CC97 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
+		471551E11A95D57B0022CC97 /* swift-oc-bridging-head.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swift-oc-bridging-head.h"; sourceTree = "<group>"; };
+		471551EE1A95D5AD0022CC97 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		471551F01A95D5C70022CC97 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		471551F21A95E25D0022CC97 /* image-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-1.jpg"; sourceTree = "<group>"; };
+		471551F41A96D1640022CC97 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		47D21A451A96FBEC002AA389 /* ImageCollectionSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionSectionView.swift; sourceTree = "<group>"; };
+		47D21A471A96FEB7002AA389 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
+		47D21A491A9706F8002AA389 /* PreviewPhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewPhotoController.swift; sourceTree = "<group>"; };
+		47F890B71A97348C00C3908C /* EditViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewContoller.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4715519D1A95D5620022CC97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				471551EF1A95D5AD0022CC97 /* MobileCoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		471551B51A95D5620022CC97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		471551971A95D5610022CC97 = {
+			isa = PBXGroup;
+			children = (
+				471551EE1A95D5AD0022CC97 /* MobileCoreServices.framework */,
+				471551A21A95D5620022CC97 /* PhotoSeer */,
+				471551BB1A95D5620022CC97 /* PhotoSeerTests */,
+				471551A11A95D5620022CC97 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		471551A11A95D5620022CC97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				471551A01A95D5620022CC97 /* PhotoSeer.app */,
+				471551B81A95D5620022CC97 /* PhotoSeerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		471551A21A95D5620022CC97 /* PhotoSeer */ = {
+			isa = PBXGroup;
+			children = (
+				471551F21A95E25D0022CC97 /* image-1.jpg */,
+				471551F01A95D5C70022CC97 /* RootViewController.swift */,
+				47F890B71A97348C00C3908C /* EditViewContoller.swift */,
+				471551C81A95D57B0022CC97 /* Extensions */,
+				471551E11A95D57B0022CC97 /* swift-oc-bridging-head.h */,
+				471551A51A95D5620022CC97 /* AppDelegate.swift */,
+				471551AA1A95D5620022CC97 /* ViewController.swift */,
+				471551AC1A95D5620022CC97 /* Main.storyboard */,
+				471551AF1A95D5620022CC97 /* Images.xcassets */,
+				471551B11A95D5620022CC97 /* LaunchScreen.xib */,
+				471551A71A95D5620022CC97 /* PhotoSeer.xcdatamodeld */,
+				471551A31A95D5620022CC97 /* Supporting Files */,
+				471551F41A96D1640022CC97 /* ImageCollectionViewCell.swift */,
+				47D21A451A96FBEC002AA389 /* ImageCollectionSectionView.swift */,
+				47D21A471A96FEB7002AA389 /* ImageScrollView.swift */,
+				47D21A491A9706F8002AA389 /* PreviewPhotoController.swift */,
+			);
+			path = PhotoSeer;
+			sourceTree = "<group>";
+		};
+		471551A31A95D5620022CC97 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				471551A41A95D5620022CC97 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		471551BB1A95D5620022CC97 /* PhotoSeerTests */ = {
+			isa = PBXGroup;
+			children = (
+				471551BE1A95D5620022CC97 /* PhotoSeerTests.swift */,
+				471551BC1A95D5620022CC97 /* Supporting Files */,
+			);
+			path = PhotoSeerTests;
+			sourceTree = "<group>";
+		};
+		471551BC1A95D5620022CC97 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				471551BD1A95D5620022CC97 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		471551C81A95D57B0022CC97 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				471551C91A95D57B0022CC97 /* ELCImagePicker */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		471551C91A95D57B0022CC97 /* ELCImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				471551CA1A95D57B0022CC97 /* ELCAlbumPickerController.h */,
+				471551CB1A95D57B0022CC97 /* ELCAlbumPickerController.m */,
+				471551CC1A95D57B0022CC97 /* ELCAsset.h */,
+				471551CD1A95D57B0022CC97 /* ELCAsset.m */,
+				471551CE1A95D57B0022CC97 /* ELCAssetCell.h */,
+				471551CF1A95D57B0022CC97 /* ELCAssetCell.m */,
+				471551D01A95D57B0022CC97 /* ELCAssetPickerFilterDelegate.h */,
+				471551D11A95D57B0022CC97 /* ELCAssetSelectionDelegate.h */,
+				471551D21A95D57B0022CC97 /* ELCAssetTablePicker.h */,
+				471551D31A95D57B0022CC97 /* ELCAssetTablePicker.m */,
+				471551D41A95D57B0022CC97 /* ELCConsole.h */,
+				471551D51A95D57B0022CC97 /* ELCConsole.m */,
+				471551D61A95D57B0022CC97 /* ELCImagePickerController.h */,
+				471551D71A95D57B0022CC97 /* ELCImagePickerController.m */,
+				471551D81A95D57B0022CC97 /* ELCImagePickerHeader.h */,
+				471551D91A95D57B0022CC97 /* ELCOverlayImageView.h */,
+				471551DA1A95D57B0022CC97 /* ELCOverlayImageView.m */,
+				471551DB1A95D57B0022CC97 /* Resources */,
+			);
+			path = ELCImagePicker;
+			sourceTree = "<group>";
+		};
+		471551DB1A95D57B0022CC97 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				471551DC1A95D57B0022CC97 /* ELCAlbumPickerController.xib */,
+				471551DD1A95D57B0022CC97 /* ELCAssetPicker.xib */,
+				471551DE1A95D57B0022CC97 /* ELCAssetTablePicker.xib */,
+				471551DF1A95D57B0022CC97 /* Overlay.png */,
+				471551E01A95D57B0022CC97 /* Overlay@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4715519F1A95D5620022CC97 /* PhotoSeer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 471551C21A95D5620022CC97 /* Build configuration list for PBXNativeTarget "PhotoSeer" */;
+			buildPhases = (
+				4715519C1A95D5620022CC97 /* Sources */,
+				4715519D1A95D5620022CC97 /* Frameworks */,
+				4715519E1A95D5620022CC97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoSeer;
+			productName = PhotoSeer;
+			productReference = 471551A01A95D5620022CC97 /* PhotoSeer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		471551B71A95D5620022CC97 /* PhotoSeerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 471551C51A95D5620022CC97 /* Build configuration list for PBXNativeTarget "PhotoSeerTests" */;
+			buildPhases = (
+				471551B41A95D5620022CC97 /* Sources */,
+				471551B51A95D5620022CC97 /* Frameworks */,
+				471551B61A95D5620022CC97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				471551BA1A95D5620022CC97 /* PBXTargetDependency */,
+			);
+			name = PhotoSeerTests;
+			productName = PhotoSeerTests;
+			productReference = 471551B81A95D5620022CC97 /* PhotoSeerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		471551981A95D5610022CC97 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "鐘紀偉";
+				TargetAttributes = {
+					4715519F1A95D5620022CC97 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					471551B71A95D5620022CC97 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 4715519F1A95D5620022CC97;
+					};
+				};
+			};
+			buildConfigurationList = 4715519B1A95D5610022CC97 /* Build configuration list for PBXProject "PhotoSeer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 471551971A95D5610022CC97;
+			productRefGroup = 471551A11A95D5620022CC97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4715519F1A95D5620022CC97 /* PhotoSeer */,
+				471551B71A95D5620022CC97 /* PhotoSeerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4715519E1A95D5620022CC97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				471551EB1A95D57B0022CC97 /* ELCAssetTablePicker.xib in Resources */,
+				471551E91A95D57B0022CC97 /* ELCAlbumPickerController.xib in Resources */,
+				471551EC1A95D57B0022CC97 /* Overlay.png in Resources */,
+				471551AE1A95D5620022CC97 /* Main.storyboard in Resources */,
+				471551B31A95D5620022CC97 /* LaunchScreen.xib in Resources */,
+				471551F31A95E25D0022CC97 /* image-1.jpg in Resources */,
+				471551ED1A95D57B0022CC97 /* Overlay@2x.png in Resources */,
+				471551B01A95D5620022CC97 /* Images.xcassets in Resources */,
+				471551EA1A95D57B0022CC97 /* ELCAssetPicker.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		471551B61A95D5620022CC97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4715519C1A95D5620022CC97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47D21A4A1A9706F8002AA389 /* PreviewPhotoController.swift in Sources */,
+				471551E21A95D57B0022CC97 /* ELCAlbumPickerController.m in Sources */,
+				47D21A461A96FBEC002AA389 /* ImageCollectionSectionView.swift in Sources */,
+				471551AB1A95D5620022CC97 /* ViewController.swift in Sources */,
+				471551E71A95D57B0022CC97 /* ELCImagePickerController.m in Sources */,
+				47F890B81A97348C00C3908C /* EditViewContoller.swift in Sources */,
+				471551F11A95D5C70022CC97 /* RootViewController.swift in Sources */,
+				471551A61A95D5620022CC97 /* AppDelegate.swift in Sources */,
+				471551E31A95D57B0022CC97 /* ELCAsset.m in Sources */,
+				471551F51A96D1640022CC97 /* ImageCollectionViewCell.swift in Sources */,
+				471551E51A95D57B0022CC97 /* ELCAssetTablePicker.m in Sources */,
+				471551A91A95D5620022CC97 /* PhotoSeer.xcdatamodeld in Sources */,
+				47D21A481A96FEB7002AA389 /* ImageScrollView.swift in Sources */,
+				471551E61A95D57B0022CC97 /* ELCConsole.m in Sources */,
+				471551E81A95D57B0022CC97 /* ELCOverlayImageView.m in Sources */,
+				471551E41A95D57B0022CC97 /* ELCAssetCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		471551B41A95D5620022CC97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				471551BF1A95D5620022CC97 /* PhotoSeerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		471551BA1A95D5620022CC97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4715519F1A95D5620022CC97 /* PhotoSeer */;
+			targetProxy = 471551B91A95D5620022CC97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		471551AC1A95D5620022CC97 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				471551AD1A95D5620022CC97 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		471551B11A95D5620022CC97 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				471551B21A95D5620022CC97 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		471551C01A95D5620022CC97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoSeer/swift-oc-bridging-head.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		471551C11A95D5620022CC97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoSeer/swift-oc-bridging-head.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		471551C31A95D5620022CC97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PhotoSeer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		471551C41A95D5620022CC97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PhotoSeer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		471551C61A95D5620022CC97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PhotoSeerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoSeer.app/PhotoSeer";
+			};
+			name = Debug;
+		};
+		471551C71A95D5620022CC97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PhotoSeerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoSeer.app/PhotoSeer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4715519B1A95D5610022CC97 /* Build configuration list for PBXProject "PhotoSeer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				471551C01A95D5620022CC97 /* Debug */,
+				471551C11A95D5620022CC97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		471551C21A95D5620022CC97 /* Build configuration list for PBXNativeTarget "PhotoSeer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				471551C31A95D5620022CC97 /* Debug */,
+				471551C41A95D5620022CC97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		471551C51A95D5620022CC97 /* Build configuration list for PBXNativeTarget "PhotoSeerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				471551C61A95D5620022CC97 /* Debug */,
+				471551C71A95D5620022CC97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		471551A71A95D5620022CC97 /* PhotoSeer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				471551A81A95D5620022CC97 /* PhotoSeer.xcdatamodel */,
+			);
+			currentVersion = 471551A81A95D5620022CC97 /* PhotoSeer.xcdatamodel */;
+			path = PhotoSeer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 471551981A95D5610022CC97 /* Project object */;
+}

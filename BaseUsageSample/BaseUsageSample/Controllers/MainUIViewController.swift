@@ -24,6 +24,7 @@ class MainUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self._tableView.delegate = self
         
         
+        self._dataSource.append("UIScrollView")
         self._dataSource.append("UITextField")
         self._dataSource.append("UIDatePicker")
         self._dataSource.append("UIPickerView")
@@ -34,6 +35,8 @@ class MainUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self._dataSource.append("UISearchBar")
         self._dataSource.append("UINavigationBar")
         self._dataSource.append("UIImagePickerController")
+        self._dataSource.append("ELCImagePickerController")
+        
 
         self.view.addSubview(self._tableView)
         
@@ -78,6 +81,9 @@ class MainUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         switch self._dataSource[row]  {
             
+        case "UIScrollView":
+            detailViewController = _ScrollViewController()
+            
         case "UITextField" :
             detailViewController = _TextFieldViewController()
             break
@@ -109,6 +115,12 @@ class MainUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         case "UIImagePickerController" :
             detailViewController = _ImagePickerViewController()
+
+        case "ELCImagePickerController" :
+            detailViewController = _MutilImagePickerViewController()
+            
+        
+            
             
         default:
             break

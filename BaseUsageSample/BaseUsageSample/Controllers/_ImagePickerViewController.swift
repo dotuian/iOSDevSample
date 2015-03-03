@@ -40,6 +40,14 @@ class _ImagePickerViewController : UIViewController, UINavigationControllerDeleg
         scrollView.frame = (frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
         scrollView.userInteractionEnabled = true
         
+        // 设置内容大小
+        scrollView.contentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
+        //是否反弹
+        scrollView.bounces = true
+        // 是否分页
+        scrollView.pagingEnabled = true
+        
+        
         scrollView.maximumZoomScale=4.0;//最大倍率（默认倍率）
         scrollView.minimumZoomScale=1.0;//最小倍率（默认倍率）
         scrollView.decelerationRate=1.0;//减速倍率（默认倍率）
@@ -146,6 +154,7 @@ class _ImagePickerViewController : UIViewController, UINavigationControllerDeleg
     }
     
     
+    // 图片的旋转，未完成
     var lastRotation = 0.0
     func handlerRotationGestureRecognizer(recognizer: UIRotationGestureRecognizer) {
 
