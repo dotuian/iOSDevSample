@@ -209,8 +209,8 @@ class RootViewController : UIViewController, UICollectionViewDataSource,UICollec
         preview.currentIndex = indexPath.row
 
         
-        self.navigationController?.pushViewController(preview, animated: true)
-        
+        //self.navigationController?.pushViewController(preview, animated: true)
+        self.presentViewController(preview, animated: true, completion: nil)
     }
     
     //返回这个UICollectionView是否可以被选择

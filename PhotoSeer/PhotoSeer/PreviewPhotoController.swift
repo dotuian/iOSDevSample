@@ -20,23 +20,19 @@ class PreviewPhotoController : UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
         
         var fullWidth = self.view.bounds.width
         var fullHeight = self.view.bounds.height
-
-        
         
         scrollView.backgroundColor = UIColor.cyanColor()
         // 相对于父视图的位置
-        scrollView.frame = CGRectMake(0, -64, fullWidth + 20, fullHeight+64)
+        scrollView.frame = CGRectMake(0, 0, fullWidth + 20, fullHeight)
         
         //是否反弹
         scrollView.bounces = false
         // 是否分页
         scrollView.pagingEnabled = true
-        
         scrollView.showsHorizontalScrollIndicator = true
         scrollView.showsVerticalScrollIndicator = true
         scrollView.userInteractionEnabled = true
@@ -52,7 +48,11 @@ class PreviewPhotoController : UIViewController, UIScrollViewDelegate {
         let singleTap = UITapGestureRecognizer(target: self, action: "singleTap:")
         singleTap.numberOfTapsRequired = 1 //  单击
         scrollView.addGestureRecognizer(singleTap)
-
+        
+        
+        
+        self.navigationController?.toolbarHidden = false
+        
     }
     
     func singleTap(gesture : UITapGestureRecognizer) {

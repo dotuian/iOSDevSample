@@ -21,8 +21,7 @@ class ImageScrollView :UIScrollView, UIScrollViewDelegate  {
 //        self.pagingEnabled = true
         self.maximumZoomScale = 2.5  //最大倍率（默认倍率）
         self.minimumZoomScale = 1.0  //最小倍率（默认倍率）
-        
-//        self.decelerationRate = 1.0  //减速倍率（默认倍率）
+        self.decelerationRate = 1.0  //减速倍率（默认倍率）
         
         // 自动调整view的宽度，保证左边距和右边距不变
 //        self.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
@@ -30,12 +29,15 @@ class ImageScrollView :UIScrollView, UIScrollViewDelegate  {
         self.delegate = self
         self.backgroundColor = UIColor.grayColor()
         
+        // 支持手势
+        imageView.userInteractionEnabled = false
+        
         // ImageView的属性设置
-//        imageView.frame = CGRectMake(0, 30, self.bounds.width-40, self.bounds.height-60)
         imageView.frame = self.bounds
+        println("imageView.frame = \(self.bounds)")
+        
         self.addSubview(imageView)
 
-        imageView.userInteractionEnabled = false
         
         // UIViewAutoresizingNone    不会随父视图的改变而改变
         // UIViewAutoresizingFlexibleLeftMargin   自动调整view与父视图左边距，以保证右边距不变
@@ -44,7 +46,7 @@ class ImageScrollView :UIScrollView, UIScrollViewDelegate  {
         // UIViewAutoresizingFlexibleBottomMargin 自动调整view与父视图的下边距，以保证上边距不变
         // UIViewAutoresizingFlexibleHeight       自动调整view的高度，以保证上边距和下边距不变
         // UIViewAutoresizingFlexibleWidth        自动调整view的宽度，保证左边距和右边距不变
-//        imageView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        imageView.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleTopMargin
         // 内容模式
         
 //        UIViewContentModeScaleToFill
