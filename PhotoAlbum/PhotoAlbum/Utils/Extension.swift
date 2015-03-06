@@ -103,6 +103,30 @@ extension UIImage {
         return img!;
     
     }
-    
+}
+
+
+extension UIImageView {
+
+    func setAsyncImage(filename: String) {
+
+        var dispatch_queue_t = dispatch_queue_create("loadImage", nil)
+
+        // 子线程中执行的操作
+        dispatch_async(dispatch_queue_t!) { () -> Void in
+
+            let image = UIImage(named: filename)
+
+            // 主线程中执行的操作
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.image = image
+
+            })
+        }
+    }
 
 }
+
+
+
+

@@ -12,8 +12,6 @@ import UIKit
 
 class ImageScrollView : UIScrollView, UIScrollViewDelegate {
     
-    var viewController : UIViewController!
-    
     var imageView : UIImageView!
     
     required init(coder aDecoder: NSCoder) {
@@ -26,7 +24,7 @@ class ImageScrollView : UIScrollView, UIScrollViewDelegate {
         println("ImageScrollView.frame = \(frame)")
         
         // ScrollView属性
-        self.backgroundColor = UIColor.redColor()
+//        self.backgroundColor = UIColor.redColor()
         self.maximumZoomScale = 3.0
         self.minimumZoomScale = 1.0
         self.decelerationRate = 1.0
@@ -37,7 +35,7 @@ class ImageScrollView : UIScrollView, UIScrollViewDelegate {
         
         // ImageView属性
         imageView = UIImageView(frame: frame)
-        imageView.backgroundColor = UIColor.cyanColor()
+//        imageView.backgroundColor = UIColor.cyanColor()
         imageView.userInteractionEnabled = true
         
         // UIViewContentModeScaleAspectFit会保证图片比例不变，而且全部显示在ImageView中，这意味着ImageView会有部分空白。
@@ -47,56 +45,53 @@ class ImageScrollView : UIScrollView, UIScrollViewDelegate {
         // 将ImageView添加到ScrollView中去
         self.addSubview(imageView)
         
-        // 手势
-        let singleTap = UITapGestureRecognizer(target: self, action: "handlerSingleTap:")
-        singleTap.numberOfTapsRequired = 1
-        
+        // 单击手势
+//        let singleTap = UITapGestureRecognizer(target: self, action: "handlerSingleTap:")
+//        singleTap.numberOfTapsRequired = 1
+        // 双击手势
         let doubleTap = UITapGestureRecognizer(target: self, action: "handlerDoubleTap:")
         doubleTap.numberOfTapsRequired = 2
-        
-        singleTap.requireGestureRecognizerToFail(doubleTap)
-        
-        
-        imageView.addGestureRecognizer(singleTap)
+
+        // 区分单击双击手势(双击的时候不触发单机的事件)
+//        singleTap.requireGestureRecognizerToFail(doubleTap)
+
+        // 添加手势到View
+//        imageView.addGestureRecognizer(singleTap)
         imageView.addGestureRecognizer(doubleTap)
-        
     }
 
     // 单击手势
-    func handlerSingleTap(gesture : UITapGestureRecognizer) {
-        println("ImageScrollView#handlerSingleTap")
-        
-        var viewController : UIViewController!
-        var responder = self.nextResponder()
-        while responder != nil {
-            if (responder!.isKindOfClass(UIViewController)){
-                viewController = responder as UIViewController
-                break
-            }
-            responder = responder!.nextResponder()
-        }
-        
-        if viewController.navigationController?.navigationBarHidden != nil {
-            
-            let flag = !(viewController.navigationController?.navigationBarHidden)!
-            
-            // 隐藏显示状态栏
-            let application = UIApplication.sharedApplication()
-            application.setStatusBarHidden(flag, withAnimation: UIStatusBarAnimation.Fade)
-            // 隐藏显示导航栏
-            viewController.navigationController?.setNavigationBarHidden(flag, animated: true)
-            // 隐藏显示TabBar
-            viewController.tabBarController?.tabBar.hidden = flag
-        }
-        
-//        while ((responder = [responder nextResponder]))
-//        if ([responder isKindOfClass: [UIViewController class]])
-//        return (UIViewController *)responder;
+//    func handlerSingleTap(gesture : UITapGestureRecognizer) {
+//        println("ImageScrollView#handlerSingleTap")
+//        
+//        // 获取当前的ViewController
+//        var viewController : UIViewController!
+//        var responder = self.nextResponder()
+//        while responder != nil {
+//            if (responder!.isKindOfClass(UIViewController)){
+//                viewController = responder as UIViewController
+//                break
+//            }
+//            responder = responder!.nextResponder()
+//        }
+//        
+//        // 单击显示隐藏状态栏/导航栏/TabBar
+//        if viewController.navigationController?.navigationBarHidden != nil {
+//            
+//            let flag = !(viewController.navigationController?.navigationBarHidden)!
+//            
+//            // 隐藏显示状态栏
+//            let application = UIApplication.sharedApplication()
+//            application.setStatusBarHidden(flag, withAnimation: UIStatusBarAnimation.Fade)
+//            // 隐藏显示导航栏
+//            viewController.navigationController?.setNavigationBarHidden(flag, animated: true)
+//            // 全屏的时候讲背景色设置为黑色
+//            self.backgroundColor = flag ? UIColor.blackColor() : UIColor.whiteColor()
+//        }
+//        
+//    }
 
-        
-    }
-    
-    // 双击手势
+    // 双击手势(放大缩小图片)
     func handlerDoubleTap(gesture : UITapGestureRecognizer) {
         println("ImageScrollView#handlerDoubleTap")
         
@@ -114,14 +109,13 @@ class ImageScrollView : UIScrollView, UIScrollViewDelegate {
         let y = self.zoomScale == 3.0 ? 0.0 : (point.y - height / 2.0)
         
         let rect = CGRectMake(x, y, width, height)
-        println("放大的区域:  \(rect)")
-        
+//        println("放大的区域:  \(rect)")
+
         // 放大缩小到制定的区域
         self.zoomToRect(rect, animated: true)
         
         // 放大缩小的倍率
         self.zoomScale = newScale
-
     }
     
     // 指定缩放的对象

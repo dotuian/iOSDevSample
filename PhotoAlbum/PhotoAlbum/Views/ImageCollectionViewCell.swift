@@ -19,10 +19,11 @@ class ImageCollectonViewCell : UICollectionViewCell {
         self.backgroundColor = UIColor.whiteColor()
         
         imageView = UIImageView()
-        imageView.frame = CGRectMake(3, 3, frame.size.width - 6, frame.size.height - 6)
+        imageView.frame = CGRectMake(1, 1, frame.size.width - 2, frame.size.height - 2)
+        println("ImageView.frame = \(frame)")
         // 调整子控件和父控件的位置
         imageView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        
+
         self.contentView.addSubview(imageView)
         
     }

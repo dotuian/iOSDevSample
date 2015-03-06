@@ -3,8 +3,9 @@
     <entity name="AlbumEntity" representedClassName="AlbumEntity" syncable="YES">
         <attribute name="albumName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="albumType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AlbumEntity" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="AlbumEntity" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

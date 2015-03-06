@@ -15,5 +15,11 @@ class AlbumEntity: NSManagedObject {
 
     @NSManaged var albumName: String
     @NSManaged var albumType: String
-
+    @NSManaged var level: Int
+    
+    
+    override var description : String {
+        return "albumName=\(albumName) albumType=\(albumType) level=\(level) "
+    }
+    
 }

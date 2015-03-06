@@ -38,6 +38,7 @@
 		476CE3401AA599C900B17ADD /* SettingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CE33D1AA599C900B17ADD /* SettingMainViewController.swift */; };
 		476CE3411AA599C900B17ADD /* VideoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CE33E1AA599C900B17ADD /* VideoMainViewController.swift */; };
 		476CE3451AA59AED00B17ADD /* AlbumEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CE3441AA59AED00B17ADD /* AlbumEntity.swift */; };
+		47F52D4D1AA998CE00605A68 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F52D4C1AA998CE00605A68 /* PhotoSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		476CE33D1AA599C900B17ADD /* SettingMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingMainViewController.swift; sourceTree = "<group>"; };
 		476CE33E1AA599C900B17ADD /* VideoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoMainViewController.swift; sourceTree = "<group>"; };
 		476CE3441AA59AED00B17ADD /* AlbumEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumEntity.swift; sourceTree = "<group>"; };
+		47F52D4C1AA998CE00605A68 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 				475E240F1AA5B2B70046FFAF /* PhotoDetailViewController.swift */,
 				476CE33D1AA599C900B17ADD /* SettingMainViewController.swift */,
 				476CE33E1AA599C900B17ADD /* VideoMainViewController.swift */,
+				47F52D4C1AA998CE00605A68 /* PhotoSelectViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				475E24101AA5B2B70046FFAF /* PhotoDetailViewController.swift in Sources */,
 				475E24021AA5A14A0046FFAF /* ELCConsole.m in Sources */,
 				476CE31E1AA5992C00B17ADD /* ViewController.swift in Sources */,
+				47F52D4D1AA998CE00605A68 /* PhotoSelectViewController.swift in Sources */,
 				476CE3411AA599C900B17ADD /* VideoMainViewController.swift in Sources */,
 				476CE33F1AA599C900B17ADD /* PhotoMainViewController.swift in Sources */,
 				475E24001AA5A14A0046FFAF /* ELCAssetCell.m in Sources */,

@@ -18,21 +18,27 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     var photoAlbum : AlbumEntity!
     
     var collectionView : UICollectionView!
-    
+
+    // 选择的图片
+    var selectedImageItems = [String]()
+    // 是否是选择模式
+    var isSelecting = false
+    var selectPhotoItem : UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.whiteColor()
-        
-        // 相册标题
+
         self.title = photoAlbum.albumName
-        
+        self.view.backgroundColor = UIColor.whiteColor()
+
+
+        selectPhotoItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "handlerSelectPhoto")
+
+
         // 图片添加按钮
         let addPhotoItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "handlerAddPhoto")
-        self.navigationItem.rightBarButtonItem = addPhotoItem
-        
-        
+        self.navigationItem.rightBarButtonItems = [selectPhotoItem, addPhotoItem]
+
         // ===========================================
         var flowLayout = UICollectionViewFlowLayout()
         //设置滚动方向，默认是垂直滚动
@@ -41,19 +47,28 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         // UIEdgeInsets，由函数 UIEdgeInsetsMake ( CGFloat top, CGFloat left, CGFloat bottom, CGFloat right )构造出
         // 分别表示其中的内容,标题,图片离各边的距离
         // 设置组中的内容离各边的距离
-        flowLayout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
-        
+        flowLayout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+
+        // The minimum spacing to use between lines of items in the grid.
+        // 2行之间最小的的间距
+        flowLayout.minimumLineSpacing = 1
+
+        // The minimum spacing to use between items in the same row.
+        // 同一行中,2个项目之间最小的间距
+        flowLayout.minimumInteritemSpacing = 1
+
         // 设置UICollectionViewCell的大小z
         let column = 4
-        let width = (self.view.bounds.width - 8 * 5 ) / 4
+        let width = self.view.bounds.width / 4 - 2
         let height = width
         flowLayout.itemSize = CGSize(width: width, height: height)
+        println("itemSize = \(flowLayout.itemSize)")
         
-        // 设置Header的大小
-        flowLayout.headerReferenceSize = CGSizeMake(self.view.bounds.width, 30)
-        // 设置Footer的大小
-        flowLayout.footerReferenceSize = CGSizeMake(self.view.bounds.width, 30)
-        
+//        // 设置Header的大小
+//        flowLayout.headerReferenceSize = CGSizeMake(self.view.bounds.width, 30)
+//        // 设置Footer的大小
+//        flowLayout.footerReferenceSize = CGSizeMake(self.view.bounds.width, 30)
+
 
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = UIColor.whiteColor()
@@ -61,10 +76,10 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         // 注册UICollectionViewCell
         collectionView.registerClass(ImageCollectonViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
-        
-        collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "Footer")
-        
+//        collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
+//        
+//        collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "Footer")
+
         // 设置代理
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -75,19 +90,29 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        // 隐藏工具条
+        self.navigationController?.toolbarHidden = true
+        // 显示TabBar
+        self.tabBarController?.tabBar.hidden = false
 
         self.photoItems = FileUtils.getFileNamesWithAlbumName(self.photoAlbum.albumName)
-    
-        println("相册图片路径 \(self.photoItems)")
-        
+
         // 刷新页面
         collectionView!.reloadData()
     }
-    
-    
+
+    func handlerSelectPhoto(){
+
+        self.isSelecting = !self.isSelecting
+
+        // 清空选择的数据
+        selectedImageItems.removeAll(keepCapacity: false)
+        collectionView.reloadData()
+    }
+
     //向相册中添加照片
-    func handlerAddPhoto(){
+    func handlerAddPhoto() {
         println("add photo")
         
         var imagePicker = ELCImagePickerController(imagePicker: ())
@@ -175,9 +200,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     }
     
 
-    
-    
-    
 
     /*
     // MARK: - Navigation
@@ -207,17 +229,23 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as ImageCollectonViewCell
     
         // Configure the cell
-        let image = UIImage(named: self.photoItems[indexPath.row])
-        cell.imageView.image = image
-        
+        cell.imageView.setAsyncImage(self.photoItems[indexPath.row])
+
+
+        cell.imageView?.tag = indexPath.row;
+        var imgView = cell.viewWithTag(indexPath.row)
+        if (contains(self.selectedImageItems, self.photoItems[indexPath.row])) {
+            imgView?.layer.borderWidth =  4.0;
+            imgView?.layer.borderColor = UIColor.redColor().CGColor
+        }
+        else {
+            imgView?.layer.borderWidth =  0.0;
+            imgView?.layer.borderColor = nil;
+        }
+
         return cell
     }
-    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        return CGSizeMake(100, 100)
-//    }
 
-    // MARK: UICollectionViewDelegate
 
 
     // Uncomment this method to specify if the specified item should be selected
@@ -226,29 +254,27 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let controller = PhotoDetailViewController()
-        controller.imageName = self.photoItems[indexPath.row]
-        self.navigationController?.pushViewController(controller, animated: true)
-        
+
+        if !isSelecting {
+            let controller = PhotoDetailViewController()
+            // 当前相册中所有的图片
+            controller.photoItems = self.photoItems
+            controller.currentIndex = indexPath.row
+
+            // 在PhotoDetailViewController视图中不显示TabBar
+            controller.hidesBottomBarWhenPushed = true
+
+            self.navigationController?.pushViewController(controller, animated: true)
+        } else {
+
+
+            selectedImageItems.append(self.photoItems[indexPath.row])
+            collectionView.reloadData()
+
+        }
+
     }
 
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
-    
-    
      //设置组Header和Footer的视图
      //flowLayout.headerReferenceSize = CGSizeMake(100, 30)
      //flowLayout.footerReferenceSize = CGSizeMake(300, 10)
