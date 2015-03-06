@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class ImageScrollView : UIScrollView, UIScrollViewDelegate {
     
     var imageView : UIImageView!
@@ -20,22 +19,18 @@ class ImageScrollView : UIScrollView, UIScrollViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        println("ImageScrollView.frame = \(frame)")
-        
+
         // ScrollView属性
-//        self.backgroundColor = UIColor.redColor()
         self.maximumZoomScale = 3.0
         self.minimumZoomScale = 1.0
         self.decelerationRate = 1.0
         // 父子视图之间的位置(自动调整子控件与父控件中间的位置，宽高)
-        self.autoresizingMask = UIViewAutoresizing.FlexibleWidth //  | UIViewAutoresizing.FlexibleHeight
+        self.autoresizingMask = UIViewAutoresizing.FlexibleWidth //| UIViewAutoresizing.FlexibleHeight
 
         self.delegate = self
         
         // ImageView属性
         imageView = UIImageView(frame: frame)
-//        imageView.backgroundColor = UIColor.cyanColor()
         imageView.userInteractionEnabled = true
         
         // UIViewContentModeScaleAspectFit会保证图片比例不变，而且全部显示在ImageView中，这意味着ImageView会有部分空白。
@@ -127,6 +122,4 @@ class ImageScrollView : UIScrollView, UIScrollViewDelegate {
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView!, atScale scale: CGFloat) {
         self.zoomScale = scale
     }
-    
-
 }

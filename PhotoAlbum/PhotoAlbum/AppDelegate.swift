@@ -33,7 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.viewControllers = [nav1, nav2, nav3]
         
         self.window?.rootViewController = tabBarController
-        
+
+//        self.window?.rootViewController = UINavigationController(rootViewController: ViewController())
+
         
         return true
     }

@@ -20,16 +20,11 @@ class PhotoMainViewController: UITableViewController {
         
         self.title = "相册"
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         // 添加相册
         let addAblumItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "handlerAddAblum")
         self.navigationItem.leftBarButtonItem = addAblumItem
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -53,8 +48,6 @@ class PhotoMainViewController: UITableViewController {
             var error : NSError? = nil
             // 查询获取数据
             if var results = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) {
-                
-                
                 // 遍历数据
                 for managedObject in results {
                     let userModel = managedObject as AlbumEntity
@@ -62,6 +55,8 @@ class PhotoMainViewController: UITableViewController {
                 }
             }
         }
+
+        self.tableView.reloadData()
     }
     
     func handlerAddAblum(){
@@ -175,17 +170,11 @@ class PhotoMainViewController: UITableViewController {
         return cell!
     }
 
-    var selectedImageIndex = 0
-
-    // Override to support conditional editing of the table view.
     // UITableView是否可以编辑
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
         return true
     }
 
-
-    // Override to support editing the table view.
     // 处理编辑UITableView
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -271,9 +260,6 @@ class PhotoMainViewController: UITableViewController {
             }
 
 
-
-
-
             let toPredicate = NSPredicate(format: "%K = %@ and %K = %@ and %K = %@", "albumName", to.albumName, "albumType", to.albumType, "level", to.level as NSObject)
             fetchRequest.predicate = toPredicate
 
@@ -285,7 +271,6 @@ class PhotoMainViewController: UITableViewController {
                 println("bb  \(toEntity?.description)")
 
             }
-
             
             if fromEntity != nil && toEntity != nil {
                 let fromLevel = fromEntity?.level

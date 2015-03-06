@@ -10,14 +10,32 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var button : UIButton!
+    var imageView1 : UIImageView!
+    var imageView2 : UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let buttonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "buttonItem")
+        self.navigationItem.rightBarButtonItem = buttonItem
+
+        self.view.backgroundColor = UIColor.whiteColor()
+
+        imageView1 = UIImageView(frame: CGRectMake(0, 100, 100, 100))
+        imageView1.image = UIImage(named: "keep_dry-50.png")
+
+        imageView2 = UIImageView(frame: CGRectMake(0, 100, 100, 100))
+        imageView2.image = UIImage(named: "Overlay@2x.png")
+
+        self.view.addSubview(imageView1)
+        self.view.addSubview(imageView2)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func buttonItem(){
+
+        imageView2.hidden = !imageView2.hidden
+
     }
 
 
