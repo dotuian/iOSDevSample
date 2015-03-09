@@ -24,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tab1 = UITabBarItem(title: "Photo", image: nil, tag: 1)
         let tab2 = UITabBarItem(title: "Video", image: nil, tag: 2)
         let tab3 = UITabBarItem(title: "Setting", image: nil, tag: 3)
-        
+        tab3.badgeValue = "new"
+
+        application.applicationIconBadgeNumber = 10
+
         nav1.tabBarItem = tab1
         nav2.tabBarItem = tab2
         nav3.tabBarItem = tab3
@@ -34,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController = tabBarController
 
-//        self.window?.rootViewController = UINavigationController(rootViewController: ViewController())
+//        self.window?.rootViewController =  ViewController() //UINavigationController(rootViewController: ViewController())
 
         
         return true

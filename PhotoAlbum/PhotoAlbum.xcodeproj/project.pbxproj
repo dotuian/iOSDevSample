@@ -39,6 +39,9 @@
 		476CE3411AA599C900B17ADD /* VideoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CE33E1AA599C900B17ADD /* VideoMainViewController.swift */; };
 		476CE3451AA59AED00B17ADD /* AlbumEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CE3441AA59AED00B17ADD /* AlbumEntity.swift */; };
 		47F52D4D1AA998CE00605A68 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F52D4C1AA998CE00605A68 /* PhotoSelectViewController.swift */; };
+		47F52D821AAB2C8200605A68 /* IMG_0042.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 47F52D811AAB2C8200605A68 /* IMG_0042.JPG */; };
+		47FEDE271AAB330200B7DE16 /* IMG_0156.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 47FEDE261AAB330200B7DE16 /* IMG_0156.JPG */; };
+		47FEDE291AAB3D3D00B7DE16 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FEDE281AAB3D3D00B7DE16 /* PreviewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,9 @@
 		476CE33E1AA599C900B17ADD /* VideoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoMainViewController.swift; sourceTree = "<group>"; };
 		476CE3441AA59AED00B17ADD /* AlbumEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumEntity.swift; sourceTree = "<group>"; };
 		47F52D4C1AA998CE00605A68 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
+		47F52D811AAB2C8200605A68 /* IMG_0042.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0042.JPG; sourceTree = "<group>"; };
+		47FEDE261AAB330200B7DE16 /* IMG_0156.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0156.JPG; sourceTree = "<group>"; };
+		47FEDE281AAB3D3D00B7DE16 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +219,7 @@
 				476CE3421AA599DC00B17ADD /* models */,
 				476CE3431AA599E800B17ADD /* images */,
 				476CE31D1AA5992C00B17ADD /* ViewController.swift */,
+				47FEDE281AAB3D3D00B7DE16 /* PreviewController.swift */,
 				476CE31F1AA5992C00B17ADD /* Main.storyboard */,
 				476CE3221AA5992C00B17ADD /* Images.xcassets */,
 				476CE3241AA5992C00B17ADD /* LaunchScreen.xib */,
@@ -272,6 +279,8 @@
 		476CE3431AA599E800B17ADD /* images */ = {
 			isa = PBXGroup;
 			children = (
+				47FEDE261AAB330200B7DE16 /* IMG_0156.JPG */,
+				47F52D811AAB2C8200605A68 /* IMG_0042.JPG */,
 				475E23E31AA59E2C0046FFAF /* keep_dry-50.png */,
 			);
 			path = images;
@@ -360,7 +369,9 @@
 				475E24081AA5A14A0046FFAF /* Overlay.png in Resources */,
 				475E24051AA5A14A0046FFAF /* ELCAlbumPickerController.xib in Resources */,
 				475E24091AA5A14A0046FFAF /* Overlay@2x.png in Resources */,
+				47F52D821AAB2C8200605A68 /* IMG_0042.JPG in Resources */,
 				476CE3211AA5992C00B17ADD /* Main.storyboard in Resources */,
+				47FEDE271AAB330200B7DE16 /* IMG_0156.JPG in Resources */,
 				476CE3261AA5992C00B17ADD /* LaunchScreen.xib in Resources */,
 				475E24061AA5A14A0046FFAF /* ELCAssetPicker.xib in Resources */,
 				475E24071AA5A14A0046FFAF /* ELCAssetTablePicker.xib in Resources */,
@@ -397,6 +408,7 @@
 				475E24001AA5A14A0046FFAF /* ELCAssetCell.m in Sources */,
 				475E23FE1AA5A14A0046FFAF /* ELCAlbumPickerController.m in Sources */,
 				475E24041AA5A14A0046FFAF /* ELCOverlayImageView.m in Sources */,
+				47FEDE291AAB3D3D00B7DE16 /* PreviewController.swift in Sources */,
 				475E24031AA5A14A0046FFAF /* ELCImagePickerController.m in Sources */,
 				475E240B1AA5A1C40046FFAF /* PhotoAlbumViewController.swift in Sources */,
 				4724895F1AA6FBE200E2D513 /* Extension.swift in Sources */,

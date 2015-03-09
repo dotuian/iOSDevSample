@@ -8,36 +8,65 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
 
-    var button : UIButton!
-    var imageView1 : UIImageView!
-    var imageView2 : UIImageView!
+
+    var imageView : UIImageView!
+    var scrollView : UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let buttonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "buttonItem")
-        self.navigationItem.rightBarButtonItem = buttonItem
+        self.view.backgroundColor = UIColor.cyanColor()
 
-        self.view.backgroundColor = UIColor.whiteColor()
+        scrollView = UIScrollView(frame: CGRectMake(10, 30, self.view.bounds.width - 20, self.view.bounds.height - 40))
+        scrollView.maximumZoomScale = 4.0
+        scrollView.minimumZoomScale = 1.0
+        scrollView.delegate = self
+//        scrollView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
 
-        imageView1 = UIImageView(frame: CGRectMake(0, 100, 100, 100))
-        imageView1.image = UIImage(named: "keep_dry-50.png")
+        imageView = UIImageView(frame: CGRectMake(10, 10, 200, 200))
+        imageView.backgroundColor = UIColor.redColor()
+        imageView.image = UIImage(named: "IMG_0042.JPG")
+        imageView.userInteractionEnabled = true
 
-        imageView2 = UIImageView(frame: CGRectMake(0, 100, 100, 100))
-        imageView2.image = UIImage(named: "Overlay@2x.png")
+//        case ScaleToFill
+//        case ScaleAspectFit // contents scaled to fit with fixed aspect. remainder is transparent
+//        case ScaleAspectFill // contents scaled to fill with fixed aspect. some portion of content may be clipped.
+//        case Redraw // redraw on bounds change (calls -setNeedsDisplay)
+//        case Center // contents remain same size. positioned adjusted.
+//        case Top
+//        case Bottom
+//        case Left
+//        case Right
+//        case TopLeft
+//        case TopRight
+//        case BottomLeft
+//        case BottomRight
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
 
-        self.view.addSubview(imageView1)
-        self.view.addSubview(imageView2)
+        scrollView.addSubview(imageView)
+
+
+        let tap = UITapGestureRecognizer(target: self, action: "tap:")
+        imageView.addGestureRecognizer(tap)
+
+        self.view.addSubview(scrollView)
     }
 
-    func buttonItem(){
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView!, atScale scale: CGFloat) {
 
-        imageView2.hidden = !imageView2.hidden
+        scrollView.zoomScale = scale
 
     }
 
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return self.imageView
+    }
 
+    func tap(tap : UITapGestureRecognizer) {
+        let controller = PreviewController()
+        self.presentViewController(controller, animated: false, completion: nil)
+    }
 }
 

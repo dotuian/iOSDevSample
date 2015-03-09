@@ -19,12 +19,21 @@ class ImageCollectonViewCell : UICollectionViewCell {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.whiteColor()
-        
+
+//        self.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+
         imageView = UIImageView()
         imageView.backgroundColor = UIColor.whiteColor()
 
         imageView.frame = CGRectMake(1, 1, frame.size.width - 2, frame.size.height - 2)
 
+        // UIViewContentModeScaleAspectFit会保证图片比例不变，而且全部显示在ImageView中，这意味着ImageView会有部分空白。
+        // UIViewContentModeScaleAspectFill也会证图片比例不变，但是是填充整个ImageView的，可能只有部分图片显示出来。
+        imageView.contentMode = UIViewContentMode.ScaleToFill
+        imageView.layer.borderWidth = 1.0
+        imageView.layer.borderColor = UIColor.blueColor().CGColor
+
+        
         println("ImageView.frame = \(frame)")
         // 调整子控件和父控件的位置
         imageView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight

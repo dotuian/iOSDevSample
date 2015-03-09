@@ -161,7 +161,7 @@ class PhotoMainViewController: UITableViewController {
             cell!.imageView?.image = UIImage(named: "keep_dry-50.png")
         }
 
-        cell!.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        cell!.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
         // 相册名
         cell!.textLabel?.text = albumEntity.albumName
         // 相册中照片的个数
@@ -256,7 +256,6 @@ class PhotoMainViewController: UITableViewController {
                 for result in results {
                     fromEntity = result as? AlbumEntity
                 }
-                println("aa  \(fromEntity?.description)")
             }
 
 
@@ -268,8 +267,6 @@ class PhotoMainViewController: UITableViewController {
                 for result in results {
                     toEntity = result as? AlbumEntity
                 }
-                println("bb  \(toEntity?.description)")
-
             }
             
             if fromEntity != nil && toEntity != nil {
@@ -278,13 +275,8 @@ class PhotoMainViewController: UITableViewController {
                 toEntity?.level = fromLevel!
             }
 
-            println(fromEntity?.description)
-            println(toEntity?.description)
-
             appDelegate.saveContext()
         }
-
-
 
 
         self.items.removeAtIndex(fromIndexPath.row)

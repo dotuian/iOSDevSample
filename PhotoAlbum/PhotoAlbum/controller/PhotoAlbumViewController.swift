@@ -103,7 +103,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
             self.handlerSelectPhoto()
         }
 
-
         let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel) { (action : UIAlertAction!) -> Void in
             alertController.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -169,8 +168,9 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
             let filename = imagePath.stringByAppendingFormat("-%d.jpg", index + 1)
             
             let dict = info[index] as NSMutableDictionary
+//            var image = dict.objectForKey(UIImagePickerControllerOriginalImage) as UIImage
             var image = dict.objectForKey(UIImagePickerControllerOriginalImage) as UIImage
-            
+
             // 保存之前,修正图片的方向
             image = image.fixOrientation()
             

@@ -46,12 +46,10 @@ class PhotoDetailViewController : UIViewController, UIScrollViewDelegate {
         scrollView.pagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = true
         scrollView.showsVerticalScrollIndicator = true
-
         // 设置代理
         scrollView.delegate = self
 
         self.view.addSubview(scrollView)
-
 
 
         // 单击手势
@@ -60,10 +58,8 @@ class PhotoDetailViewController : UIViewController, UIScrollViewDelegate {
         // 双击手势
         let doubleTap = UITapGestureRecognizer(target: self, action: "handlerDoubleTap:")
         doubleTap.numberOfTapsRequired = 2
-
         // 区分单击双击手势(双击的时候不触发单机的事件)
         singleTap.requireGestureRecognizerToFail(doubleTap)
-
 
         scrollView.userInteractionEnabled = true
         // 添加手势到View
@@ -91,14 +87,14 @@ class PhotoDetailViewController : UIViewController, UIScrollViewDelegate {
             // 全屏的时候讲背景色设置为黑色
             self.view.backgroundColor = flag ? UIColor.blackColor() : UIColor.whiteColor()
         }
-
     }
 
+    // 子View有双击事件的处理,所以处于ViewController的改事件方法是不会被执行的
+    // 但是为了避免子View的双击,被当做单击传递到了ViewController中,
+    // 所以在ViewController中添加了单击,双击区分的处理
     func handlerDoubleTap(gesture : UITapGestureRecognizer) {
         println("PhotoDetailViewController#handlerDoubleTap")
     }
-
-
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -186,9 +182,7 @@ class PhotoDetailViewController : UIViewController, UIScrollViewDelegate {
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
 
-
         self.presentViewController(alertController, animated: true, completion: nil)
-
     }
     
 
