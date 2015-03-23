@@ -19,14 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let nav1 = UINavigationController(rootViewController: PhotoMainViewController())
         let nav2 = UINavigationController(rootViewController: VideoMainViewController())
-        let nav3 = UINavigationController(rootViewController: SettingMainViewController())
+        let nav3 = UINavigationController(rootViewController: SettingMainViewController(style: UITableViewStyle.Grouped))
         
         let tab1 = UITabBarItem(title: "Photo", image: nil, tag: 1)
         let tab2 = UITabBarItem(title: "Video", image: nil, tag: 2)
         let tab3 = UITabBarItem(title: "Setting", image: nil, tag: 3)
-        tab3.badgeValue = "new"
+//        tab3.badgeValue = "new"
 
-        application.applicationIconBadgeNumber = 10
+        //        application.applicationIconBadgeNumber = 10
 
         nav1.tabBarItem = tab1
         nav2.tabBarItem = tab2

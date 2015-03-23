@@ -155,13 +155,27 @@ class PhotoMainViewController: UITableViewController {
         println("封面文件名:\(albumImageName)")
         
         // 配置UICollectionViewCell的显示
+        var image : UIImage!
         if albumImageName != nil {
-            cell!.imageView?.image = UIImage(named: albumImageName!)
+            image = UIImage(named: albumImageName!)
         } else {
-            cell!.imageView?.image = UIImage(named: "keep_dry-50.png")
+            image = UIImage(named: "keep_dry-50.png")
         }
 
-        cell!.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
+        cell!.imageView?.image = image
+
+        if image != nil {
+
+            let widthScale = 75 / image.size.width
+            let heightScale = 75 / image.size.height;
+            cell!.imageView?.transform = CGAffineTransformMakeScale(widthScale, heightScale);
+
+//            // 当子视图超出了父视图的大小时,超出的部分被剪切掉
+//            cell!.imageView?.clipsToBounds = true
+//            cell!.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
+//            cell!.imageView?.autoresizingMask = UIViewAutoresizing.None
+        }
+
         // 相册名
         cell!.textLabel?.text = albumEntity.albumName
         // 相册中照片的个数

@@ -24,12 +24,15 @@ class ImageCollectonViewCell : UICollectionViewCell {
 
         imageView = UIImageView()
         imageView.backgroundColor = UIColor.whiteColor()
+        // 当子视图的大小超出了父视图的范围时,裁剪子视图超出的部分
+        imageView.clipsToBounds = true
 
         imageView.frame = CGRectMake(1, 1, frame.size.width - 2, frame.size.height - 2)
 
         // UIViewContentModeScaleAspectFit会保证图片比例不变，而且全部显示在ImageView中，这意味着ImageView会有部分空白。
         // UIViewContentModeScaleAspectFill也会证图片比例不变，但是是填充整个ImageView的，可能只有部分图片显示出来。
-        imageView.contentMode = UIViewContentMode.ScaleToFill
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+
         imageView.layer.borderWidth = 1.0
         imageView.layer.borderColor = UIColor.blueColor().CGColor
 

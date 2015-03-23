@@ -12,14 +12,16 @@ import UIKit
 class MainUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var _tableView : UITableView!
-    
+
     var _dataSource : [String] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self._tableView = UITableView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+        self._tableView = UITableView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height), style : UITableViewStyle.Grouped)
+
+
         self._tableView.dataSource = self
         self._tableView.delegate = self
         
