@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		473F72101AC3F66E002A0486 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */; };
+		473F72121AC3FD35002A0486 /* LinePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F72111AC3FD35002A0486 /* LinePickerViewController.swift */; };
+		4760FFDB1AC3A6D800421609 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A7101AC3A09700FF7F3D /* UserDataManager.swift */; };
+		4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
+		4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */; };
+		4760FFE11AC3B95000421609 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* extension.swift */; };
 		4763A6EA1AC3A03900FF7F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A6E91AC3A03900FF7F3D /* AppDelegate.swift */; };
 		4763A6ED1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4763A6EB1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld */; };
 		4763A6EF1AC3A03A00FF7F3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A6EE1AC3A03A00FF7F3D /* ViewController.swift */; };
@@ -23,6 +29,10 @@
 		4763A7221AC3A5CD00FF7F3D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A7211AC3A5CD00FF7F3D /* TodayViewController.swift */; };
 		4763A7241AC3A5CD00FF7F3D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */; };
 		4763A7271AC3A5CD00FF7F3D /* TimerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4763A71A1AC3A5CD00FF7F3D /* TimerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		47815A1F1AC3DCF800CB877B /* ExtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A1E1AC3DCF700CB877B /* ExtTableViewCell.swift */; };
+		47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
+		47815A211AC3DDB400CB877B /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* extension.swift */; };
+		47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A251AC3E6C100CB877B /* FontPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +67,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		473F72111AC3FD35002A0486 /* LinePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinePickerViewController.swift; sourceTree = "<group>"; };
+		4760FFDC1AC3A8CB00421609 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
+		4760FFE01AC3B95000421609 /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		4763A6E41AC3A03900FF7F3D /* TimerWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4763A6E81AC3A03900FF7F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4763A6E91AC3A03900FF7F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +95,8 @@
 		4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		4763A72C1AC3A5DC00FF7F3D /* TimerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimerWidget.entitlements; sourceTree = "<group>"; };
 		4763A72D1AC3A5F600FF7F3D /* TimerExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimerExtension.entitlements; sourceTree = "<group>"; };
+		47815A1E1AC3DCF700CB877B /* ExtTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtTableViewCell.swift; path = ../../../../../Desktop/ExtTableViewCell.swift; sourceTree = "<group>"; };
+		47815A251AC3E6C100CB877B /* FontPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,17 +149,15 @@
 		4763A6E61AC3A03900FF7F3D /* TimerWidget */ = {
 			isa = PBXGroup;
 			children = (
-				4763A72C1AC3A5DC00FF7F3D /* TimerWidget.entitlements */,
 				4763A6E91AC3A03900FF7F3D /* AppDelegate.swift */,
-				4763A70C1AC3A09700FF7F3D /* CreateViewController.swift */,
-				4763A70D1AC3A09700FF7F3D /* RootViewController.swift */,
-				4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */,
-				4763A70F1AC3A09700FF7F3D /* TimePickerViewController.swift */,
-				4763A7101AC3A09700FF7F3D /* UserDataManager.swift */,
+				47815A241AC3E68C00CB877B /* views */,
+				47815A221AC3E65900CB877B /* controllers */,
+				47815A231AC3E66900CB877B /* utils */,
 				4763A6EE1AC3A03A00FF7F3D /* ViewController.swift */,
 				4763A6F01AC3A03A00FF7F3D /* Main.storyboard */,
 				4763A6F31AC3A03A00FF7F3D /* Images.xcassets */,
 				4763A6F51AC3A03A00FF7F3D /* LaunchScreen.xib */,
+				4763A72C1AC3A5DC00FF7F3D /* TimerWidget.entitlements */,
 				4763A6EB1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld */,
 				4763A6E71AC3A03900FF7F3D /* Supporting Files */,
 			);
@@ -185,6 +200,7 @@
 		4763A71E1AC3A5CD00FF7F3D /* TimerExtension */ = {
 			isa = PBXGroup;
 			children = (
+				47815A1E1AC3DCF700CB877B /* ExtTableViewCell.swift */,
 				4763A72D1AC3A5F600FF7F3D /* TimerExtension.entitlements */,
 				4763A7211AC3A5CD00FF7F3D /* TodayViewController.swift */,
 				4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */,
@@ -199,6 +215,38 @@
 				4763A7201AC3A5CD00FF7F3D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47815A221AC3E65900CB877B /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4763A70D1AC3A09700FF7F3D /* RootViewController.swift */,
+				4763A70C1AC3A09700FF7F3D /* CreateViewController.swift */,
+				4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */,
+				4763A70F1AC3A09700FF7F3D /* TimePickerViewController.swift */,
+				47815A251AC3E6C100CB877B /* FontPickerViewController.swift */,
+				473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */,
+				473F72111AC3FD35002A0486 /* LinePickerViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		47815A231AC3E66900CB877B /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				4763A7101AC3A09700FF7F3D /* UserDataManager.swift */,
+				4760FFDC1AC3A8CB00421609 /* DateUtils.swift */,
+				4760FFE01AC3B95000421609 /* extension.swift */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		47815A241AC3E68C00CB877B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,12 +392,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				473F72101AC3F66E002A0486 /* ColorPickerViewController.swift in Sources */,
 				4763A7121AC3A09700FF7F3D /* RootViewController.swift in Sources */,
 				4763A7141AC3A09700FF7F3D /* TimePickerViewController.swift in Sources */,
 				4763A7111AC3A09700FF7F3D /* CreateViewController.swift in Sources */,
 				4763A6EF1AC3A03A00FF7F3D /* ViewController.swift in Sources */,
+				473F72121AC3FD35002A0486 /* LinePickerViewController.swift in Sources */,
+				4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */,
+				47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */,
 				4763A7151AC3A09700FF7F3D /* UserDataManager.swift in Sources */,
 				4763A6EA1AC3A03900FF7F3D /* AppDelegate.swift in Sources */,
+				4760FFE11AC3B95000421609 /* extension.swift in Sources */,
+				4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */,
 				4763A6ED1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld in Sources */,
 				4763A7131AC3A09700FF7F3D /* SettingViewController.swift in Sources */,
 			);
@@ -367,7 +421,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47815A211AC3DDB400CB877B /* extension.swift in Sources */,
+				47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */,
+				4760FFDB1AC3A6D800421609 /* UserDataManager.swift in Sources */,
 				4763A7221AC3A5CD00FF7F3D /* TodayViewController.swift in Sources */,
+				47815A1F1AC3DCF800CB877B /* ExtTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +646,7 @@
 				4763A7081AC3A03A00FF7F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4763A7091AC3A03A00FF7F3D /* Build configuration list for PBXNativeTarget "TimerWidgetTests" */ = {
 			isa = XCConfigurationList;
@@ -596,6 +655,7 @@
 				4763A70B1AC3A03A00FF7F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4763A7281AC3A5CD00FF7F3D /* Build configuration list for PBXNativeTarget "TimerExtension" */ = {
 			isa = XCConfigurationList;
@@ -604,6 +664,7 @@
 				4763A72A1AC3A5CD00FF7F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
