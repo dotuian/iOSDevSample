@@ -19,6 +19,12 @@ class DateUtils : NSObject {
         return fomatter.dateFromString(string)
     }
 
+    class func toString(date:NSDate, dateFormat : String="yyyy-MM-dd HH:mm:ss") -> String {
+        let fomatter = NSDateFormatter()
+        fomatter.dateFormat = dateFormat
+        return fomatter.stringFromDate(date)
+    }
+
     class func calcDateInterval(startDate : NSDate, endDate : NSDate) -> Double {
         return startDate.timeIntervalSinceDate(endDate)
     }

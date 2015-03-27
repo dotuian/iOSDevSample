@@ -31,7 +31,7 @@ class TimePickerViewController : UIViewController {
         var date = datePicker.date
 
         var userInfo = ["date" : date]
-        NSNotificationCenter.defaultCenter().postNotificationName("DATE_AND_TIME", object: nil, userInfo: userInfo)
+        NSNotificationCenter.defaultCenter().postNotificationName(TWConstants.NS_UPDATE_DATE, object: nil, userInfo: userInfo)
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

@@ -31,7 +31,9 @@ class ColorPickerViewContrller : UIViewController, UITableViewDataSource, UITabl
             UIColor.blueColor(),
             UIColor.redColor(),
             UIColor.cyanColor(),
-            UIColor.purpleColor()
+            UIColor.purpleColor(),
+            UIColor.greenColor(),
+            UIColor.grayColor(),
         ]
 
         tableView = UITableView(frame: self.view.bounds)
@@ -62,7 +64,8 @@ class ColorPickerViewContrller : UIViewController, UITableViewDataSource, UITabl
         cell?.textLabel!.textColor = color
         cell?.accessoryType = UITableViewCellAccessoryType.None
 
-        if currentColor != nil && currentColor == color {
+        let currentColor = settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) as UIColor
+        if CGColorGetComponents( currentColor.CGColor) == CGColorGetComponents(color.CGColor) {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
 

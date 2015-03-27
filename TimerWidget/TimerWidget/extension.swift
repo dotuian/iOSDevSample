@@ -49,6 +49,14 @@ extension NSTimeInterval {
 
         var left = Int(self)
 
+        var result : String = ""
+        if left > 0 {
+            result += "[将来] "
+        } else {
+            result += "[过去] "
+            left = abs(left)
+        }
+
         let years = Int(left / YEAR_IN_SECONDS)
         left = Int(left % YEAR_IN_SECONDS)
 
@@ -66,7 +74,25 @@ extension NSTimeInterval {
 
         let seconds = left
 
-        return "\(years)年\(months)月\(days)日 \(hours)时\(minutes)分\(seconds)秒"
+        // 表示结果
+        if years > 0 {
+            result += String(format: "%02d年", years)
+        }
+        if months > 0 {
+            result += String(format: "%02d月", arguments: [months])
+        }
+        if days > 0 {
+            result += String(format: "%02d日", arguments: [days])
+        }
+        if hours > 0 {
+            result += String(format: "%02d时", arguments: [hours])
+        }
+        if minutes > 0 {
+            result += String(format: "%02d分", arguments: [minutes])
+        }
+        result += String(format: "%02d秒", arguments: [seconds])
+
+        return result
     }
 
 }

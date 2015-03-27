@@ -33,6 +33,10 @@
 		47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		47815A211AC3DDB400CB877B /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* extension.swift */; };
 		47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A251AC3E6C100CB877B /* FontPickerViewController.swift */; };
+		47AE03051AC5052300269B11 /* setting-font.png in Resources */ = {isa = PBXBuildFile; fileRef = 47AE03011AC5052300269B11 /* setting-font.png */; };
+		47AE03061AC5052300269B11 /* settings-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 47AE03021AC5052300269B11 /* settings-filled.png */; };
+		47AE03071AC5052300269B11 /* setings-nofilled.png in Resources */ = {isa = PBXBuildFile; fileRef = 47AE03031AC5052300269B11 /* setings-nofilled.png */; };
+		47AE03081AC5052300269B11 /* setting-update.png in Resources */ = {isa = PBXBuildFile; fileRef = 47AE03041AC5052300269B11 /* setting-update.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,10 @@
 		4763A72D1AC3A5F600FF7F3D /* TimerExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimerExtension.entitlements; sourceTree = "<group>"; };
 		47815A1E1AC3DCF700CB877B /* ExtTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtTableViewCell.swift; path = ../../../../../Desktop/ExtTableViewCell.swift; sourceTree = "<group>"; };
 		47815A251AC3E6C100CB877B /* FontPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
+		47AE03011AC5052300269B11 /* setting-font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-font.png"; sourceTree = "<group>"; };
+		47AE03021AC5052300269B11 /* settings-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-filled.png"; sourceTree = "<group>"; };
+		47AE03031AC5052300269B11 /* setings-nofilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setings-nofilled.png"; sourceTree = "<group>"; };
+		47AE03041AC5052300269B11 /* setting-update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-update.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,17 +167,18 @@
 				4763A6F51AC3A03A00FF7F3D /* LaunchScreen.xib */,
 				4763A72C1AC3A5DC00FF7F3D /* TimerWidget.entitlements */,
 				4763A6EB1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld */,
-				4763A6E71AC3A03900FF7F3D /* Supporting Files */,
+				4763A6E71AC3A03900FF7F3D /* Support Files */,
 			);
 			path = TimerWidget;
 			sourceTree = "<group>";
 		};
-		4763A6E71AC3A03900FF7F3D /* Supporting Files */ = {
+		4763A6E71AC3A03900FF7F3D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				47AE02FC1AC5035800269B11 /* icons */,
 				4763A6E81AC3A03900FF7F3D /* Info.plist */,
 			);
-			name = "Supporting Files";
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 		4763A6FF1AC3A03A00FF7F3D /* TimerWidgetTests */ = {
@@ -247,6 +256,17 @@
 				4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */,
 			);
 			name = views;
+			sourceTree = "<group>";
+		};
+		47AE02FC1AC5035800269B11 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				47AE03011AC5052300269B11 /* setting-font.png */,
+				47AE03021AC5052300269B11 /* settings-filled.png */,
+				47AE03031AC5052300269B11 /* setings-nofilled.png */,
+				47AE03041AC5052300269B11 /* setting-update.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,9 +384,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AE03071AC5052300269B11 /* setings-nofilled.png in Resources */,
 				4763A6F21AC3A03A00FF7F3D /* Main.storyboard in Resources */,
+				47AE03051AC5052300269B11 /* setting-font.png in Resources */,
 				4763A6F71AC3A03A00FF7F3D /* LaunchScreen.xib in Resources */,
+				47AE03061AC5052300269B11 /* settings-filled.png in Resources */,
 				4763A6F41AC3A03A00FF7F3D /* Images.xcassets in Resources */,
+				47AE03081AC5052300269B11 /* setting-update.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

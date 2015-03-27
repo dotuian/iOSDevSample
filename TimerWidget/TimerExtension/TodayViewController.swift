@@ -9,56 +9,54 @@
 import UIKit
 import NotificationCenter
 
+
+let settingManager = TWSettingManager.sharedInstance
+
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
 
     var tableView : UITableView!
 
-    var dataList = [String : String]()
-    var keyList = [String]()
+    var dataList = [Record]()
+
+    // 通知中心TableViewCell行高
+    var rowHeight : CGFloat = 25
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
 
-//        self.view.backgroundColor = UIColor.blueColor()
-
-        println("self.preferredContentSize = \(self.preferredContentSize)")
-        // 设置通知中心视图显示的高度
-        self.preferredContentSize = CGSizeMake(0, 100)
-
-        let dataManager = UserDataManager()
-        dataList = dataManager.getAllData()
-        for d in self.dataList.keys {
-            self.keyList.append(d as String)
-        }
-
-//        println("self.view.bounds = \(self.view.bounds)")
-//        let label = UILabel(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height / 2))
-//        self.view.addSubview(label)
-//
-//        label.textAlignment = NSTextAlignment.Left
-//        label.textColor = UIColor.whiteColor()
-//
-//        println(dict)
-//        for(key, value) in dict {
-//            label.text = value
-//        }
-
         tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Plain)
-        self.view.addSubview(tableView)
-        tableView.delegate = self
+        tableView.delegate   = self
         tableView.dataSource = self
-        tableView.rowHeight = 25 // 设置高度
+        tableView.rowHeight = rowHeight   // 设置高度
         tableView.allowsSelection = false //不允许选中
+//        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
+        self.view.addSubview(tableView)
     }
-    
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // 用户数据
+        let dataManager = TWDataManager()
+        dataList = dataManager.getAllData()
+
+        self.tableView.reloadData()
+
+        // 设置通知中心视图显示的高度
+        let rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as Int
+        self.preferredContentSize = CGSizeMake(0, rowHeight * CGFloat(rows))
+    }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
+    // 表格的行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataList.count
+        let rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as Int
+        return self.dataList.count > rows ? rows : self.dataList.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,13 +64,20 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? ExtTableViewCell
         if cell == nil {
             cell = ExtTableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
+
+
+            let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
+            let currentColor = settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) as UIColor
+
+            // 设置Cell格式
+            cell?.textLabel?.font = currentFont
+            cell?.textLabel?.textColor = currentColor
         }
 
-        var title = self.keyList[indexPath.row]
-        cell?.content = self.dataList[title]
+        var record = self.dataList[indexPath.row]
 
-//        cell?.textLabel!.text = self.dataList[title]
-//        cell?.textLabel?.textColor = UIColor.whiteColor()
+        // 设置Cell数据
+        cell?.record = record
 
         return cell!
     }

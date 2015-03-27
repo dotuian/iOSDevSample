@@ -55,7 +55,9 @@ class LinePickerViewContrller : UIViewController, UITableViewDataSource, UITable
         cell?.textLabel!.text = String(self.data[indexPath.row])
         cell?.accessoryType = UITableViewCellAccessoryType.None
 
-        if currentLine != nil && currentLine == String(self.data[indexPath.row]) {
+
+        let currentRows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as Int
+        if self.data[indexPath.row] == String(currentRows) {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
 

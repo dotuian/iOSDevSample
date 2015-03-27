@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-let SETTING_FONTNAME = "SETTING_FONTNAME"
-let SETTING_TEXT_COLOR = "SETTING_TEXT_COLOR"
-let SETTING_SHOW_ROW = "SETTING_SHOW_ROW"
-
 protocol UpdateSettingDelegate {
     func updateFont(tag:Int, fontName:String);
 
@@ -21,6 +17,8 @@ protocol UpdateSettingDelegate {
     func updateLine(tag:Int, line: String);
 }
 
+let settingManager = TWSettingManager()
+
 class SettingViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateSettingDelegate{
 
     var titles = [[String]]()
@@ -28,6 +26,7 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
     var tableView : UITableView!
 
     var setting = [String : AnyObject]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,22 +53,22 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        // 系统中配置信息
-        let dataManager = UserDataManager()
-        // 字体
-        if let fontname = dataManager.userDefaults.stringForKey(SETTING_FONTNAME) {
-            setting[SETTING_FONTNAME] = fontname
-        }
-        // 颜色
-        let temp = dataManager.userDefaults.objectForKey(SETTING_TEXT_COLOR) as? NSData
-        if let color = temp {
-            let c = NSKeyedUnarchiver.unarchiveObjectWithData(color) as? UIColor
-            setting[SETTING_TEXT_COLOR] = c
-        }
-        // 显示行数
-        if let row = dataManager.userDefaults.stringForKey(SETTING_SHOW_ROW) {
-            setting[SETTING_SHOW_ROW] = row
-        }
+//        // 系统中配置信息
+//        let dataManager = UserDataManager()
+//        // 字体
+//        if let fontname = dataManager.userDefaults.stringForKey(SETTING_FONTNAME) {
+//            setting[SETTING_FONTNAME] = fontname
+//        }
+//        // 颜色
+//        let temp = dataManager.userDefaults.objectForKey(SETTING_TEXT_COLOR) as? NSData
+//        if let color = temp {
+//            let c = NSKeyedUnarchiver.unarchiveObjectWithData(color) as? UIColor
+//            setting[SETTING_TEXT_COLOR] = c
+//        }
+//        // 显示行数
+//        if let row = dataManager.userDefaults.stringForKey(SETTING_SHOW_ROW) {
+//            setting[SETTING_SHOW_ROW] = row
+//        }
 
     }
 
@@ -98,19 +97,17 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 0 {
             switch (indexPath.row) {
             case 0 : // 字体
-                if setting[SETTING_FONTNAME] != nil {
-                    let fontName = setting[SETTING_FONTNAME] as String
-                    cell?.detailTextLabel!.text = fontName
-                    cell?.detailTextLabel!.font = UIFont(name: fontName, size: 12)
-                }
+                let font = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
+
+                cell?.detailTextLabel!.text = font.fontName
+                cell?.detailTextLabel!.font = font
 
             case 1 : // 颜色
-                if setting[SETTING_TEXT_COLOR] != nil {
-                    cell?.detailTextLabel!.text = "SAMPLE 测试 あいうえお"
 
-                    let color = setting[SETTING_TEXT_COLOR] as UIColor
-                    cell?.detailTextLabel!.textColor = color
-                }
+                cell?.detailTextLabel!.text = "SAMPLE 测试 あいうえお"
+
+                let color = settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) as UIColor
+                cell?.detailTextLabel!.textColor = color
 
             default:
                 println()
@@ -120,15 +117,12 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
 
         if indexPath.section == 1 {
             switch (indexPath.row) {
-            case 0 : //
-                if setting[SETTING_SHOW_ROW] != nil {
-                    let row = setting[SETTING_SHOW_ROW] as String
-                    cell?.detailTextLabel!.text = row
-                }
+                case 0 : //
+                    let row = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as Int
+                    cell?.detailTextLabel!.text = String(row)
 
-                
-            default:
-                println()
+                default:
+                    println()
             }
         }
 
@@ -159,22 +153,12 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
             switch (indexPath.row) {
             case 0 : // 字体
                 let fontVC = FontPickerViewContrller();
-
-                if let label = cell!.detailTextLabel {
-                    fontVC.currentFontName = label.text
-                }
-
                 fontVC.previousViewTag = cell!.tag
                 fontVC.delegate = self
                 self.navigationController?.pushViewController(fontVC, animated: true)
 
             case 1 : // 颜色
                 let colorVC = ColorPickerViewContrller();
-
-                if let label = cell!.detailTextLabel {
-                    colorVC.currentColor = label.textColor
-                }
-
                 colorVC.previousViewTag = cell!.tag
                 colorVC.delegate = self
                 self.navigationController?.pushViewController(colorVC, animated: true)
@@ -190,11 +174,6 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
             switch (indexPath.row) {
             case 0 : //
                 let lineVC = LinePickerViewContrller();
-
-                if let label = cell!.detailTextLabel {
-                    lineVC.currentLine = label.text
-                }
-
                 lineVC.previousViewTag = cell!.tag
                 lineVC.delegate = self
                 self.navigationController?.pushViewController(lineVC, animated: true)
@@ -217,12 +196,13 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
     // ==========================================
     func updateFont(tag : Int, fontName : String){
         let cell = self.tableView.viewWithTag(tag) as? UITableViewCell
-        cell!.detailTextLabel!.text = fontName
-        cell!.detailTextLabel!.font = UIFont(name: fontName, size: 12)
+
+        let font = UIFont(name: fontName, size: 12)!
+        cell!.detailTextLabel!.text = font.fontName
+        cell!.detailTextLabel!.font = font
 
         // 保存到UserDefaults
-        let dataManager = UserDataManager()
-        dataManager.userDefaults.setObject(fontName, forKey: SETTING_FONTNAME)
+        settingManager.insert(TWConstants.SETTING_FONTNAME, value: font)
     }
 
     func updateColor(tag: Int, color : UIColor){
@@ -231,11 +211,8 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
         cell!.detailTextLabel!.textColor = color
         cell!.detailTextLabel!.text = "SAMPLE 测试 あいうえお"
 
-
         // 保存到UserDefaults
-        let c = NSKeyedArchiver.archivedDataWithRootObject(color)
-        let dataManager = UserDataManager()
-        dataManager.userDefaults.setObject(c, forKey: SETTING_TEXT_COLOR)
+        settingManager.insert(TWConstants.SETTING_TEXT_COLOR, value: color)
     }
 
     func updateLine(tag:Int, line: String) {
@@ -243,8 +220,7 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
         cell!.detailTextLabel!.text = line
 
         // 保存到UserDefaults
-        let dataManager = UserDataManager()
-        dataManager.userDefaults.setInteger(line.toInt()!, forKey: SETTING_SHOW_ROW)
+        settingManager.insert(TWConstants.SETTING_SHOW_ROW, value: line.toInt()!)
     }
 
 }

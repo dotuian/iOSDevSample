@@ -17,14 +17,16 @@ let TimerDataKey = "TimerData";
 // 应用中日期的格式
 let dateFormat = "yyyy-MM-dd HH:mm:ss"
 
+
+
 class RootViewController : UITableViewController {
 
-    var keyList = [String]()
-    var dataList = [String : String]()
-
+    var dataList = [Record]()
 
     // 系统配置
-    var setting = [String : AnyObject]()
+    let settingManager = TWSettingManager.sharedInstance
+
+    let dataManager = TWDataManager.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class RootViewController : UITableViewController {
         let spaceItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         // 设置按钮
         let settingItem = UIBarButtonItem(title: "\u{2699}", style: UIBarButtonItemStyle.Plain, target: self, action: "hanlderSettingItem")
-        if let font = UIFont(name: "Helvetica", size: 24) {
+        if let font = UIFont(name: "Helvetica", size: 25) {
             settingItem.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
 
@@ -47,44 +49,45 @@ class RootViewController : UITableViewController {
 
         // 在下一页面不显示底部
         self.hidesBottomBarWhenPushed = true
+
+        //
+        self.initSettingData()
+    }
+
+    // 初始化系统设置
+    func initSettingData(){
+
+        // 字体
+        if settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) == nil {
+            let fontName = UIFont.familyNames()[0] as String
+            let font = UIFont(name: fontName, size: 14)
+            settingManager.insert(TWConstants.SETTING_FONTNAME, value: font!)
+        }
+
+        // 显示行数
+        if settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) == nil {
+            settingManager.insert(TWConstants.SETTING_SHOW_ROW, value: Int(3))
+        }
+
+        // 文本颜色
+        if settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) == nil {
+            settingManager.insert(TWConstants.SETTING_TEXT_COLOR, value: UIColor.whiteColor())
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        // 系统中配置信息
-        let dataManager = UserDataManager()
-        // 字体
-        if let fontname = dataManager.userDefaults.stringForKey(SETTING_FONTNAME) {
-            setting[SETTING_FONTNAME] = fontname
-        }
-        // 颜色
-        let temp = dataManager.userDefaults.objectForKey(SETTING_TEXT_COLOR) as? NSData
-        if let color = temp {
-            let c = NSKeyedUnarchiver.unarchiveObjectWithData(color) as? UIColor
-            setting[SETTING_TEXT_COLOR] = c
-        }
-        // 显示行数
-        if let row = dataManager.userDefaults.stringForKey(SETTING_SHOW_ROW) {
-            setting[SETTING_SHOW_ROW] = row
-        }
-
-
-
         // 重新加载数据之前,先清空之前保存的数据
         self.dataList.removeAll(keepCapacity: true)
-        self.keyList.removeAll(keepCapacity: true)
 
         // 获取数据
+
         self.dataList = dataManager.getAllData()
-        for d in self.dataList.keys {
-            self.keyList.append(d as String)
-        }
 
         // 刷新TableView
         self.tableView.reloadData()
     }
-
 
     // 跳转到添加页面
     func hanlderCreateItem(){
@@ -98,7 +101,9 @@ class RootViewController : UITableViewController {
         self.presentViewController(vc, animated: true, completion: nil)
     }
 
-    //
+    // ================================
+    // 
+    // ================================
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -118,23 +123,18 @@ class RootViewController : UITableViewController {
             cell = TimerTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
         }
 
-        var title = self.keyList[indexPath.row]
+        var record = self.dataList[indexPath.row]
 
-        cell!.content = self.dataList[title]
-        cell!.textLabel!.text = title
-        cell!.detailTextLabel!.text = self.dataList[title]
+        cell!.record = record
+        cell!.textLabel!.text = record.title
+        cell!.detailTextLabel!.text = DateUtils.toString(record.date)
 
         // 字体的设置
-        if setting[SETTING_FONTNAME] != nil {
-            let fontName = setting[SETTING_FONTNAME] as String
-            cell!.detailTextLabel!.font = UIFont(name: fontName, size: 12)
-        }
+        let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
+        cell!.detailTextLabel!.font = currentFont
         // 颜色的设置
-        if setting[SETTING_FONTNAME] != nil {
-            let color = setting[SETTING_TEXT_COLOR] as UIColor
-            cell!.detailTextLabel!.textColor = color
-        }
-
+        let currentColor = settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) as UIColor
+        cell!.detailTextLabel!.textColor = currentColor
 
         return cell!
     }

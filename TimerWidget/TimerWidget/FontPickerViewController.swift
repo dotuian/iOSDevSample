@@ -16,9 +16,6 @@ class FontPickerViewContrller : UIViewController, UITableViewDataSource, UITable
 
     var fonts = [String]()
 
-    // 当前选择的字体
-    var currentFontName : String?
-
     // 要更新的视图的TAG
     var previousViewTag : Int!
 
@@ -55,11 +52,15 @@ class FontPickerViewContrller : UIViewController, UITableViewDataSource, UITable
         }
 
         let fontName = self.fonts[indexPath.row]
+        let font = UIFont(name: fontName, size: CGFloat(12))!
         cell?.textLabel!.text = fontName
-        cell?.textLabel!.font = UIFont(name: fontName, size: CGFloat(12))
+        cell?.textLabel!.font = font
         cell?.accessoryType = UITableViewCellAccessoryType.None
 
-        if currentFontName != nil && currentFontName == fontName {
+        //
+        let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
+        println("\(font.fontName) == \(currentFont.fontName) ")
+        if font.fontName == currentFont.fontName {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
         return cell!

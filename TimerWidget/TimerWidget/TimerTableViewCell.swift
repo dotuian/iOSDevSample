@@ -11,7 +11,7 @@ import UIKit
 
 class TimerTableViewCell : UITableViewCell {
 
-    var content : String?
+    var record : Record?
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,10 +31,9 @@ class TimerTableViewCell : UITableViewCell {
     }
 
     func updateContent(){
-        if let strDate = content {
-            let date = DateUtils.toDate(strDate)
-            var interval = date?.timeIntervalSinceDate(NSDate())
-            self.detailTextLabel!.text = interval?.detail
+        if let r = record {
+            var interval = r.date.timeIntervalSinceDate(NSDate())
+            self.detailTextLabel!.text = interval.detail
         }
     }
 

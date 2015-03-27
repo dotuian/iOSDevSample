@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let dataManager = TWDataManager()
+
 class CreateViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView : UITableView!
@@ -24,19 +26,21 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         self.navigationItem.rightBarButtonItem = doneItem
         self.navigationItem.leftBarButtonItem = cancelItem
 
-
+        // 
         tableView = UITableView(frame: self.view.bounds, style : UITableViewStyle.Grouped)
-        self.view.addSubview(tableView)
-
         tableView.delegate = self
         tableView.dataSource = self
 
+        self.view.addSubview(tableView)
 
         // 监视日期的选择
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateDateAndTime:", name: "DATE_AND_TIME", object: nil)
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateDateAndTime:", name: TWConstants.NS_UPDATE_DATE, object: nil)
     }
 
+
+    // ============================
+    //
+    // ============================
     func hanlderCancelItem(){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -46,28 +50,13 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         let titleTextField = self.tableView.viewWithTag(101) as UITextField
         let datePickerCell = self.tableView.viewWithTag(102) as UITableViewCell
 
-
         var title = titleTextField.text!
-        var date = datePickerCell.detailTextLabel?.text
+        var date = datePickerCell.detailTextLabel?.text!
 
+        // 保存数据
+        let record = Record(title: title, date: DateUtils.toDate(date!)!)
+        dataManager.insert(record)
 
-        var data = [NSObject : AnyObject]()
-
-        //        let defaults = NSUserDefaults.standardUserDefaults()
-//        let defaults = NSUserDefaults(suiteName: "group.com.doutian.TodayExtension")
-//        if var temp = defaults!.dictionaryForKey(TimerDataKey) {
-//            data = temp
-//        }
-//        // 添加记录
-//        data[title] = date
-//
-//        defaults!.setObject(data, forKey: TimerDataKey)
-//        defaults!.synchronize()
-
-        let dataManager = UserDataManager()
-        dataManager.insert(title, value: date!)
-
-        //
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -79,15 +68,15 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             date = temp as NSDate
         }
 
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = dateFormat
-
-        var strDate = formatter.stringFromDate(date)
-
         let cell = self.tableView.viewWithTag(102) as UITableViewCell
-        cell.detailTextLabel?.text = strDate
+        cell.detailTextLabel?.text =  DateUtils.toString(date)
     }
 
+
+
+    // ============================
+    //
+    // ============================
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
