@@ -12,6 +12,12 @@ let DATE_FOMATTER = "yyyy-MM-dd HH:mm:ss"
 
 class DateUtils : NSObject {
 
+    struct DATE_FOMART {
+        static let TIME_ONLY = "HH:mm:ss"
+        static let DATE_ONLY = "yyyy-MM-dd"
+        static let DATE_AND_TIME = "yyyy-MM-dd HH:mm:ss"
+    }
+
     class func toDate(string : String, dateFormat : String = "yyyy-MM-dd HH:mm:ss") -> NSDate? {
         let fomatter = NSDateFormatter()
         fomatter.dateFormat = dateFormat

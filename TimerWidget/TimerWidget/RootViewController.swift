@@ -127,7 +127,6 @@ class RootViewController : UITableViewController {
 
         cell!.record = record
         cell!.textLabel!.text = record.title
-        cell!.detailTextLabel!.text = DateUtils.toString(record.date)
 
         // 字体的设置
         let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
@@ -139,5 +138,25 @@ class RootViewController : UITableViewController {
         return cell!
     }
 
+    // 删除
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let record = self.dataList[indexPath.row]
 
+            self.dataList.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+
+            dataManager.removeByID(record.id)
+        }
+    }
+
+    // 编辑详细画面
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+        let editViewController = CreateViewController()
+        editViewController.record = self.dataList[indexPath.row]
+
+        self.navigationController?.pushViewController(editViewController, animated: true)
+    }
 }

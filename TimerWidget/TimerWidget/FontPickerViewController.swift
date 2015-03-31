@@ -59,7 +59,6 @@ class FontPickerViewContrller : UIViewController, UITableViewDataSource, UITable
 
         //
         let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
-        println("\(font.fontName) == \(currentFont.fontName) ")
         if font.fontName == currentFont.fontName {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
@@ -67,11 +66,10 @@ class FontPickerViewContrller : UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         // 更新前一页面的值
         delegate.updateFont(self.previousViewTag!, fontName: cell!.textLabel!.text!)
-
+        //
         self.navigationController?.popViewControllerAnimated(true)
     }
 

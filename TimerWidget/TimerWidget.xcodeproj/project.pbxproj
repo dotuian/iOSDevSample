@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		473BE75B1AC929E6009DB9BC /* ExtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BE75A1AC929E6009DB9BC /* ExtTableViewCell.swift */; };
+		473BE75D1AC93079009DB9BC /* TWDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BE75C1AC93079009DB9BC /* TWDatePickerCell.swift */; };
 		473F72101AC3F66E002A0486 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */; };
 		473F72121AC3FD35002A0486 /* LinePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F72111AC3FD35002A0486 /* LinePickerViewController.swift */; };
 		4760FFDB1AC3A6D800421609 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A7101AC3A09700FF7F3D /* UserDataManager.swift */; };
@@ -29,7 +31,6 @@
 		4763A7221AC3A5CD00FF7F3D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A7211AC3A5CD00FF7F3D /* TodayViewController.swift */; };
 		4763A7241AC3A5CD00FF7F3D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */; };
 		4763A7271AC3A5CD00FF7F3D /* TimerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4763A71A1AC3A5CD00FF7F3D /* TimerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		47815A1F1AC3DCF800CB877B /* ExtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A1E1AC3DCF700CB877B /* ExtTableViewCell.swift */; };
 		47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		47815A211AC3DDB400CB877B /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* extension.swift */; };
 		47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A251AC3E6C100CB877B /* FontPickerViewController.swift */; };
@@ -71,6 +72,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		473BE75A1AC929E6009DB9BC /* ExtTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtTableViewCell.swift; sourceTree = "<group>"; };
+		473BE75C1AC93079009DB9BC /* TWDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWDatePickerCell.swift; sourceTree = "<group>"; };
 		473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		473F72111AC3FD35002A0486 /* LinePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinePickerViewController.swift; sourceTree = "<group>"; };
 		4760FFDC1AC3A8CB00421609 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
@@ -99,7 +102,6 @@
 		4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		4763A72C1AC3A5DC00FF7F3D /* TimerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimerWidget.entitlements; sourceTree = "<group>"; };
 		4763A72D1AC3A5F600FF7F3D /* TimerExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimerExtension.entitlements; sourceTree = "<group>"; };
-		47815A1E1AC3DCF700CB877B /* ExtTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtTableViewCell.swift; path = ../../../../../Desktop/ExtTableViewCell.swift; sourceTree = "<group>"; };
 		47815A251AC3E6C100CB877B /* FontPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 		47AE03011AC5052300269B11 /* setting-font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-font.png"; sourceTree = "<group>"; };
 		47AE03021AC5052300269B11 /* settings-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-filled.png"; sourceTree = "<group>"; };
@@ -209,7 +211,7 @@
 		4763A71E1AC3A5CD00FF7F3D /* TimerExtension */ = {
 			isa = PBXGroup;
 			children = (
-				47815A1E1AC3DCF700CB877B /* ExtTableViewCell.swift */,
+				473BE75A1AC929E6009DB9BC /* ExtTableViewCell.swift */,
 				4763A72D1AC3A5F600FF7F3D /* TimerExtension.entitlements */,
 				4763A7211AC3A5CD00FF7F3D /* TodayViewController.swift */,
 				4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */,
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */,
+				473BE75C1AC93079009DB9BC /* TWDatePickerCell.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				473F72101AC3F66E002A0486 /* ColorPickerViewController.swift in Sources */,
+				473BE75D1AC93079009DB9BC /* TWDatePickerCell.swift in Sources */,
 				4763A7121AC3A09700FF7F3D /* RootViewController.swift in Sources */,
 				4763A7141AC3A09700FF7F3D /* TimePickerViewController.swift in Sources */,
 				4763A7111AC3A09700FF7F3D /* CreateViewController.swift in Sources */,
@@ -449,7 +453,7 @@
 				47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */,
 				4760FFDB1AC3A6D800421609 /* UserDataManager.swift in Sources */,
 				4763A7221AC3A5CD00FF7F3D /* TodayViewController.swift in Sources */,
-				47815A1F1AC3DCF800CB877B /* ExtTableViewCell.swift in Sources */,
+				473BE75B1AC929E6009DB9BC /* ExtTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
