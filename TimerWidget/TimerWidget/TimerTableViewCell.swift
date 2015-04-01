@@ -28,6 +28,7 @@ class TimerTableViewCell : UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        
     }
 
     func updateContent(){

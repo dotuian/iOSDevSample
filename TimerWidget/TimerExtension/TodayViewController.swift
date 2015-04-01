@@ -9,7 +9,6 @@
 import UIKit
 import NotificationCenter
 
-
 let settingManager = TWSettingManager.sharedInstance
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
@@ -19,18 +18,17 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     var dataList = [Record]()
 
     // 通知中心TableViewCell行高
-    var rowHeight : CGFloat = 25
+    var rowHeight : CGFloat = 35
+
+    var updateResult : NCUpdateResult = NCUpdateResult.NoData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
 
         tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Plain)
         tableView.delegate   = self
         tableView.dataSource = self
         tableView.rowHeight = rowHeight   // 设置高度
-        tableView.allowsSelection = false //不允许选中
-//        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
         self.view.addSubview(tableView)
     }
@@ -38,15 +36,27 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.updateWidget()
+    }
+
+
+    func updateWidget(){
         // 用户数据
         let dataManager = TWDataManager()
         dataList = dataManager.getAllData()
 
-        self.tableView.reloadData()
-
         // 设置通知中心视图显示的高度
-        let rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as Int
-        self.preferredContentSize = CGSizeMake(0, rowHeight * CGFloat(rows))
+//        var rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as Int
+//        rows = self.dataList.count > rows ? rows : self.dataList.count
+//        self.preferredContentSize = CGSizeMake(0, rowHeight * CGFloat(rows))
+        self.updatePreferredContentSize()
+
+        self.tableView.reloadData()
+        self.updateResult = NCUpdateResult.NewData
+    }
+
+    func updatePreferredContentSize() {
+        self.preferredContentSize = CGSizeMake(CGFloat(0), CGFloat(tableView(tableView, numberOfRowsInSection: 0)) * CGFloat(tableView.rowHeight) + tableView.sectionFooterHeight)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -55,8 +65,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     // 表格的行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as Int
-        return self.dataList.count > rows ? rows : self.dataList.count
+        if let rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as? Int {
+            return self.dataList.count > rows ? rows : self.dataList.count
+        }
+        return 0
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -65,13 +77,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         if cell == nil {
             cell = ExtTableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
 
+            if let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as? UIFont {
+                // 设置Cell格式
+                cell?.textLabel?.font = currentFont
+            }
 
-            let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
-            let currentColor = settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) as UIColor
-
-            // 设置Cell格式
-            cell?.textLabel?.font = currentFont
-            cell?.textLabel?.textColor = currentColor
+            cell?.textLabel?.textColor = UIColor.whiteColor()
         }
 
         var record = self.dataList[indexPath.row]
@@ -82,7 +93,25 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return cell!
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let record = self.dataList[indexPath.row]
 
+        if let context =  self.extensionContext {
+            let url = NSURL(string: "TimerWidget://index=\(indexPath.row)")
+            context.openURL(url!, completionHandler: { (flag : Bool) -> Void in
+
+            })
+        }
+
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+
+        coordinator.animateAlongsideTransition({ context in
+            self.tableView.frame = CGRectMake(0, 0, size.width, size.height)
+            }, completion: nil)
+    }
 
     // If implemented, the system will call at opportune times for the widget to update its state, both when the Notification Center is visible as well as in the background.
     // An implementation is required to enable background updates.
@@ -97,16 +126,24 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
-        completionHandler(NCUpdateResult.NewData)
+        // 更新数据
+        self.updateWidget()
+
+        completionHandler(self.updateResult)
     }
 
     // Widgets wishing to customize the default margin insets can return their preferred values.
     // Widgets that choose not to implement this method will receive the default margin insets.
-//    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets{
-//        let insets = defaultMarginInsets
-//        insets.bottom = CGFloat(10.0)
-//        return insets
-//    }
+    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets{
+
+        var newMargins = defaultMarginInsets
+        newMargins.right = 10
+        newMargins.bottom = 5
+        newMargins.left = 0
+        return newMargins
+
+//        return UIEdgeInsetsZero
+    }
 
     
 }

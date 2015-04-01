@@ -9,16 +9,6 @@
 import Foundation
 import UIKit
 
-let cellIdentifier = "cellIdentifier"
-
-// 存储在NSUserDefaults中的Key
-let TimerDataKey = "TimerData";
-
-// 应用中日期的格式
-let dateFormat = "yyyy-MM-dd HH:mm:ss"
-
-
-
 class RootViewController : UITableViewController {
 
     var dataList = [Record]()
@@ -44,9 +34,6 @@ class RootViewController : UITableViewController {
 
         self.toolbarItems = [createItem, spaceItem, settingItem]
 
-        // 显示工具栏
-        self.navigationController?.toolbarHidden = false
-
         // 在下一页面不显示底部
         self.hidesBottomBarWhenPushed = true
 
@@ -56,27 +43,27 @@ class RootViewController : UITableViewController {
 
     // 初始化系统设置
     func initSettingData(){
-
         // 字体
         if settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) == nil {
             let fontName = UIFont.familyNames()[0] as String
             let font = UIFont(name: fontName, size: 14)
             settingManager.insert(TWConstants.SETTING_FONTNAME, value: font!)
         }
-
         // 显示行数
         if settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) == nil {
             settingManager.insert(TWConstants.SETTING_SHOW_ROW, value: Int(3))
         }
-
         // 文本颜色
         if settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) == nil {
-            settingManager.insert(TWConstants.SETTING_TEXT_COLOR, value: UIColor.whiteColor())
+            settingManager.insert(TWConstants.SETTING_TEXT_COLOR, value: UIColor.blackColor())
         }
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
+        // 显示工具栏
+        self.navigationController?.toolbarHidden = false
 
         // 重新加载数据之前,先清空之前保存的数据
         self.dataList.removeAll(keepCapacity: true)
@@ -84,6 +71,8 @@ class RootViewController : UITableViewController {
         // 获取数据
 
         self.dataList = dataManager.getAllData()
+
+        println("用户数据 ==========>>>>> \(self.dataList)")
 
         // 刷新TableView
         self.tableView.reloadData()
@@ -117,6 +106,8 @@ class RootViewController : UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TimerTableViewCell {
+
+        let cellIdentifier = "cellIdentifier"
 
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? TimerTableViewCell
         if cell == nil {

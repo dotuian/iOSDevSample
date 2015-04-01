@@ -13,6 +13,7 @@ let dataManager = TWDataManager()
 
 class CreateViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // 有值,编辑 无值,新建
     var record : Record?
 
 
@@ -41,10 +42,8 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         // 监视日期的选择
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateDateAndTime:", name: TWConstants.NS_UPDATE_DATE, object: nil)
 
-
         // DatePickerCell
         datePickerTitleIndexPath = NSIndexPath(forRow: 0, inSection: 1)
-
     }
 
     // ============================
@@ -72,10 +71,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
         if self.record == nil {
             // 添加新纪录
-            let data = Record()
-            data.title = title
-            data.date = DateUtils.toDate(date!)!
-            data.display = displayCell.on
+            let data = Record(title: title, date: DateUtils.toDate(date!)!, display: display)
 
             dataManager.insert(data)
         } else {
@@ -87,7 +83,9 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             dataManager.updateForRecord(self.record!)
         }
 
-        println(self.record!)
+        if let textFiled = self.tableView.viewWithTag(101) as? UITextField {
+            textFiled.resignFirstResponder()
+        }
 
         // 返回到主页面
         if self.record == nil {
@@ -134,9 +132,9 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
         let datePickerCellIndexPath = NSIndexPath(forRow: self.datePickerTitleIndexPath.row + 1 , inSection: datePickerTitleIndexPath.section)
-
+        // UIDatePicker所在TableViewCell的行高
         if self.indexPathOfVisibleDatePicker != nil && datePickerCellIndexPath.isEqual(indexPath){
-            return 180
+            return 216
         }
 
         return self.tableView.rowHeight
@@ -163,7 +161,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
             var cell = tableView.dequeueReusableCellWithIdentifier(identifer) as? UITableViewCell
             if cell == nil {
-                cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: cellIdentifier)
+                cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifer)
             }
 
             if indexPath.section == 0 && indexPath.row == 0 {
@@ -180,13 +178,20 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
                 titleTextField.textAlignment = NSTextAlignment.Left // 文本对齐方式
                 titleTextField.autocapitalizationType = UITextAutocapitalizationType.None // 自动大写类型
                 titleTextField.keyboardType = UIKeyboardType.NamePhonePad  // 键盘类型
+                titleTextField.returnKeyType = UIReturnKeyType.Done
 
                 cell?.contentView.addSubview(titleTextField)
+
+                titleTextField.addTarget(self, action: "hiddenKeyBoard:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
 
 
                 // 设置标题的值
                 if record != nil {
                     titleTextField.text = record!.title
+                } else {
+                    // 成为第一响应者
+                    // 在进入添加页面是,弹出键盘
+                    titleTextField.becomeFirstResponder()
                 }
 
             } else if indexPath.section == 1 && indexPath.row == 0 {
@@ -194,13 +199,11 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
                 cell?.textLabel!.text = "日期"
                 cell?.tag = 102
 
-                let formatter = NSDateFormatter()
-                formatter.dateFormat = dateFormat
-                cell?.detailTextLabel!.text = formatter.stringFromDate(NSDate())
+                cell?.detailTextLabel!.text = DateUtils.toString(NSDate())
 
                 // 设置值
                 if record != nil {
-                    cell?.detailTextLabel!.text = formatter.stringFromDate(record!.date)
+                    cell?.detailTextLabel!.text = DateUtils.toString(record!.date)
                 }
 
             } else if indexPath.section == 1 && indexPath.row == 1 {
@@ -237,9 +240,12 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-//        if(indexPath.section == 1 && indexPath.row == 0) {
-//            self.navigationController?.pushViewController(TimePickerViewController(), animated: true)
-//        }
+        // 收起键盘
+        if(indexPath.section == 1) {
+            if let textField = tableView.viewWithTag(101) as? UITextField {
+                textField.resignFirstResponder()
+            }
+        }
     }
 
     // 当前显示的DatePickerCell的NSIndexPath
@@ -300,6 +306,14 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     }
 
 
+    func hiddenKeyBoard(textField : UITextField) {
+        // 取消第一响应者,隐藏键盘
+        textField.resignFirstResponder()
+    }
 
+    func controlTap(control : UIControl){
+        println("controlTap")
+        control.becomeFirstResponder()
+    }
 
 }
