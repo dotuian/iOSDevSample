@@ -14,6 +14,20 @@ let DAY_IN_SECONDS     = 60 * 60 * 24
 let MONTH_IN_SECONDS   = 60 * 60 * 24 * 30
 let YEAR_IN_SECONDS    = 60 * 60 * 24 * 30 * 365
 
+extension NSIndexPath{
+    var next : NSIndexPath {
+        let section = self.section
+        let row = self.row
+        return NSIndexPath(forRow: row + 1, inSection: section)
+    }
+
+    var previous : NSIndexPath {
+        let section = self.section
+        let row = self.row
+        return NSIndexPath(forRow: row > 0 ? row - 1 : 0, inSection: section)
+    }
+}
+
 
 extension NSTimeInterval {
 

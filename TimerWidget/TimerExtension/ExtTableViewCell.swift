@@ -29,11 +29,8 @@ class ExtTableViewCell : UITableViewCell {
     }
 
     func updateContent(){
-        if let r = record {
-            var interval = r.date.timeIntervalSinceDate(NSDate())
-            self.textLabel?.textColor = UIColor.whiteColor()
-
-            self.textLabel!.text = r.title + " | " + interval.detail
+        if record != nil {
+            self.textLabel!.text = record!.title + " 已经 " + record!.description
         }
     }
 

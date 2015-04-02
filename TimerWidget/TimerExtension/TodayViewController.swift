@@ -29,6 +29,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         tableView.delegate   = self
         tableView.dataSource = self
         tableView.rowHeight = rowHeight   // 设置高度
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
         self.view.addSubview(tableView)
     }
@@ -45,10 +46,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         let dataManager = TWDataManager()
         dataList = dataManager.getAllData()
 
-        // 设置通知中心视图显示的高度
-//        var rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as Int
-//        rows = self.dataList.count > rows ? rows : self.dataList.count
-//        self.preferredContentSize = CGSizeMake(0, rowHeight * CGFloat(rows))
         self.updatePreferredContentSize()
 
         self.tableView.reloadData()
@@ -135,14 +132,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     // Widgets wishing to customize the default margin insets can return their preferred values.
     // Widgets that choose not to implement this method will receive the default margin insets.
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets{
+//        println(defaultMarginInsets)
+//        var newMargins = defaultMarginInsets
+//        newMargins.left = 20
+//        newMargins.bottom = 5
 
-        var newMargins = defaultMarginInsets
-        newMargins.right = 10
-        newMargins.bottom = 5
-        newMargins.left = 0
-        return newMargins
-
-//        return UIEdgeInsetsZero
+        return UIEdgeInsetsZero
     }
 
     

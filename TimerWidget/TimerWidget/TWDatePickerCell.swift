@@ -15,9 +15,7 @@ class TWDatePickerCell : UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         datepicker = UIDatePicker()
-        datepicker.datePickerMode = UIDatePickerMode.DateAndTime
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -28,8 +26,6 @@ class TWDatePickerCell : UITableViewCell {
         super.layoutSubviews()
 
         self.contentView.addSubview(datepicker)
-
-
     }
 
 

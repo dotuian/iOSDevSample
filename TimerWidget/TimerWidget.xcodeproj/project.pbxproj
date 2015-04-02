@@ -24,16 +24,22 @@
 		4763A7121AC3A09700FF7F3D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A70D1AC3A09700FF7F3D /* RootViewController.swift */; };
 		4763A7131AC3A09700FF7F3D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */; };
 		4763A7141AC3A09700FF7F3D /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A70F1AC3A09700FF7F3D /* TimePickerViewController.swift */; };
-		4763A7151AC3A09700FF7F3D /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A7101AC3A09700FF7F3D /* UserDataManager.swift */; };
 		4763A71D1AC3A5CD00FF7F3D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4763A71C1AC3A5CD00FF7F3D /* NotificationCenter.framework */; };
 		4763A7221AC3A5CD00FF7F3D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A7211AC3A5CD00FF7F3D /* TodayViewController.swift */; };
 		4763A7241AC3A5CD00FF7F3D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */; };
 		4763A7271AC3A5CD00FF7F3D /* TimerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4763A71A1AC3A5CD00FF7F3D /* TimerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		47668B961ACBA2210037736B /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47668B951ACBA2200037736B /* URLUtils.swift */; };
 		47668B981ACBDC760037736B /* RootCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47668B971ACBDC750037736B /* RootCell.xib */; };
+		476B7F2E1ACD0EE9004FAF35 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B7F2D1ACD0EE9004FAF35 /* ControllerType.swift */; };
+		477079161ACD35F10029BF8C /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477079151ACD35F10029BF8C /* MailViewController.swift */; };
+		477079181ACD362A0029BF8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477079171ACD362A0029BF8C /* MessageUI.framework */; };
+		4770791A1ACD41830029BF8C /* DisplayUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477079191ACD41830029BF8C /* DisplayUnitViewController.swift */; };
 		47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		47815A211AC3DDB400CB877B /* TWExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* TWExtension.swift */; };
 		47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A251AC3E6C100CB877B /* FontPickerViewController.swift */; };
+		479BDD031ACCDFA100A50CAD /* settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 479BDD021ACCDFA100A50CAD /* settings-50.png */; };
+		479BDD051ACCE00A00A50CAD /* settings-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 479BDD041ACCE00A00A50CAD /* settings-32.png */; };
+		479BDD071ACCE01200A50CAD /* settings-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 479BDD061ACCE01200A50CAD /* settings-25.png */; };
 		47AE03051AC5052300269B11 /* setting-font.png in Resources */ = {isa = PBXBuildFile; fileRef = 47AE03011AC5052300269B11 /* setting-font.png */; };
 		47AE03061AC5052300269B11 /* settings-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 47AE03021AC5052300269B11 /* settings-filled.png */; };
 		47AE03071AC5052300269B11 /* setings-nofilled.png in Resources */ = {isa = PBXBuildFile; fileRef = 47AE03031AC5052300269B11 /* setings-nofilled.png */; };
@@ -101,7 +107,6 @@
 		4763A70D1AC3A09700FF7F3D /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4763A70F1AC3A09700FF7F3D /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
-		4763A7101AC3A09700FF7F3D /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		4763A71A1AC3A5CD00FF7F3D /* TimerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TimerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4763A71C1AC3A5CD00FF7F3D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4763A7201AC3A5CD00FF7F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +116,14 @@
 		4763A72D1AC3A5F600FF7F3D /* TimerExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimerExtension.entitlements; sourceTree = "<group>"; };
 		47668B951ACBA2200037736B /* URLUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
 		47668B971ACBDC750037736B /* RootCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootCell.xib; sourceTree = "<group>"; };
+		476B7F2D1ACD0EE9004FAF35 /* ControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
+		477079151ACD35F10029BF8C /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
+		477079171ACD362A0029BF8C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		477079191ACD41830029BF8C /* DisplayUnitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayUnitViewController.swift; sourceTree = "<group>"; };
 		47815A251AC3E6C100CB877B /* FontPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
+		479BDD021ACCDFA100A50CAD /* settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-50.png"; sourceTree = "<group>"; };
+		479BDD041ACCE00A00A50CAD /* settings-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-32.png"; sourceTree = "<group>"; };
+		479BDD061ACCE01200A50CAD /* settings-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-25.png"; sourceTree = "<group>"; };
 		47AE03011AC5052300269B11 /* setting-font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-font.png"; sourceTree = "<group>"; };
 		47AE03021AC5052300269B11 /* settings-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-filled.png"; sourceTree = "<group>"; };
 		47AE03031AC5052300269B11 /* setings-nofilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setings-nofilled.png"; sourceTree = "<group>"; };
@@ -126,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				477079181ACD362A0029BF8C /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +210,7 @@
 		4763A71B1AC3A5CD00FF7F3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				477079171ACD362A0029BF8C /* MessageUI.framework */,
 				4763A71C1AC3A5CD00FF7F3D /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -233,6 +247,8 @@
 				47815A251AC3E6C100CB877B /* FontPickerViewController.swift */,
 				473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */,
 				473F72111AC3FD35002A0486 /* LinePickerViewController.swift */,
+				477079151ACD35F10029BF8C /* MailViewController.swift */,
+				477079191ACD41830029BF8C /* DisplayUnitViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -240,7 +256,6 @@
 		47815A231AC3E66900CB877B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				4763A7101AC3A09700FF7F3D /* UserDataManager.swift */,
 				4760FFDC1AC3A8CB00421609 /* DateUtils.swift */,
 				47668B951ACBA2200037736B /* URLUtils.swift */,
 			);
@@ -260,6 +275,9 @@
 		47AE02FC1AC5035800269B11 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				479BDD061ACCE01200A50CAD /* settings-25.png */,
+				479BDD041ACCE00A00A50CAD /* settings-32.png */,
+				479BDD021ACCDFA100A50CAD /* settings-50.png */,
 				47AE03011AC5052300269B11 /* setting-font.png */,
 				47AE03021AC5052300269B11 /* settings-filled.png */,
 				47AE03031AC5052300269B11 /* setings-nofilled.png */,
@@ -275,6 +293,7 @@
 				47DF9B781ACA6996007F90BD /* TWConstants.swift */,
 				47DF9B7A1ACA6D17007F90BD /* TWSettingManager.swift */,
 				47DF9B7C1ACA6D34007F90BD /* TWDataManager.swift */,
+				476B7F2D1ACD0EE9004FAF35 /* ControllerType.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -378,8 +397,11 @@
 				47AE03051AC5052300269B11 /* setting-font.png in Resources */,
 				4763A6F71AC3A03A00FF7F3D /* LaunchScreen.xib in Resources */,
 				47AE03061AC5052300269B11 /* settings-filled.png in Resources */,
+				479BDD071ACCE01200A50CAD /* settings-25.png in Resources */,
 				4763A6F41AC3A03A00FF7F3D /* Images.xcassets in Resources */,
 				47AE03081AC5052300269B11 /* setting-update.png in Resources */,
+				479BDD031ACCDFA100A50CAD /* settings-50.png in Resources */,
+				479BDD051ACCE00A00A50CAD /* settings-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,14 +429,16 @@
 				4763A7111AC3A09700FF7F3D /* CreateViewController.swift in Sources */,
 				47DF9B7D1ACA6D34007F90BD /* TWDataManager.swift in Sources */,
 				47DF9B7B1ACA6D17007F90BD /* TWSettingManager.swift in Sources */,
+				477079161ACD35F10029BF8C /* MailViewController.swift in Sources */,
 				473BE7851ACA65D5009DB9BC /* Record.swift in Sources */,
 				473F72121AC3FD35002A0486 /* LinePickerViewController.swift in Sources */,
+				4770791A1ACD41830029BF8C /* DisplayUnitViewController.swift in Sources */,
 				4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */,
 				47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */,
-				4763A7151AC3A09700FF7F3D /* UserDataManager.swift in Sources */,
 				4763A6EA1AC3A03900FF7F3D /* AppDelegate.swift in Sources */,
 				4760FFE11AC3B95000421609 /* TWExtension.swift in Sources */,
 				4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */,
+				476B7F2E1ACD0EE9004FAF35 /* ControllerType.swift in Sources */,
 				4763A6ED1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld in Sources */,
 				4763A7131AC3A09700FF7F3D /* SettingViewController.swift in Sources */,
 			);

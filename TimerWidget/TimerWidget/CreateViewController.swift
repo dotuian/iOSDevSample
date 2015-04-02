@@ -12,18 +12,32 @@ import UIKit
 let dataManager = TWDataManager()
 
 class CreateViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+    // 默认为创建新的记录
+    var flag = ControllerType.Create
 
-    // 有值,编辑 无值,新建
-    var record : Record?
-
+    // 当前编辑的记录对象
+    var record : Record = Record()
 
     var tableView : UITableView!
 
     var datePickerTitleIndexPath : NSIndexPath!
 
+    // 数据收集的UI
+    var titleTextField : UITextField!
+    var dayUnitSwitch : UISwitch!
+    var datepicker : UIDatePicker!
+    var displaySwitch : UISwitch!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 初始化页面控件
+        self.initSubViews()
+        // DatePickerCell
+        datePickerTitleIndexPath = NSIndexPath(forRow: 1, inSection: 1)
+    }
 
+    func initSubViews(){
         self.view.backgroundColor = UIColor.whiteColor()
 
         // 导航栏按钮
@@ -32,18 +46,14 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         self.navigationItem.rightBarButtonItem = doneItem
         self.navigationItem.leftBarButtonItem = cancelItem
 
-        // 
+        //
         tableView = UITableView(frame: self.view.bounds, style : UITableViewStyle.Grouped)
         tableView.delegate = self
         tableView.dataSource = self
-
         self.view.addSubview(tableView)
 
-        // 监视日期的选择
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateDateAndTime:", name: TWConstants.NS_UPDATE_DATE, object: nil)
-
-        // DatePickerCell
-        datePickerTitleIndexPath = NSIndexPath(forRow: 0, inSection: 1)
+        // 隐藏工具栏
+        self.navigationController?.toolbarHidden = true
     }
 
     // ============================
@@ -52,7 +62,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     // 新建/编辑取消
     func hanlderCancelItem(){
         // 返回到主页面
-        if self.record == nil {
+        if self.flag == .Create {
             self.dismissViewControllerAnimated(true, completion: nil)
         } else {
             self.navigationController?.popViewControllerAnimated(true)
@@ -61,50 +71,28 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
     // 新建/编辑保存
     func hanlderDoneItem(){
-        let titleTextField = self.tableView.viewWithTag(101) as UITextField
-        let datePickerCell = self.tableView.viewWithTag(102) as UITableViewCell
-        let displayCell = self.tableView.viewWithTag(104) as UISwitch
+        // 隐藏键盘
+        if titleTextField.isFirstResponder() {
+            titleTextField.resignFirstResponder()
+        }
 
-        var title = titleTextField.text!
-        var date = datePickerCell.detailTextLabel?.text!
-        var display = displayCell.on
+        self.record.title = titleTextField.text
 
-        if self.record == nil {
+        if self.flag == .Create {
             // 添加新纪录
-            let data = Record(title: title, date: DateUtils.toDate(date!)!, display: display)
+            if !record.title.isEmpty {
+                dataManager.insert(self.record)
+            }
 
-            dataManager.insert(data)
-        } else {
-            // 保存修改的数据
-            self.record!.title = title
-            self.record!.date = DateUtils.toDate(date!)!
-            self.record!.display = displayCell.on
-
-            dataManager.updateForRecord(self.record!)
-        }
-
-        if let textFiled = self.tableView.viewWithTag(101) as? UITextField {
-            textFiled.resignFirstResponder()
-        }
-
-        // 返回到主页面
-        if self.record == nil {
             self.dismissViewControllerAnimated(true, completion: nil)
         } else {
+            // 保存修改的数据
+            if !record.title.isEmpty {
+                dataManager.updateForRecord(self.record)
+            }
+
             self.navigationController?.popViewControllerAnimated(true)
         }
-    }
-
-    func updateDateAndTime(notification : NSNotification){
-        let userInfo = notification.userInfo as Dictionary<String, NSDate>
-
-        var date = NSDate()
-        if let temp = userInfo["date"] {
-            date = temp as NSDate
-        }
-
-        let cell = self.tableView.viewWithTag(102) as UITableViewCell
-        cell.detailTextLabel?.text =  DateUtils.toString(date)
     }
 
     // ============================
@@ -120,9 +108,9 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             return 1
         }
 
-        var number = 2
+        var number = 4
         if self.datePickerTitleIndexPath.section == section && self.indexPathOfVisibleDatePicker != nil {
-            return number + 1
+           number += 1
         }
 
         return number
@@ -131,7 +119,8 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     // 行高
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
-        let datePickerCellIndexPath = NSIndexPath(forRow: self.datePickerTitleIndexPath.row + 1 , inSection: datePickerTitleIndexPath.section)
+        let datePickerCellIndexPath = self.datePickerTitleIndexPath.next
+
         // UIDatePicker所在TableViewCell的行高
         if self.indexPathOfVisibleDatePicker != nil && datePickerCellIndexPath.isEqual(indexPath){
             return 216
@@ -150,7 +139,12 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             var cell = tableView.dequeueReusableCellWithIdentifier(identifer) as? TWDatePickerCell
             if cell == nil {
                 cell = TWDatePickerCell(style: UITableViewCellStyle.Default, reuseIdentifier: identifer)
-                cell?.datepicker.addTarget(self, action: "valueChangedInDatePicker:", forControlEvents: UIControlEvents.ValueChanged)
+
+                self.datepicker = cell?.datepicker
+                self.datepicker.date = self.record.date
+                self.datepicker.datePickerMode = record.dayUnit ? UIDatePickerMode.Date : UIDatePickerMode.DateAndTime
+
+                self.datepicker.addTarget(self, action: "datePickerValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
             }
 
             return cell!
@@ -166,85 +160,88 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
             if indexPath.section == 0 && indexPath.row == 0 {
                 // 标题
-                let titleTextField = UITextField(frame: cell!.frame)
+                titleTextField = UITextField(frame: cell!.frame)
                 titleTextField.placeholder = "标题"
-                titleTextField.tag = 101
 
                 let paddingView = UIView(frame: CGRectMake(0, 0, 10, 20))
                 titleTextField.leftView = paddingView; // 左视图,提供padding的功能
                 titleTextField.leftViewMode = UITextFieldViewMode.Always;
-
                 titleTextField.textColor = UIColor.redColor() // 文本颜色
                 titleTextField.textAlignment = NSTextAlignment.Left // 文本对齐方式
                 titleTextField.autocapitalizationType = UITextAutocapitalizationType.None // 自动大写类型
-                titleTextField.keyboardType = UIKeyboardType.NamePhonePad  // 键盘类型
+                titleTextField.keyboardType = UIKeyboardType.ASCIICapable  // 键盘类型
                 titleTextField.returnKeyType = UIReturnKeyType.Done
-
-                cell?.contentView.addSubview(titleTextField)
-
+                titleTextField.enabled = true
+                // 设置标题的值
+                titleTextField.text = record.title
+                // 编辑完成之后隐藏键盘
                 titleTextField.addTarget(self, action: "hiddenKeyBoard:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
 
-
-                // 设置标题的值
-                if record != nil {
-                    titleTextField.text = record!.title
-                } else {
-                    // 成为第一响应者
-                    // 在进入添加页面是,弹出键盘
+                // 新建记录的情况下,自己弹出键盘
+                if self.flag == .Create {
                     titleTextField.becomeFirstResponder()
                 }
 
+                cell?.contentView.addSubview(titleTextField)
+
             } else if indexPath.section == 1 && indexPath.row == 0 {
-                // 日期
-                cell?.textLabel!.text = "日期"
-                cell?.tag = 102
 
-                cell?.detailTextLabel!.text = DateUtils.toString(NSDate())
+                cell?.textLabel!.text = "以天为单位"
+                cell?.selectionStyle = UITableViewCellSelectionStyle.None
 
-                // 设置值
-                if record != nil {
-                    cell?.detailTextLabel!.text = DateUtils.toString(record!.date)
-                }
+                dayUnitSwitch = UISwitch()
+                dayUnitSwitch.on = self.record.dayUnit
+                dayUnitSwitch.addTarget(self, action: "dayUnitSwitchValuedChange:", forControlEvents: UIControlEvents.ValueChanged)
+
+                cell?.accessoryView = dayUnitSwitch
 
             } else if indexPath.section == 1 && indexPath.row == 1 {
+                // 日期
+                cell?.textLabel!.text = "日期"
+
+                // 日期格式
+                let dateFormat = self.record.dayUnit ? DateUtils.DATE_FOMART.DATE_ONLY : DateUtils.DATE_FOMART.DATE_AND_TIME
+                // 设置日期
+                cell?.detailTextLabel!.text = DateUtils.toString(self.record.date, dateFormat: dateFormat)
+
+            } else if indexPath.section == 1 && indexPath.row == 2 {
                 //
                 cell?.textLabel!.text = "通知中心表示"
-                cell?.detailTextLabel!.text = "非表示"
-                cell?.tag = 103
+                cell?.selectionStyle = UITableViewCellSelectionStyle.None
 
-                let display = UISwitch()
-                display.tag = 104
-                display.addTarget(self, action: "valueChangedInSwitch:", forControlEvents: UIControlEvents.ValueChanged)
+                let displaySwitch = UISwitch()
+                displaySwitch.addTarget(self, action: "displaySwitchValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
 
-                cell?.accessoryView = display
+                cell?.accessoryView = displaySwitch
 
                 // 设置值
-                if record != nil {
-                    display.setOn(record!.display, animated: true)
-
-                    if record!.display {
-                        cell?.detailTextLabel!.text = "表示"
-                    }
-                }
+                displaySwitch.setOn(record.display, animated: true)
+            } else if indexPath.section == 1 && indexPath.row == 3 {
+                // 表示格式选择
+                cell?.textLabel!.text = "表示格式"
+                cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             }
-
             return cell!
         }
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // 取消Cell的选择
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
+        // 显示/隐藏日期选择器
         if self.datePickerTitleIndexPath.isEqual(indexPath){
             self.toggleDatePickerForRowAtIndexPath(indexPath)
         }
 
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
         // 收起键盘
         if(indexPath.section == 1) {
-            if let textField = tableView.viewWithTag(101) as? UITextField {
-                textField.resignFirstResponder()
-            }
+            self.titleTextField.resignFirstResponder()
+        }
+
+        if(indexPath.section == 1 && indexPath.row == 3) {
+            let controller = DisplayUnitViewController()
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
 
@@ -257,7 +254,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
         tableView.beginUpdates()
 
-        let datePickerIndexPath = NSIndexPath(forRow: indexPath.row + 1, inSection: indexPath.section)
+        let datePickerIndexPath = indexPath.next
 
         if self.indexPathOfVisibleDatePicker == nil {
             // 创建   
@@ -275,45 +272,45 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
             tableView.deleteRowsAtIndexPaths([datePickerIndexPath], withRowAnimation: UITableViewRowAnimation.Middle)
 
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if cell != nil {
-                cell!.detailTextLabel?.textColor = UIColor.blueColor()
-            }
-        } else {
-
         }
 
         tableView.endUpdates()
-
     }
 
     //=======================================
     //
     //=======================================
-    func valueChangedInDatePicker(datepicker : UIDatePicker){
+    func datePickerValueChanged(datepicker : UIDatePicker){
         let indexPath = NSIndexPath(forRow: self.indexPathOfVisibleDatePicker!.row - 1, inSection: self.indexPathOfVisibleDatePicker!.section)
 
         if let cell : UITableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) {
-            cell.detailTextLabel!.text = DateUtils.toString(datepicker.date, dateFormat: DateUtils.DATE_FOMART.DATE_AND_TIME)
+            cell.detailTextLabel!.text = self.record.strDate
+
+            record.date = datepicker.date
         }
     }
 
-
-    func valueChangedInSwitch(s : UISwitch) {
-        if let cell = tableView.viewWithTag(103) as? UITableViewCell {
-            cell.detailTextLabel!.text = s.on ? "表示" : "非表示"
-        }
+    func displaySwitchValueChanged(displaySwitch : UISwitch) {
+        self.record.display = displaySwitch.on
     }
 
+    func dayUnitSwitchValuedChange(daySwitch : UISwitch) {
+        self.record.dayUnit = daySwitch.on
+
+        // 更新DatePicker的日期模式
+        if self.datepicker != nil {
+            self.datepicker.datePickerMode = daySwitch.on ? UIDatePickerMode.Date : UIDatePickerMode.DateAndTime
+        }
+
+        // 更新日期的内容
+        let indexPath = NSIndexPath(forRow: 1, inSection: 1)
+        if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
+            cell.detailTextLabel!.text = self.record.strDate
+        }
+    }
 
     func hiddenKeyBoard(textField : UITextField) {
         // 取消第一响应者,隐藏键盘
         textField.resignFirstResponder()
     }
-
-    func controlTap(control : UIControl){
-        println("controlTap")
-        control.becomeFirstResponder()
-    }
-
 }

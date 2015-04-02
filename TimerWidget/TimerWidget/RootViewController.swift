@@ -27,17 +27,16 @@ class RootViewController : UITableViewController {
         let createItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "hanlderCreateItem")
         let spaceItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         // 设置按钮
-        let settingItem = UIBarButtonItem(title: "\u{2699}", style: UIBarButtonItemStyle.Plain, target: self, action: "hanlderSettingItem")
-        if let font = UIFont(name: "Helvetica", size: 25) {
-            settingItem.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-        }
+        let settingItem = UIBarButtonItem(image: UIImage(named: "settings-25"), style: UIBarButtonItemStyle.Plain, target: self, action: "hanlderSettingItem")
 
         self.toolbarItems = [createItem, spaceItem, settingItem]
 
         // 在下一页面不显示底部
         self.hidesBottomBarWhenPushed = true
 
-        //
+        // 行高
+        self.tableView.rowHeight = 75
+
         self.initSettingData()
     }
 
@@ -64,23 +63,19 @@ class RootViewController : UITableViewController {
 
         // 显示工具栏
         self.navigationController?.toolbarHidden = false
-
         // 重新加载数据之前,先清空之前保存的数据
         self.dataList.removeAll(keepCapacity: true)
-
         // 获取数据
-
         self.dataList = dataManager.getAllData()
-
-        println("用户数据 ==========>>>>> \(self.dataList)")
-
         // 刷新TableView
         self.tableView.reloadData()
     }
 
     // 跳转到添加页面
     func hanlderCreateItem(){
-        let vc = UINavigationController(rootViewController: CreateViewController())
+        let createViewController = CreateViewController()
+        createViewController.flag = ControllerType.Create
+        let vc = UINavigationController(rootViewController: createViewController)
         self.presentViewController(vc, animated: true, completion: nil)
     }
 
@@ -117,14 +112,6 @@ class RootViewController : UITableViewController {
         var record = self.dataList[indexPath.row]
 
         cell!.record = record
-        cell!.textLabel!.text = record.title
-
-        // 字体的设置
-        let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
-        cell!.detailTextLabel!.font = currentFont
-        // 颜色的设置
-        let currentColor = settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) as UIColor
-        cell!.detailTextLabel!.textColor = currentColor
 
         return cell!
     }
@@ -146,6 +133,7 @@ class RootViewController : UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
         let editViewController = CreateViewController()
+        editViewController.flag = .Edit
         editViewController.record = self.dataList[indexPath.row]
 
         self.navigationController?.pushViewController(editViewController, animated: true)

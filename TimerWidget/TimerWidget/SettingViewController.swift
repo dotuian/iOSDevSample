@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
 protocol UpdateSettingDelegate {
     func updateFont(tag:Int, fontName:String);
@@ -19,9 +20,10 @@ protocol UpdateSettingDelegate {
 
 let settingManager = TWSettingManager()
 
-class SettingViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateSettingDelegate{
+class SettingViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateSettingDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate{
 
     var titles = [[String]]()
+    var sectionHeader = [String]()
 
     var tableView : UITableView!
 
@@ -45,31 +47,19 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
 
         self.titles = [
             ["字体", "颜色"],
-            ["显示行数"]
+            ["显示行数"],
+            ["发送邮件", "发送短信"]
         ]
 
+        self.sectionHeader = [
+            "应用程序",
+            "通知中心",
+            "联系我们"
+        ]
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
-//        // 系统中配置信息
-//        let dataManager = UserDataManager()
-//        // 字体
-//        if let fontname = dataManager.userDefaults.stringForKey(SETTING_FONTNAME) {
-//            setting[SETTING_FONTNAME] = fontname
-//        }
-//        // 颜色
-//        let temp = dataManager.userDefaults.objectForKey(SETTING_TEXT_COLOR) as? NSData
-//        if let color = temp {
-//            let c = NSKeyedUnarchiver.unarchiveObjectWithData(color) as? UIColor
-//            setting[SETTING_TEXT_COLOR] = c
-//        }
-//        // 显示行数
-//        if let row = dataManager.userDefaults.stringForKey(SETTING_SHOW_ROW) {
-//            setting[SETTING_SHOW_ROW] = row
-//        }
-
     }
 
     func handlerSettingItem(){
@@ -126,6 +116,12 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
             }
         }
 
+        if indexPath.section == 2 {
+            // 联系我们
+            if indexPath.row == 0 {
+
+            }
+        }
 
         // 箭头
         cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -136,12 +132,7 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
     }
 
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "应用程序"
-        } else if section == 1 {
-            return "通知中心"
-        }
-        return ""
+        return self.sectionHeader[section]
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -178,21 +169,119 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
                 lineVC.delegate = self
                 self.navigationController?.pushViewController(lineVC, animated: true)
 
-
-                println()
-
             default:
                 println()
             }
         }
 
+
+        if indexPath.section == 2 {
+            switch(indexPath.row) {
+            case 0 : // 发送邮件
+                let mailComposeViewController = configuredMailComposeViewController()
+                if MFMailComposeViewController.canSendMail() {
+                    self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+                } else {
+                    let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email",
+                        message: "Your device could not send e-mail.  Please check e-mail configuration and try again.",
+                        delegate: self, cancelButtonTitle: "OK")
+                    sendMailErrorAlert.show()
+                }
+
+            case 1: // 发送短信
+                let messageComposeViewController = configuredSMSComposeViewController()
+                if MFMessageComposeViewController.canSendText() {
+                    self.presentViewController(messageComposeViewController, animated: true, completion: nil)
+                } else {
+                    let sendSMSErrorAlert = UIAlertView(title: "Could Not Send SMS",
+                        message: "Your device could not send sms text.",
+                        delegate: self, cancelButtonTitle: "OK")
+                    sendSMSErrorAlert.show()
+                }
+
+            default:
+                println()
+            }
+
+        }
+
         // 取消当前选中当前行
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
     }
 
+    // =========================
+    // 发送邮件
+    // =========================
+    func configuredMailComposeViewController() -> MFMailComposeViewController{
+        var toRecipients = ["dotuian@outlook.com"]
+
+        var mailViewController = MFMailComposeViewController()
+        mailViewController.mailComposeDelegate = self
+
+        mailViewController.setSubject("Bug Report")
+        mailViewController.setToRecipients(toRecipients)
+        mailViewController.setMessageBody("thanks for your feedback. ", isHTML: false)
+
+        return mailViewController
+    }
+
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Email Send Cancelled")
+            break
+        case MFMailComposeResultSaved.value:
+            println("Email Saved as a Draft")
+            break
+        case MFMailComposeResultSent.value:
+            println("Email Sent Successfully")
+            break
+        case MFMailComposeResultFailed.value:
+            println("Email Send Failed")
+            break
+        default:
+            break
+        }
+
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+
+    // =========================
+    // 发送短信
+    // =========================
+    func configuredSMSComposeViewController() -> MFMessageComposeViewController {
+        let messageViewController = MFMessageComposeViewController()
+        messageViewController.messageComposeDelegate = self
+        messageViewController.recipients = ["dotuian@outlook.com"]
+        messageViewController.body = "thanks for your feedback."
+
+        return messageViewController
+    }
+
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+
+        switch result.value {
+            case MFMailComposeResultCancelled.value:
+                println("Email Send Cancelled")
+                break
+            case MFMailComposeResultSaved.value:
+                println("Email Saved as a Draft")
+                break
+            case MFMailComposeResultSent.value:
+                println("Email Sent Successfully")
+                break
+            case MFMailComposeResultFailed.value:
+                println("Email Send Failed")
+                break
+            default:
+                break
+        }
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+
+
     // ==========================================
-    //
+    // 自定义代理方法
     // ==========================================
     func updateFont(tag : Int, fontName : String){
         let cell = self.tableView.viewWithTag(tag) as? UITableViewCell

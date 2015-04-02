@@ -52,14 +52,14 @@ class FontPickerViewContrller : UIViewController, UITableViewDataSource, UITable
         }
 
         let fontName = self.fonts[indexPath.row]
-        let font = UIFont(name: fontName, size: CGFloat(12))!
+        let font = UIFont(name: fontName, size: CGFloat(15))
         cell?.textLabel!.text = fontName
-        cell?.textLabel!.font = font
+        cell?.textLabel!.font = font!
         cell?.accessoryType = UITableViewCellAccessoryType.None
 
         //
         let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as UIFont
-        if font.fontName == currentFont.fontName {
+        if font!.fontName == currentFont.fontName {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
         return cell!
@@ -72,8 +72,6 @@ class FontPickerViewContrller : UIViewController, UITableViewDataSource, UITable
         //
         self.navigationController?.popViewControllerAnimated(true)
     }
-
-
 
 
 }
