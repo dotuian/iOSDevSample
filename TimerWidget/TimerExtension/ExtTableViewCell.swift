@@ -30,7 +30,7 @@ class ExtTableViewCell : UITableViewCell {
 
     func updateContent(){
         if record != nil {
-            self.textLabel!.text = record!.title + " 已经 " + record!.description
+            self.textLabel!.text = record!.title + " 已经 " + record!.datediff
         }
     }
 

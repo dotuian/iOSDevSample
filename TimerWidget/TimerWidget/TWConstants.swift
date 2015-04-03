@@ -24,6 +24,8 @@ struct TWConstants {
 
     // 通知中心
     static let NS_UPDATE_DATE = "NS_UPDATE_DATE"
+    static let NS_UPDATE_COLOR = "NS_UPDATE_COLOR"
+    static let NS_UPDATE_FORMAT = "NS_UPDATE_FORMAT"
 
     // 表示格式
     static let DISPLAY_FORMAT = [
@@ -35,4 +37,7 @@ struct TWConstants {
         "6" : "年月日 时分",
         "7" : "年月日 时分秒",
     ]
+
+
+
 }

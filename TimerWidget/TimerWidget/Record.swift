@@ -16,7 +16,9 @@ class Record : NSObject, NSCoding{
     var display : Bool = false
     var dayUnit : Bool = true
 
-    var displayFormat : String = ""
+    var format : String = "日"
+
+    var color : String = "Blue"
 
     override init(){
         self.id = NSDate.timeIntervalSinceReferenceDate()
@@ -38,7 +40,8 @@ class Record : NSObject, NSCoding{
         self.date = aDecoder.decodeObjectForKey("date") as NSDate
         self.display = aDecoder.decodeBoolForKey("display")
         self.dayUnit = aDecoder.decodeBoolForKey("dayUnit")
-        self.displayFormat = aDecoder.decodeObjectForKey("displayFormat") as String
+        self.format = aDecoder.decodeObjectForKey("format") as String
+        self.color = aDecoder.decodeObjectForKey("color") as String
     }
 
     // 编码
@@ -49,15 +52,24 @@ class Record : NSObject, NSCoding{
         aCoder.encodeObject(date, forKey: "date")
         aCoder.encodeBool(display, forKey: "display")
         aCoder.encodeBool(dayUnit, forKey: "dayUnit")
-        aCoder.encodeObject(displayFormat, forKey : "displayFormat")
+        aCoder.encodeObject(format, forKey : "format")
+        aCoder.encodeObject(color, forKey : "color")
     }
 
     override var description : String {
-        if self.dayUnit {
-            return DateUtils.getDateDiffForDays(self.date, toDate: NSDate())
-        } else {
-            return DateUtils.getDateDiffForSeconds(self.date, toDate: NSDate())
-        }
+        var str = "ID : \(self.id)"
+        str += " | title : \(self.title)"
+        str += " | date : \(self.date)"
+        str += " | display : \(self.display)"
+        str += " | dayUnit : \(self.dayUnit)"
+        str += " | format : \(self.format)"
+        str += " | color : \(self.color)"
+
+        return str
+    }
+
+    var datediff : String {
+        return DateUtils.getDateDiff(self.date, toDate: NSDate(), format: self.format)
     }
 
     var strDate : String {

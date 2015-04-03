@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>format</key>
+	<dict>
+		<key>1</key>
+		<string>秒</string>
+		<key>2</key>
+		<string>日</string>
+		<key>3</key>
+		<string>年月日</string>
+		<key>4</key>
+		<string>年月日 时</string>
+		<key>5</key>
+		<string>年月日 时分</string>
+		<key>6</key>
+		<string>年月日 时分秒</string>
+	</dict>
+</dict>
+</plist>

@@ -58,11 +58,15 @@ class TimerTableViewCell : UITableViewCell {
     }
 
     func updateContent(){
+        println(record)
+
         if let data = record {
+
             self.textLabel!.text = data.title
             self.detailTextLabel!.text = data.strDate
 
-            self.contentLabel.text = data.description
+            self.contentLabel.text = data.datediff
+            self.contentLabel.textColor = UIColor.getColorWithName(data.color)
         }
     }
 

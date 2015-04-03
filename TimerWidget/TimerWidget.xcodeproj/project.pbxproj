@@ -12,6 +12,7 @@
 		473BE7851ACA65D5009DB9BC /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BE7841ACA65D5009DB9BC /* Record.swift */; };
 		473F72101AC3F66E002A0486 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */; };
 		473F72121AC3FD35002A0486 /* LinePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F72111AC3FD35002A0486 /* LinePickerViewController.swift */; };
+		474001681ACE5EC900034D4A /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EAA90B1ACE420D008B30D6 /* data.plist */; };
 		4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */; };
 		4760FFE11AC3B95000421609 /* TWExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* TWExtension.swift */; };
@@ -33,7 +34,7 @@
 		476B7F2E1ACD0EE9004FAF35 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B7F2D1ACD0EE9004FAF35 /* ControllerType.swift */; };
 		477079161ACD35F10029BF8C /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477079151ACD35F10029BF8C /* MailViewController.swift */; };
 		477079181ACD362A0029BF8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477079171ACD362A0029BF8C /* MessageUI.framework */; };
-		4770791A1ACD41830029BF8C /* DisplayUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477079191ACD41830029BF8C /* DisplayUnitViewController.swift */; };
+		4770791A1ACD41830029BF8C /* FormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477079191ACD41830029BF8C /* FormatViewController.swift */; };
 		47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		47815A211AC3DDB400CB877B /* TWExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* TWExtension.swift */; };
 		47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A251AC3E6C100CB877B /* FontPickerViewController.swift */; };
@@ -51,6 +52,9 @@
 		47DF9B7F1ACA6D98007F90BD /* TWConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF9B781ACA6996007F90BD /* TWConstants.swift */; };
 		47DF9B801ACA6D98007F90BD /* TWSettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF9B7A1ACA6D17007F90BD /* TWSettingManager.swift */; };
 		47DF9B811ACA6D98007F90BD /* TWDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF9B7C1ACA6D34007F90BD /* TWDataManager.swift */; };
+		47EAA90E1ACE438F008B30D6 /* PDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EAA90D1ACE438F008B30D6 /* PDataUtils.swift */; };
+		47EF8AE11ACE6EC900C5D4DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47EF8AE31ACE6EC900C5D4DF /* Localizable.strings */; };
+		47F2955F1ACE271500F3ACD9 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F2955E1ACE271500F3ACD9 /* ColorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,7 +123,7 @@
 		476B7F2D1ACD0EE9004FAF35 /* ControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		477079151ACD35F10029BF8C /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
 		477079171ACD362A0029BF8C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		477079191ACD41830029BF8C /* DisplayUnitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayUnitViewController.swift; sourceTree = "<group>"; };
+		477079191ACD41830029BF8C /* FormatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatViewController.swift; sourceTree = "<group>"; };
 		47815A251AC3E6C100CB877B /* FontPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 		479BDD021ACCDFA100A50CAD /* settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-50.png"; sourceTree = "<group>"; };
 		479BDD041ACCE00A00A50CAD /* settings-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-32.png"; sourceTree = "<group>"; };
@@ -131,6 +135,16 @@
 		47DF9B781ACA6996007F90BD /* TWConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWConstants.swift; sourceTree = "<group>"; };
 		47DF9B7A1ACA6D17007F90BD /* TWSettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSettingManager.swift; sourceTree = "<group>"; };
 		47DF9B7C1ACA6D34007F90BD /* TWDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWDataManager.swift; sourceTree = "<group>"; };
+		47EAA90B1ACE420D008B30D6 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		47EAA90D1ACE438F008B30D6 /* PDataUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDataUtils.swift; sourceTree = "<group>"; };
+		47EF8ADD1ACE6DF600C5D4DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		47EF8ADE1ACE6DF600C5D4DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		47EF8AE21ACE6EC900C5D4DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		47EF8AE61ACE6EE600C5D4DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		47EF8AE71ACE6F0100C5D4DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		47EF8AE81ACE6F0100C5D4DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		47EF8AE91ACE6F0100C5D4DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		47F2955E1ACE271500F3ACD9 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,8 +215,10 @@
 		4763A6E71AC3A03900FF7F3D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				47AE02FC1AC5035800269B11 /* icons */,
+				47EF8AE31ACE6EC900C5D4DF /* Localizable.strings */,
 				4763A6E81AC3A03900FF7F3D /* Info.plist */,
+				47EAA90B1ACE420D008B30D6 /* data.plist */,
+				47AE02FC1AC5035800269B11 /* icons */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -248,7 +264,8 @@
 				473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */,
 				473F72111AC3FD35002A0486 /* LinePickerViewController.swift */,
 				477079151ACD35F10029BF8C /* MailViewController.swift */,
-				477079191ACD41830029BF8C /* DisplayUnitViewController.swift */,
+				477079191ACD41830029BF8C /* FormatViewController.swift */,
+				47F2955E1ACE271500F3ACD9 /* ColorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -258,6 +275,7 @@
 			children = (
 				4760FFDC1AC3A8CB00421609 /* DateUtils.swift */,
 				47668B951ACBA2200037736B /* URLUtils.swift */,
+				47EAA90D1ACE438F008B30D6 /* PDataUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -374,6 +392,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 4763A6DB1AC3A03900FF7F3D;
 			productRefGroup = 4763A6E51AC3A03900FF7F3D /* Products */;
@@ -391,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474001681ACE5EC900034D4A /* data.plist in Resources */,
 				47AE03071AC5052300269B11 /* setings-nofilled.png in Resources */,
 				47668B981ACBDC760037736B /* RootCell.xib in Resources */,
 				4763A6F21AC3A03A00FF7F3D /* Main.storyboard in Resources */,
@@ -399,6 +419,7 @@
 				47AE03061AC5052300269B11 /* settings-filled.png in Resources */,
 				479BDD071ACCE01200A50CAD /* settings-25.png in Resources */,
 				4763A6F41AC3A03A00FF7F3D /* Images.xcassets in Resources */,
+				47EF8AE11ACE6EC900C5D4DF /* Localizable.strings in Resources */,
 				47AE03081AC5052300269B11 /* setting-update.png in Resources */,
 				479BDD031ACCDFA100A50CAD /* settings-50.png in Resources */,
 				479BDD051ACCE00A00A50CAD /* settings-32.png in Resources */,
@@ -432,14 +453,16 @@
 				477079161ACD35F10029BF8C /* MailViewController.swift in Sources */,
 				473BE7851ACA65D5009DB9BC /* Record.swift in Sources */,
 				473F72121AC3FD35002A0486 /* LinePickerViewController.swift in Sources */,
-				4770791A1ACD41830029BF8C /* DisplayUnitViewController.swift in Sources */,
+				4770791A1ACD41830029BF8C /* FormatViewController.swift in Sources */,
 				4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */,
 				47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */,
 				4763A6EA1AC3A03900FF7F3D /* AppDelegate.swift in Sources */,
 				4760FFE11AC3B95000421609 /* TWExtension.swift in Sources */,
 				4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */,
 				476B7F2E1ACD0EE9004FAF35 /* ControllerType.swift in Sources */,
+				47EAA90E1ACE438F008B30D6 /* PDataUtils.swift in Sources */,
 				4763A6ED1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld in Sources */,
+				47F2955F1ACE271500F3ACD9 /* ColorViewController.swift in Sources */,
 				4763A7131AC3A09700FF7F3D /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +497,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4763A6F11AC3A03A00FF7F3D /* Base */,
+				47EF8ADD1ACE6DF600C5D4DF /* zh-Hans */,
+				47EF8AE71ACE6F0100C5D4DF /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -482,8 +507,21 @@
 			isa = PBXVariantGroup;
 			children = (
 				4763A6F61AC3A03A00FF7F3D /* Base */,
+				47EF8ADE1ACE6DF600C5D4DF /* zh-Hans */,
+				47EF8AE81ACE6F0100C5D4DF /* ja */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		47EF8AE31ACE6EC900C5D4DF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47EF8AE21ACE6EC900C5D4DF /* zh-Hans */,
+				47EF8AE61ACE6EE600C5D4DF /* en */,
+				47EF8AE91ACE6F0100C5D4DF /* ja */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

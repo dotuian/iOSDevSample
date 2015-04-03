@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class DisplayUnitViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FormatViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView : UITableView!
     var dataList : [[String]]!
     var titleList : [String]!
 
-    var checkedIndexPath : NSIndexPath?
+    var currentFormat : String = "日"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class DisplayUnitViewController : UIViewController, UITableViewDelegate, UITable
     func initSubViews() {
         self.view.backgroundColor = UIColor.whiteColor()
 
-        let saveItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "save")
+        let saveItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "hanlderFormatChanged")
         self.navigationItem.rightBarButtonItem = saveItem
 
         tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Grouped)
@@ -42,12 +42,20 @@ class DisplayUnitViewController : UIViewController, UITableViewDelegate, UITable
         self.titleList = ["格式", "预览"]
 
         self.dataList = [
-            ["年月日","年月日 时分秒","日"],
+            ["日", "年月", "年月日", "年月日 时", "年月日 时分", "年月日 时分秒"],
             [""]
         ]
+
+        let obj: AnyObject? = PDataUtils.loadDataByKey("format")
+        println(obj)
     }
 
-    func save(){
+    func hanlderFormatChanged(){
+
+        let center = NSNotificationCenter.defaultCenter()
+        let dict = ["format" : self.currentFormat]
+        center.postNotificationName(TWConstants.NS_UPDATE_FORMAT, object: self, userInfo: dict)
+
         self.navigationController?.popViewControllerAnimated(true)
     }
 
@@ -66,18 +74,17 @@ class DisplayUnitViewController : UIViewController, UITableViewDelegate, UITable
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
             cell?.selectionStyle = UITableViewCellSelectionStyle.None
         }
-
-        // 选择已经选中的
-        if checkedIndexPath != nil && checkedIndexPath!.isEqual(indexPath) {
-            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-        } else {
-            cell?.accessoryType = UITableViewCellAccessoryType.None
-        }
+        cell?.accessoryType = UITableViewCellAccessoryType.None
 
         let section = indexPath.section
         let row = indexPath.row
 
         cell?.textLabel!.text = self.dataList[section][row]
+
+        // 选择已经选中的
+        if self.currentFormat == cell?.textLabel!.text {
+            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
 
         return cell!
     }
@@ -86,14 +93,8 @@ class DisplayUnitViewController : UIViewController, UITableViewDelegate, UITable
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
         if indexPath.section == 0 {
-//            let cell = tableView.cellForRowAtIndexPath(indexPath)
-//            if self.checkedIndexPath != indexPath {
-//                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-//            } else {
-//                cell?.accessoryType = UITableViewCellAccessoryType.None
-//            }
-
-            self.checkedIndexPath = indexPath
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            self.currentFormat = (cell!.textLabel!.text)!
         }
 
         tableView.reloadData()

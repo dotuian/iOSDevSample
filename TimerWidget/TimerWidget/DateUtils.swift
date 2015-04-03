@@ -83,9 +83,88 @@ class DateUtils : NSObject {
             }
             return str
         }
-        
         return ""
     }
+
+    class func getDateDiff(fromDate: NSDate, toDate : NSDate, format : String) -> String {
+        let gregorianCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+
+        if let calendar = gregorianCalendar {
+            // "日", "年月", "年月日", "年月日 时", "年月日 时分", "年月日 时分秒"
+
+            var unitFlags : NSCalendarUnit
+
+            switch format {
+                case "日" :
+                    unitFlags = NSCalendarUnit.CalendarUnitDay
+
+                case "年月" :
+                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                        NSCalendarUnit.CalendarUnitMonth
+
+                case "年月日" :
+                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                        NSCalendarUnit.CalendarUnitMonth |
+                        NSCalendarUnit.CalendarUnitDay
+
+                case "年月日 时" :
+                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                        NSCalendarUnit.CalendarUnitMonth |
+                        NSCalendarUnit.CalendarUnitDay |
+                        NSCalendarUnit.CalendarUnitHour
+
+                case "年月日 时分" :
+                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                        NSCalendarUnit.CalendarUnitMonth |
+                        NSCalendarUnit.CalendarUnitDay |
+                        NSCalendarUnit.CalendarUnitHour |
+                        NSCalendarUnit.CalendarUnitMinute
+
+                case "年月日 时分秒" :
+                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                        NSCalendarUnit.CalendarUnitMonth |
+                        NSCalendarUnit.CalendarUnitDay |
+                        NSCalendarUnit.CalendarUnitHour |
+                        NSCalendarUnit.CalendarUnitMinute |
+                        NSCalendarUnit.CalendarUnitSecond
+
+                default:
+                    unitFlags = NSCalendarUnit.CalendarUnitDay
+            }
+
+            let components = calendar.components(unitFlags, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.allZeros)
+
+
+            var str = ""
+            switch format {
+                case "日" :
+                    str = "\(components.day)日"
+
+                case "年月" :
+                    str = "\(components.year)年\(components.month)月"
+
+                case "年月日" :
+                    str = "\(components.year)年\(components.month)月\(components.day)日"
+
+                case "年月日 时" :
+                    str = "\(components.year)年\(components.month)月\(components.day)日 \(components.hour)时"
+
+                case "年月日 时分" :
+                    str = "\(components.year)年\(components.month)月\(components.day)日 \(components.hour)时\(components.minute)分"
+
+                case "年月日 时分秒" :
+                    str = "\(components.year)年\(components.month)月\(components.day)日 \(components.hour)时\(components.minute)分\(components.second)秒"
+
+                default :
+                    str = "\(components.day)日"
+            }
+
+            return str
+        }
+
+        return ""
+    }
+
 
     class func toDate(string : String, dateFormat : String = "yyyy-MM-dd HH:mm:ss") -> NSDate? {
         let fomatter = NSDateFormatter()

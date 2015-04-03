@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 let MINUTE_IN_SECONDS  = 60
 let HOUR_IN_SECONDS    = 60 * 60
@@ -25,6 +26,36 @@ extension NSIndexPath{
         let section = self.section
         let row = self.row
         return NSIndexPath(forRow: row > 0 ? row - 1 : 0, inSection: section)
+    }
+}
+
+extension UIColor {
+    class func getColorWithName(name : String?) -> UIColor {
+        var color = UIColor.blackColor()
+        if name == nil {
+            return color
+        }
+
+        switch name! {
+            case "Blue" :
+                color = UIColor.blueColor()
+            case "Green" :
+                color = UIColor.greenColor()
+            case "Yellow" :
+                color = UIColor.yellowColor()
+            case "Purple" :
+                color = UIColor.purpleColor()
+            case "Brown" :
+                color = UIColor.brownColor()
+            case "Red" :
+                color = UIColor.redColor()
+            case "Orange" :
+                color = UIColor.orangeColor()
+            default :
+                color = UIColor.blackColor()
+        }
+
+        return color
     }
 }
 

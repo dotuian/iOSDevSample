@@ -28,6 +28,9 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     var datepicker : UIDatePicker!
     var displaySwitch : UISwitch!
 
+    var formatCell : UITableViewCell?
+    var colorCell : UITableViewCell?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,10 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         self.initSubViews()
         // DatePickerCell
         datePickerTitleIndexPath = NSIndexPath(forRow: 1, inSection: 1)
+
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.addObserver(self, selector: "handleColorChanged:", name: TWConstants.NS_UPDATE_COLOR, object: nil)
+        nc.addObserver(self, selector: "hanldeFormatChanged:", name: TWConstants.NS_UPDATE_FORMAT, object: nil)
     }
 
     func initSubViews(){
@@ -57,6 +64,30 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     }
 
     // ============================
+    // 通知中心
+    // ============================
+    func handleColorChanged(notication : NSNotification) {
+        // 颜色选择
+        if let cell = self.colorCell {
+            let dict = notication.userInfo as [String : UIColor]
+            for (key, value) in dict {
+                cell.detailTextLabel?.text = key
+                cell.detailTextLabel?.textColor = value
+            }
+        }
+    }
+
+    func hanldeFormatChanged(notication : NSNotification) {
+        // 格式选择
+        if let cell = self.formatCell {
+            let dict = notication.userInfo as [String : String]
+            if let format = dict["format"]{
+                self.formatCell?.detailTextLabel!.text = format
+            }
+        }
+    }
+
+    // ============================
     // 导航栏按钮事件
     // ============================
     // 新建/编辑取消
@@ -76,7 +107,16 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             titleTextField.resignFirstResponder()
         }
 
+        //标题
         self.record.title = titleTextField.text
+        //颜色
+        if let label = colorCell?.detailTextLabel {
+            self.record.color = label.text!
+        }
+        //格式
+        if let label = self.formatCell?.detailTextLabel {
+            self.record.format = label.text!
+        }
 
         if self.flag == .Create {
             // 添加新纪录
@@ -108,7 +148,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             return 1
         }
 
-        var number = 4
+        var number = 5
         if self.datePickerTitleIndexPath.section == section && self.indexPathOfVisibleDatePicker != nil {
            number += 1
         }
@@ -216,11 +256,26 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
                 // 设置值
                 displaySwitch.setOn(record.display, animated: true)
+
             } else if indexPath.section == 1 && indexPath.row == 3 {
                 // 表示格式选择
-                cell?.textLabel!.text = "表示格式"
+                cell?.textLabel!.text = "格式"
+                cell?.detailTextLabel?.text = record.format
+
                 cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+
+                self.formatCell = cell
+
+            } else if indexPath.section == 1 && indexPath.row == 4 {
+                // 表示格式选择
+                cell?.textLabel!.text = "颜色"
+                cell?.detailTextLabel!.text = record.color
+
+                cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+
+                self.colorCell = cell
             }
+
             return cell!
         }
     }
@@ -240,8 +295,15 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         }
 
         if(indexPath.section == 1 && indexPath.row == 3) {
-            let controller = DisplayUnitViewController()
-            self.navigationController?.pushViewController(controller, animated: true)
+            let formatViewController = FormatViewController()
+            formatViewController.currentFormat = record.format
+            self.navigationController?.pushViewController(formatViewController, animated: true)
+        }
+
+        if(indexPath.section == 1 && indexPath.row == 4) {
+            let colorViewController = ColorViewController()
+            colorViewController.currentColor = record.color
+            self.navigationController?.pushViewController(colorViewController, animated: true)
         }
     }
 
