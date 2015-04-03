@@ -10,14 +10,6 @@ import Foundation
 
 class URLUtils {
 
-//    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-//    for (NSString *param in [url componentsSeparatedByString:@"&"]) {
-//    NSArray *elts = [param componentsSeparatedByString:@"="];
-//    if([elts count] < 2) continue;
-//    [params setObject:[elts objectAtIndex:1] forKey:[elts objectAtIndex:0]];
-//    }
-
-
     class func parseURL(url:String) -> [String:String] {
         var dict = [String:String]()
 

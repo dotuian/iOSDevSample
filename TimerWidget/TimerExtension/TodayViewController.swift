@@ -40,11 +40,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         self.updateWidget()
     }
 
-
     func updateWidget(){
         // 用户数据
         let dataManager = TWDataManager()
-        dataList = dataManager.getAllData()
+        dataList = dataManager.getExtensionData()
 
         self.updatePreferredContentSize()
 
@@ -62,45 +61,45 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     // 表格的行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as? Int {
-            return self.dataList.count > rows ? rows : self.dataList.count
-        }
-        return 0
+        let rows = settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) as? Int
+        println("rows is \(min(rows!, self.dataList.count))")
+        return min(rows!, self.dataList.count)
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let identifier = "CellIdentifier"
+        let identifier = "ExtensionCellIdentifier"
+
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? ExtTableViewCell
         if cell == nil {
             cell = ExtTableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
-
-            if let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) as? UIFont {
-                // 设置Cell格式
-                cell?.textLabel?.font = currentFont
-            }
-
-            cell?.textLabel?.textColor = UIColor.whiteColor()
+            cell?.selectionStyle = UITableViewCellSelectionStyle.Gray
         }
 
-        var record = self.dataList[indexPath.row]
+        // 设置Cell格式
+        cell?.textLabel?.textColor = UIColor.whiteColor()
+        if let font = settingManager.getObjectForKey(TWConstants.SETTING_EXTENSION_FONT) as? UIFont {
+            cell?.textLabel?.font = font
+        }
 
         // 设置Cell数据
+        var record = self.dataList[indexPath.row]
         cell?.record = record
 
         return cell!
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let record = self.dataList[indexPath.row]
+        // 取消当前Cell选择
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
+        //
+        let record = self.dataList[indexPath.row]
         if let context =  self.extensionContext {
             let url = NSURL(string: "TimerWidget://index=\(indexPath.row)")
             context.openURL(url!, completionHandler: { (flag : Bool) -> Void in
 
             })
         }
-
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

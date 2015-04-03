@@ -10,8 +10,7 @@
 		473BE75B1AC929E6009DB9BC /* ExtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BE75A1AC929E6009DB9BC /* ExtTableViewCell.swift */; };
 		473BE75D1AC93079009DB9BC /* TWDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BE75C1AC93079009DB9BC /* TWDatePickerCell.swift */; };
 		473BE7851ACA65D5009DB9BC /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BE7841ACA65D5009DB9BC /* Record.swift */; };
-		473F72101AC3F66E002A0486 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */; };
-		473F72121AC3FD35002A0486 /* LinePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F72111AC3FD35002A0486 /* LinePickerViewController.swift */; };
+		473F72121AC3FD35002A0486 /* LineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F72111AC3FD35002A0486 /* LineViewController.swift */; };
 		474001681ACE5EC900034D4A /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EAA90B1ACE420D008B30D6 /* data.plist */; };
 		4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */; };
@@ -24,20 +23,17 @@
 		4763A7111AC3A09700FF7F3D /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A70C1AC3A09700FF7F3D /* CreateViewController.swift */; };
 		4763A7121AC3A09700FF7F3D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A70D1AC3A09700FF7F3D /* RootViewController.swift */; };
 		4763A7131AC3A09700FF7F3D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */; };
-		4763A7141AC3A09700FF7F3D /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A70F1AC3A09700FF7F3D /* TimePickerViewController.swift */; };
 		4763A71D1AC3A5CD00FF7F3D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4763A71C1AC3A5CD00FF7F3D /* NotificationCenter.framework */; };
 		4763A7221AC3A5CD00FF7F3D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A7211AC3A5CD00FF7F3D /* TodayViewController.swift */; };
 		4763A7241AC3A5CD00FF7F3D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */; };
 		4763A7271AC3A5CD00FF7F3D /* TimerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4763A71A1AC3A5CD00FF7F3D /* TimerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		47668B961ACBA2210037736B /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47668B951ACBA2200037736B /* URLUtils.swift */; };
-		47668B981ACBDC760037736B /* RootCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47668B971ACBDC750037736B /* RootCell.xib */; };
 		476B7F2E1ACD0EE9004FAF35 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B7F2D1ACD0EE9004FAF35 /* ControllerType.swift */; };
-		477079161ACD35F10029BF8C /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477079151ACD35F10029BF8C /* MailViewController.swift */; };
 		477079181ACD362A0029BF8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477079171ACD362A0029BF8C /* MessageUI.framework */; };
 		4770791A1ACD41830029BF8C /* FormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477079191ACD41830029BF8C /* FormatViewController.swift */; };
 		47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		47815A211AC3DDB400CB877B /* TWExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* TWExtension.swift */; };
-		47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A251AC3E6C100CB877B /* FontPickerViewController.swift */; };
+		47815A261AC3E6C100CB877B /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A251AC3E6C100CB877B /* FontViewController.swift */; };
 		479BDD031ACCDFA100A50CAD /* settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 479BDD021ACCDFA100A50CAD /* settings-50.png */; };
 		479BDD051ACCE00A00A50CAD /* settings-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 479BDD041ACCE00A00A50CAD /* settings-32.png */; };
 		479BDD071ACCE01200A50CAD /* settings-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 479BDD061ACCE01200A50CAD /* settings-25.png */; };
@@ -95,8 +91,7 @@
 		473BE75A1AC929E6009DB9BC /* ExtTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtTableViewCell.swift; sourceTree = "<group>"; };
 		473BE75C1AC93079009DB9BC /* TWDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWDatePickerCell.swift; sourceTree = "<group>"; };
 		473BE7841ACA65D5009DB9BC /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
-		473F72111AC3FD35002A0486 /* LinePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinePickerViewController.swift; sourceTree = "<group>"; };
+		473F72111AC3FD35002A0486 /* LineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineViewController.swift; sourceTree = "<group>"; };
 		4760FFDC1AC3A8CB00421609 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
 		4760FFE01AC3B95000421609 /* TWExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWExtension.swift; sourceTree = "<group>"; };
@@ -108,23 +103,20 @@
 		4763A6F31AC3A03A00FF7F3D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4763A6F61AC3A03A00FF7F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4763A70C1AC3A09700FF7F3D /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
-		4763A70D1AC3A09700FF7F3D /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		4763A70F1AC3A09700FF7F3D /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
+		4763A70D1AC3A09700FF7F3D /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RootViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4763A71A1AC3A5CD00FF7F3D /* TimerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TimerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4763A71C1AC3A5CD00FF7F3D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4763A7201AC3A5CD00FF7F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4763A7211AC3A5CD00FF7F3D /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		4763A7211AC3A5CD00FF7F3D /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TodayViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4763A7231AC3A5CD00FF7F3D /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		4763A72C1AC3A5DC00FF7F3D /* TimerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimerWidget.entitlements; sourceTree = "<group>"; };
 		4763A72D1AC3A5F600FF7F3D /* TimerExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimerExtension.entitlements; sourceTree = "<group>"; };
 		47668B951ACBA2200037736B /* URLUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
-		47668B971ACBDC750037736B /* RootCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootCell.xib; sourceTree = "<group>"; };
 		476B7F2D1ACD0EE9004FAF35 /* ControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
-		477079151ACD35F10029BF8C /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
 		477079171ACD362A0029BF8C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		477079191ACD41830029BF8C /* FormatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatViewController.swift; sourceTree = "<group>"; };
-		47815A251AC3E6C100CB877B /* FontPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
+		47815A251AC3E6C100CB877B /* FontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FontViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		479BDD021ACCDFA100A50CAD /* settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-50.png"; sourceTree = "<group>"; };
 		479BDD041ACCE00A00A50CAD /* settings-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-32.png"; sourceTree = "<group>"; };
 		479BDD061ACCE01200A50CAD /* settings-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-25.png"; sourceTree = "<group>"; };
@@ -132,7 +124,7 @@
 		47AE03021AC5052300269B11 /* settings-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-filled.png"; sourceTree = "<group>"; };
 		47AE03031AC5052300269B11 /* setings-nofilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setings-nofilled.png"; sourceTree = "<group>"; };
 		47AE03041AC5052300269B11 /* setting-update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-update.png"; sourceTree = "<group>"; };
-		47DF9B781ACA6996007F90BD /* TWConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWConstants.swift; sourceTree = "<group>"; };
+		47DF9B781ACA6996007F90BD /* TWConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TWConstants.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		47DF9B7A1ACA6D17007F90BD /* TWSettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSettingManager.swift; sourceTree = "<group>"; };
 		47DF9B7C1ACA6D34007F90BD /* TWDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWDataManager.swift; sourceTree = "<group>"; };
 		47EAA90B1ACE420D008B30D6 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
@@ -202,6 +194,7 @@
 				47815A241AC3E68C00CB877B /* Views */,
 				47815A231AC3E66900CB877B /* Utils */,
 				47DF9B771ACA66B1007F90BD /* Components */,
+				4763A6E91AC3A03900FF7F3D /* AppDelegate.swift */,
 				4763A6F31AC3A03A00FF7F3D /* Images.xcassets */,
 				4763A6F01AC3A03A00FF7F3D /* Main.storyboard */,
 				4763A6F51AC3A03A00FF7F3D /* LaunchScreen.xib */,
@@ -255,17 +248,13 @@
 		47815A221AC3E65900CB877B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4763A6E91AC3A03900FF7F3D /* AppDelegate.swift */,
 				4763A70D1AC3A09700FF7F3D /* RootViewController.swift */,
 				4763A70C1AC3A09700FF7F3D /* CreateViewController.swift */,
-				4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */,
-				4763A70F1AC3A09700FF7F3D /* TimePickerViewController.swift */,
-				47815A251AC3E6C100CB877B /* FontPickerViewController.swift */,
-				473F720F1AC3F66E002A0486 /* ColorPickerViewController.swift */,
-				473F72111AC3FD35002A0486 /* LinePickerViewController.swift */,
-				477079151ACD35F10029BF8C /* MailViewController.swift */,
 				477079191ACD41830029BF8C /* FormatViewController.swift */,
 				47F2955E1ACE271500F3ACD9 /* ColorViewController.swift */,
+				4763A70E1AC3A09700FF7F3D /* SettingViewController.swift */,
+				47815A251AC3E6C100CB877B /* FontViewController.swift */,
+				473F72111AC3FD35002A0486 /* LineViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -283,7 +272,6 @@
 		47815A241AC3E68C00CB877B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				47668B971ACBDC750037736B /* RootCell.xib */,
 				4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */,
 				473BE75C1AC93079009DB9BC /* TWDatePickerCell.swift */,
 			);
@@ -412,7 +400,6 @@
 			files = (
 				474001681ACE5EC900034D4A /* data.plist in Resources */,
 				47AE03071AC5052300269B11 /* setings-nofilled.png in Resources */,
-				47668B981ACBDC760037736B /* RootCell.xib in Resources */,
 				4763A6F21AC3A03A00FF7F3D /* Main.storyboard in Resources */,
 				47AE03051AC5052300269B11 /* setting-font.png in Resources */,
 				4763A6F71AC3A03A00FF7F3D /* LaunchScreen.xib in Resources */,
@@ -441,21 +428,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				473F72101AC3F66E002A0486 /* ColorPickerViewController.swift in Sources */,
 				473BE75D1AC93079009DB9BC /* TWDatePickerCell.swift in Sources */,
 				4763A7121AC3A09700FF7F3D /* RootViewController.swift in Sources */,
-				4763A7141AC3A09700FF7F3D /* TimePickerViewController.swift in Sources */,
 				47DF9B791ACA6996007F90BD /* TWConstants.swift in Sources */,
 				47668B961ACBA2210037736B /* URLUtils.swift in Sources */,
 				4763A7111AC3A09700FF7F3D /* CreateViewController.swift in Sources */,
 				47DF9B7D1ACA6D34007F90BD /* TWDataManager.swift in Sources */,
 				47DF9B7B1ACA6D17007F90BD /* TWSettingManager.swift in Sources */,
-				477079161ACD35F10029BF8C /* MailViewController.swift in Sources */,
 				473BE7851ACA65D5009DB9BC /* Record.swift in Sources */,
-				473F72121AC3FD35002A0486 /* LinePickerViewController.swift in Sources */,
+				473F72121AC3FD35002A0486 /* LineViewController.swift in Sources */,
 				4770791A1ACD41830029BF8C /* FormatViewController.swift in Sources */,
 				4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */,
-				47815A261AC3E6C100CB877B /* FontPickerViewController.swift in Sources */,
+				47815A261AC3E6C100CB877B /* FontViewController.swift in Sources */,
 				4763A6EA1AC3A03900FF7F3D /* AppDelegate.swift in Sources */,
 				4760FFE11AC3B95000421609 /* TWExtension.swift in Sources */,
 				4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */,

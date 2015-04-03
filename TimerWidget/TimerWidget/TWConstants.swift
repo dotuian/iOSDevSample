@@ -8,15 +8,15 @@
 
 import Foundation
 
-let SETTING_FONTNAME   = "SETTING_FONTNAME"
-let SETTING_TEXT_COLOR = "SETTING_TEXT_COLOR"
-let SETTING_SHOW_ROW   = "SETTING_SHOW_ROW"
-
 struct TWConstants {
 
-    static let SETTING_FONTNAME   = "SETTING_FONTNAME"
+    static let SETTING_APP_FONT   = "SETTING_APP_FONT"
     static let SETTING_TEXT_COLOR = "SETTING_TEXT_COLOR"
+
     static let SETTING_SHOW_ROW   = "SETTING_SHOW_ROW"
+    static let SETTING_EXTENSION_FONT   = "SETTING_EXTENSION_FONT"
+
+    static let SETTING_NS_FONT = "SETTING_NS_FONT"
 
     // 主程序与扩展共享数据用组域名称
     static let GROUP_NAME = "group.com.doutian.TodayExtension"

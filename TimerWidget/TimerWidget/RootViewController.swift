@@ -21,6 +21,13 @@ class RootViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 初始化页面
+        self.initSubViews()
+
+        self.initSettingData()
+    }
+
+    func initSubViews() {
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
         // 工具栏
@@ -36,17 +43,21 @@ class RootViewController : UITableViewController {
 
         // 行高
         self.tableView.rowHeight = 75
-
-        self.initSettingData()
     }
+
 
     // 初始化系统设置
     func initSettingData(){
         // 字体
-        if settingManager.getObjectForKey(TWConstants.SETTING_FONTNAME) == nil {
+        if settingManager.getObjectForKey(TWConstants.SETTING_APP_FONT) == nil {
             let fontName = UIFont.familyNames()[0] as String
             let font = UIFont(name: fontName, size: 14)
-            settingManager.insert(TWConstants.SETTING_FONTNAME, value: font!)
+            settingManager.insert(TWConstants.SETTING_APP_FONT, value: font!)
+        }
+        if settingManager.getObjectForKey(TWConstants.SETTING_EXTENSION_FONT) == nil {
+            let fontName = UIFont.familyNames()[0] as String
+            let font = UIFont(name: fontName, size: 14)
+            settingManager.insert(TWConstants.SETTING_EXTENSION_FONT, value: font!)
         }
         // 显示行数
         if settingManager.getObjectForKey(TWConstants.SETTING_SHOW_ROW) == nil {
@@ -107,10 +118,21 @@ class RootViewController : UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? TimerTableViewCell
         if cell == nil {
             cell = TimerTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
+            cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
 
-        var record = self.dataList[indexPath.row]
+        // 字体的设置
+        if let font = settingManager.getObjectForKey(TWConstants.SETTING_APP_FONT) as? UIFont {
+            // 标题
+            cell!.textLabel!.font = UIFont(name: font.fontName, size: 18)
+            // 时间
+            cell!.detailTextLabel!.font = UIFont(name: font.fontName, size: 14)
+            // 详细结果
+            cell!.contentLabel.font = font
+        }
 
+        // 数据的设定
+        var record = self.dataList[indexPath.row]
         cell!.record = record
 
         return cell!

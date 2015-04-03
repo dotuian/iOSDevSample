@@ -28,9 +28,13 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     var datepicker : UIDatePicker!
     var displaySwitch : UISwitch!
 
-    var formatCell : UITableViewCell?
-    var colorCell : UITableViewCell?
+    var dateCell : UITableViewCell!
+    var formatCell : UITableViewCell!
+    var colorCell : UITableViewCell!
 
+
+    // 当前显示的DatePickerCell的NSIndexPath
+    var indexPathOfVisibleDatePicker : NSIndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +43,10 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         // DatePickerCell
         datePickerTitleIndexPath = NSIndexPath(forRow: 1, inSection: 1)
 
-        let nc = NSNotificationCenter.defaultCenter()
-        nc.addObserver(self, selector: "handleColorChanged:", name: TWConstants.NS_UPDATE_COLOR, object: nil)
-        nc.addObserver(self, selector: "hanldeFormatChanged:", name: TWConstants.NS_UPDATE_FORMAT, object: nil)
+        // 通过通知中心获取设定的值
+        let center = NSNotificationCenter.defaultCenter()
+        center.addObserver(self, selector: "handleColorChanged:", name: TWConstants.NS_UPDATE_COLOR, object: nil)
+        center.addObserver(self, selector: "hanldeFormatChanged:", name: TWConstants.NS_UPDATE_FORMAT, object: nil)
     }
 
     func initSubViews(){
@@ -87,9 +92,9 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
-    // ============================
+    // ========================================================
     // 导航栏按钮事件
-    // ============================
+    // ========================================================
     // 新建/编辑取消
     func hanlderCancelItem(){
         // 返回到主页面
@@ -107,16 +112,22 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             titleTextField.resignFirstResponder()
         }
 
-        //标题
+        // 标题
         self.record.title = titleTextField.text
-        //颜色
-        if let label = colorCell?.detailTextLabel {
-            self.record.color = label.text!
-        }
-        //格式
-        if let label = self.formatCell?.detailTextLabel {
-            self.record.format = label.text!
-        }
+        // 只显示日期
+        self.record.dayUnit = self.dayUnitSwitch.on
+        // 日期
+        let dateFormat = self.dayUnitSwitch.on ? DateUtils.DATE_FOMART.DATE_ONLY : DateUtils.DATE_FOMART.DATE_AND_TIME
+        var strDate = self.dateCell.detailTextLabel?.text
+        self.record.date = DateUtils.toDate(strDate!, dateFormat: dateFormat)!
+        // 在通知中心显示
+        self.record.display = self.displaySwitch.on
+        // 表示格式
+        self.record.format = (self.formatCell?.detailTextLabel?.text)!
+        // 颜色
+        self.record.color = (self.colorCell.detailTextLabel?.text)!
+
+        println("create or update record is : \(self.record)")
 
         if self.flag == .Create {
             // 添加新纪录
@@ -135,9 +146,9 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
-    // ============================
-    //
-    // ============================
+    // ========================================================
+    // TableView
+    // ========================================================
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
@@ -191,13 +202,14 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
         } else {
 
-            let identifer = "Cell"
+            let identifer = "CreateTableViewCell"
 
             var cell = tableView.dequeueReusableCellWithIdentifier(identifer) as? UITableViewCell
             if cell == nil {
                 cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifer)
             }
 
+            // 标题
             if indexPath.section == 0 && indexPath.row == 0 {
                 // 标题
                 titleTextField = UITextField(frame: cell!.frame)
@@ -224,56 +236,56 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
                 cell?.contentView.addSubview(titleTextField)
 
-            } else if indexPath.section == 1 && indexPath.row == 0 {
+            }
 
-                cell?.textLabel!.text = "以天为单位"
-                cell?.selectionStyle = UITableViewCellSelectionStyle.None
+            // 事件详细设定
+            if indexPath.section == 1 {
+                switch(indexPath.row) {
 
-                dayUnitSwitch = UISwitch()
-                dayUnitSwitch.on = self.record.dayUnit
-                dayUnitSwitch.addTarget(self, action: "dayUnitSwitchValuedChange:", forControlEvents: UIControlEvents.ValueChanged)
+                case 0: // 是否只显示日期
+                    cell?.textLabel!.text = "只显示日期"
+                    cell?.selectionStyle = UITableViewCellSelectionStyle.None
 
-                cell?.accessoryView = dayUnitSwitch
+                    dayUnitSwitch = UISwitch()
+                    dayUnitSwitch.on = self.record.dayUnit
+                    dayUnitSwitch.addTarget(self, action: "dayUnitSwitchValuedChange:", forControlEvents: UIControlEvents.ValueChanged)
 
-            } else if indexPath.section == 1 && indexPath.row == 1 {
-                // 日期
-                cell?.textLabel!.text = "日期"
+                    cell?.accessoryView = dayUnitSwitch
 
-                // 日期格式
-                let dateFormat = self.record.dayUnit ? DateUtils.DATE_FOMART.DATE_ONLY : DateUtils.DATE_FOMART.DATE_AND_TIME
-                // 设置日期
-                cell?.detailTextLabel!.text = DateUtils.toString(self.record.date, dateFormat: dateFormat)
+                case 1: // 日期
+                    cell?.textLabel!.text = "日期"
+                    // 日期格式
+                    let dateFormat = self.record.dayUnit ? DateUtils.DATE_FOMART.DATE_ONLY : DateUtils.DATE_FOMART.DATE_AND_TIME
+                    // 设置日期
+                    cell?.detailTextLabel!.text = DateUtils.toString(self.record.date, dateFormat: dateFormat)
 
-            } else if indexPath.section == 1 && indexPath.row == 2 {
-                //
-                cell?.textLabel!.text = "通知中心表示"
-                cell?.selectionStyle = UITableViewCellSelectionStyle.None
+                    self.dateCell = cell!
+                case 2: // 是否显示在通知中心
+                    cell?.textLabel!.text = "通知中心显示"
+                    cell?.selectionStyle = UITableViewCellSelectionStyle.None
 
-                let displaySwitch = UISwitch()
-                displaySwitch.addTarget(self, action: "displaySwitchValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+                    displaySwitch = UISwitch()
+                    displaySwitch.addTarget(self, action: "displaySwitchValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+                    displaySwitch.setOn(record.display, animated: true)
 
-                cell?.accessoryView = displaySwitch
+                    cell?.accessoryView = displaySwitch
 
-                // 设置值
-                displaySwitch.setOn(record.display, animated: true)
+                case 3: // 表示的格式
+                    cell?.textLabel!.text = "格式"
+                    cell?.detailTextLabel?.text = record.format
+                    cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
-            } else if indexPath.section == 1 && indexPath.row == 3 {
-                // 表示格式选择
-                cell?.textLabel!.text = "格式"
-                cell?.detailTextLabel?.text = record.format
+                    self.formatCell = cell
 
-                cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+                case 4: // 显示的颜色
+                    cell?.textLabel!.text = "颜色"
+                    cell?.detailTextLabel!.text = record.color
+                    cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
-                self.formatCell = cell
-
-            } else if indexPath.section == 1 && indexPath.row == 4 {
-                // 表示格式选择
-                cell?.textLabel!.text = "颜色"
-                cell?.detailTextLabel!.text = record.color
-
-                cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-
-                self.colorCell = cell
+                    self.colorCell = cell
+                default:
+                    println()
+                }
             }
 
             return cell!
@@ -294,21 +306,20 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             self.titleTextField.resignFirstResponder()
         }
 
+        // 选择表示格式
         if(indexPath.section == 1 && indexPath.row == 3) {
             let formatViewController = FormatViewController()
             formatViewController.currentFormat = record.format
             self.navigationController?.pushViewController(formatViewController, animated: true)
         }
 
+        // 选择表示颜色
         if(indexPath.section == 1 && indexPath.row == 4) {
             let colorViewController = ColorViewController()
             colorViewController.currentColor = record.color
             self.navigationController?.pushViewController(colorViewController, animated: true)
         }
     }
-
-    // 当前显示的DatePickerCell的NSIndexPath
-    var indexPathOfVisibleDatePicker : NSIndexPath?
 
     func toggleDatePickerForRowAtIndexPath(indexPath : NSIndexPath){
 

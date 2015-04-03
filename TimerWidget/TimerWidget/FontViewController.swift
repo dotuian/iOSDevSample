@@ -10,45 +10,40 @@ import Foundation
 import UIKit
 
 // 字体选择视图控制器
-class ColorPickerViewContrller : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FontViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tableView : UITableView!
 
-    var colors = [UIColor]()
-
-    // 当前选择的字体
-    var currentColor : UIColor?
+    var fonts = [String]()
 
     // 要更新的视图的TAG
-    var previousViewTag : Int!
+    var updateLabel : UILabel?
+    var flag : String = "app"
 
     var delegate : UpdateSettingDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        colors = [
-            UIColor.blueColor(),
-            UIColor.redColor(),
-            UIColor.cyanColor(),
-            UIColor.purpleColor(),
-            UIColor.greenColor(),
-            UIColor.grayColor(),
-        ]
+        for font in UIFont.familyNames() {
+            fonts.append(font as String)
+        }
 
         tableView = UITableView(frame: self.view.bounds)
         self.view.addSubview(tableView)
 
         tableView.dataSource = self
         tableView.delegate = self
+
     }
+
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.colors.count
+        return self.fonts.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -58,32 +53,36 @@ class ColorPickerViewContrller : UIViewController, UITableViewDataSource, UITabl
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: identifier)
         }
 
-        let color = self.colors[indexPath.row]
-
-        cell?.textLabel!.text = "SAMPLE 测试 あいうえお"
-        cell?.textLabel!.textColor = color
+        let fontName = self.fonts[indexPath.row]
+        let font = UIFont(name: fontName, size: CGFloat(15))
+        cell?.textLabel!.text = fontName
+        cell?.textLabel!.font = font!
         cell?.accessoryType = UITableViewCellAccessoryType.None
 
-        let currentColor = settingManager.getObjectForKey(TWConstants.SETTING_TEXT_COLOR) as UIColor
-        if CGColorGetComponents( currentColor.CGColor) == CGColorGetComponents(color.CGColor) {
+        //
+        let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_APP_FONT) as UIFont
+        if font!.fontName == currentFont.fontName {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
-
         return cell!
     }
 
-
-    // 选择指定的颜色,更新前一页面
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        // 更新前一页面的值
-        delegate.updateColor(self.previousViewTag, color: cell!.textLabel!.textColor)
 
+        let fontName = cell!.textLabel!.text!
+        let font = UIFont(name: fontName, size: CGFloat(15))!
+
+        if flag == "app" {
+            delegate.updateAppFont(self.updateLabel!, font: font)
+        } else {
+            delegate.updateExtensionFont(self.updateLabel!, font: font)
+        }
+
+
+        //
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    
-    
-    
+
+
 }

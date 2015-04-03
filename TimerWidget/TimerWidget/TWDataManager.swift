@@ -27,6 +27,18 @@ class TWDataManager {
         return Static.instance!
     }
 
+    func getExtensionData() -> [Record] {
+        var dataList = [Record]()
+
+        for record in self.getAllData() {
+            if record.display {
+                dataList.append(record)
+            }
+        }
+
+        return dataList
+    }
+
     func getAllData() -> [Record] {
         var dataList = [Record]()
 

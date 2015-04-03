@@ -32,24 +32,31 @@ class DateUtils : NSObject {
 
             let components = calendar.components(unitFlags, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.allZeros)
 
+            let year = abs(components.year)
+            let month = abs(components.month)
+            let day = abs(components.day)
+            let hour = abs(components.hour)
+            let minute = abs(components.minute)
+            let second = abs(components.second)
+
             var str = ""
             if components.year > 0 {
                 str += "\(components.year)年"
             }
             if components.month > 0 || !str.isEmpty {
-                str += String(format: "%02d月", arguments: [components.month])
+                str += String(format: "%02d月", arguments: [month])
             }
             if components.day > 0 || !str.isEmpty {
-                str += String(format: "%02d日", arguments: [components.day])
+                str += String(format: "%02d日", arguments: [day])
             }
             if components.hour > 0 || !str.isEmpty {
-                str += String(format: "%02d时", arguments: [components.hour])
+                str += String(format: "%02d时", arguments: [hour])
             }
             if components.minute > 0 || !str.isEmpty {
-                str += String(format: "%02d分", arguments: [components.minute])
+                str += String(format: "%02d分", arguments: [minute])
             }
             if components.second > 0 || !str.isEmpty {
-                str += String(format: "%02d秒", arguments: [components.second])
+                str += String(format: "%02d秒", arguments: [second])
             }
 
             return str
@@ -135,28 +142,35 @@ class DateUtils : NSObject {
             let components = calendar.components(unitFlags, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.allZeros)
 
 
+            let year = abs(components.year)
+            let month = abs(components.month)
+            let day = abs(components.day)
+            let hour = abs(components.hour)
+            let minute = abs(components.minute)
+            let second = abs(components.second)
+
             var str = ""
             switch format {
                 case "日" :
-                    str = "\(components.day)日"
+                    str = "\(day)日"
 
                 case "年月" :
-                    str = "\(components.year)年\(components.month)月"
+                    str = "\(year)年\(month)月"
 
                 case "年月日" :
-                    str = "\(components.year)年\(components.month)月\(components.day)日"
+                    str = "\(year)年\(month)月\(day)日"
 
                 case "年月日 时" :
-                    str = "\(components.year)年\(components.month)月\(components.day)日 \(components.hour)时"
+                    str = "\(year)年\(month)月\(day)日 \(hour)时"
 
                 case "年月日 时分" :
-                    str = "\(components.year)年\(components.month)月\(components.day)日 \(components.hour)时\(components.minute)分"
+                    str = "\(year)年\(month)月\(day)日 \(hour)时\(minute)分"
 
                 case "年月日 时分秒" :
-                    str = "\(components.year)年\(components.month)月\(components.day)日 \(components.hour)时\(components.minute)分\(components.second)秒"
+                    str = "\(year)年\(month)月\(day)日 \(hour)时\(minute)分\(second)秒"
 
                 default :
-                    str = "\(components.day)日"
+                    str = "\(day)日"
             }
 
             return str

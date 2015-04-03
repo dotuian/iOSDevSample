@@ -12,15 +12,15 @@ import UIKit
 class ExtTableViewCell : UITableViewCell {
     var record : Record?
 
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         //
         NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateContent", userInfo: nil, repeats: true)
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     // 重绘TableViewCell的样式
@@ -30,7 +30,7 @@ class ExtTableViewCell : UITableViewCell {
 
     func updateContent(){
         if record != nil {
-            self.textLabel!.text = record!.title + " 已经 " + record!.datediff
+            self.textLabel!.text = record!.title + " " + record!.datediff
         }
     }
 
