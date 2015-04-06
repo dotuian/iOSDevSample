@@ -12,6 +12,10 @@
 		473BE7851ACA65D5009DB9BC /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BE7841ACA65D5009DB9BC /* Record.swift */; };
 		473F72121AC3FD35002A0486 /* LineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F72111AC3FD35002A0486 /* LineViewController.swift */; };
 		474001681ACE5EC900034D4A /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EAA90B1ACE420D008B30D6 /* data.plist */; };
+		4743B1BE1AD28D4700BB1EEC /* screen01.png in Resources */ = {isa = PBXBuildFile; fileRef = 4743B1BA1AD28D4700BB1EEC /* screen01.png */; };
+		4743B1BF1AD28D4700BB1EEC /* screen02.png in Resources */ = {isa = PBXBuildFile; fileRef = 4743B1BB1AD28D4700BB1EEC /* screen02.png */; };
+		4743B1C01AD28D4700BB1EEC /* screen03.png in Resources */ = {isa = PBXBuildFile; fileRef = 4743B1BC1AD28D4700BB1EEC /* screen03.png */; };
+		4743B1C11AD28D4700BB1EEC /* screen04.png in Resources */ = {isa = PBXBuildFile; fileRef = 4743B1BD1AD28D4700BB1EEC /* screen04.png */; };
 		4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */; };
 		4760FFE11AC3B95000421609 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* Extension.swift */; };
@@ -92,6 +96,10 @@
 		473BE75C1AC93079009DB9BC /* TWDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWDatePickerCell.swift; sourceTree = "<group>"; };
 		473BE7841ACA65D5009DB9BC /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		473F72111AC3FD35002A0486 /* LineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineViewController.swift; sourceTree = "<group>"; };
+		4743B1BA1AD28D4700BB1EEC /* screen01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen01.png; sourceTree = "<group>"; };
+		4743B1BB1AD28D4700BB1EEC /* screen02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen02.png; sourceTree = "<group>"; };
+		4743B1BC1AD28D4700BB1EEC /* screen03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen03.png; sourceTree = "<group>"; };
+		4743B1BD1AD28D4700BB1EEC /* screen04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen04.png; sourceTree = "<group>"; };
 		4760FFDC1AC3A8CB00421609 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
 		4760FFE01AC3B95000421609 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -167,9 +175,21 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		4743B1C21AD28D4C00BB1EEC /* ScreenShot */ = {
+			isa = PBXGroup;
+			children = (
+				4743B1BA1AD28D4700BB1EEC /* screen01.png */,
+				4743B1BB1AD28D4700BB1EEC /* screen02.png */,
+				4743B1BC1AD28D4700BB1EEC /* screen03.png */,
+				4743B1BD1AD28D4700BB1EEC /* screen04.png */,
+			);
+			name = ScreenShot;
+			sourceTree = "<group>";
+		};
 		4763A6DB1AC3A03900FF7F3D = {
 			isa = PBXGroup;
 			children = (
+				4743B1C21AD28D4C00BB1EEC /* ScreenShot */,
 				4763A6E61AC3A03900FF7F3D /* TimerWidget */,
 				4763A71E1AC3A5CD00FF7F3D /* TimerExtension */,
 				4763A71B1AC3A5CD00FF7F3D /* Frameworks */,
@@ -399,7 +419,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				474001681ACE5EC900034D4A /* data.plist in Resources */,
+				4743B1BF1AD28D4700BB1EEC /* screen02.png in Resources */,
 				47AE03071AC5052300269B11 /* setings-nofilled.png in Resources */,
+				4743B1C11AD28D4700BB1EEC /* screen04.png in Resources */,
 				4763A6F21AC3A03A00FF7F3D /* Main.storyboard in Resources */,
 				47AE03051AC5052300269B11 /* setting-font.png in Resources */,
 				4763A6F71AC3A03A00FF7F3D /* LaunchScreen.xib in Resources */,
@@ -407,9 +429,11 @@
 				479BDD071ACCE01200A50CAD /* settings-25.png in Resources */,
 				4763A6F41AC3A03A00FF7F3D /* Images.xcassets in Resources */,
 				47EF8AE11ACE6EC900C5D4DF /* Localizable.strings in Resources */,
+				4743B1C01AD28D4700BB1EEC /* screen03.png in Resources */,
 				47AE03081AC5052300269B11 /* setting-update.png in Resources */,
 				479BDD031ACCDFA100A50CAD /* settings-50.png in Resources */,
 				479BDD051ACCE00A00A50CAD /* settings-32.png in Resources */,
+				4743B1BE1AD28D4700BB1EEC /* screen01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
