@@ -70,8 +70,8 @@ class Record : NSObject, NSCoding{
     }
 
     var datediff : String {
-        var flag = self.date.timeIntervalSinceDate(NSDate()) < 0 ? "已经" : "还有"
-        return flag + " " + DateUtils.getDateDiff(self.date, toDate: NSDate(), format: self.format)
+//        var flag = self.date.timeIntervalSinceDate(NSDate()) < 0 ? "已经" : "还有"
+        return DateUtils.getDateDiff(self.date, toDate: NSDate(), format: self.format)
     }
 
     var strDate : String {
