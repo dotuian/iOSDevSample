@@ -15,7 +15,9 @@ class FormatViewController : UIViewController, UITableViewDelegate, UITableViewD
     var dataList : [[String]]!
     var titleList : [String]!
 
-    var currentFormat : String = "日"
+    var currentFormat : Int = 0
+
+    var formatList : [String]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +41,13 @@ class FormatViewController : UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func initData(){
-        self.titleList = ["格式", "预览"]
+        self.titleList = ["V_FORMAT".localized]
+
+        self.formatList = TWConstants.DISPLAY_FORMAT
 
         self.dataList = [
-            ["日", "年月", "年月日", "年月日 时", "年月日 时分", "年月日 时分秒"],
-            [""]
+            self.formatList,
         ]
-
-        let obj: AnyObject? = PDataUtils.loadDataByKey("format")
-        println(obj)
     }
 
     func hanlderFormatChanged(){
@@ -80,9 +80,10 @@ class FormatViewController : UIViewController, UITableViewDelegate, UITableViewD
         let row = indexPath.row
 
         cell?.textLabel!.text = self.dataList[section][row]
+        cell?.textLabel?.tag = self.formatList.getIndexByValue(self.dataList[section][row])
 
         // 选择已经选中的
-        if self.currentFormat == cell?.textLabel!.text {
+        if self.formatList[self.currentFormat] == cell?.textLabel!.text {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
 
@@ -94,9 +95,10 @@ class FormatViewController : UIViewController, UITableViewDelegate, UITableViewD
 
         if indexPath.section == 0 {
             let cell = tableView.cellForRowAtIndexPath(indexPath)
-            self.currentFormat = (cell!.textLabel!.text)!
+            self.currentFormat = cell!.textLabel!.tag
         }
 
+        println("self.currentFormat = \(self.currentFormat)")
         tableView.reloadData()
     }
 

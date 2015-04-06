@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>TimerExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>TimerWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>473BE7631ACA6499009DB9BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>473BE76D1ACA649A009DB9BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4763A6E31AC3A03900FF7F3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4763A6FB1AC3A03A00FF7F3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4763A7191AC3A5CD00FF7F3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

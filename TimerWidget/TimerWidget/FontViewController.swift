@@ -60,7 +60,12 @@ class FontViewController : UIViewController, UITableViewDataSource, UITableViewD
         cell?.accessoryType = UITableViewCellAccessoryType.None
 
         //
-        let currentFont = settingManager.getObjectForKey(TWConstants.SETTING_APP_FONT) as UIFont
+        var currentFont : UIFont
+        if self.flag == "app" {
+            currentFont = settingManager.getObjectForKey(TWConstants.SETTING_APP_FONT) as UIFont
+        } else {
+            currentFont = settingManager.getObjectForKey(TWConstants.SETTING_EXTENSION_FONT) as UIFont
+        }
         if font!.fontName == currentFont.fontName {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
@@ -74,11 +79,10 @@ class FontViewController : UIViewController, UITableViewDataSource, UITableViewD
         let font = UIFont(name: fontName, size: CGFloat(15))!
 
         if flag == "app" {
-            delegate.updateAppFont(self.updateLabel!, font: font)
+            delegate.updateAppFont(self.updateLabel!, font: font, fontName: fontName)
         } else {
-            delegate.updateExtensionFont(self.updateLabel!, font: font)
+            delegate.updateExtensionFont(self.updateLabel!, font: font, fontName: fontName)
         }
-
 
         //
         self.navigationController?.popViewControllerAnimated(true)

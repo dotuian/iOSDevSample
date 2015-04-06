@@ -12,3 +12,18 @@ enum ControllerType : Int {
     case Create
     case Edit
 }
+
+
+enum DisplayType : Int {
+    case ss
+    case mm
+    case hh
+    case DD
+    case MM
+    case YY
+    case YYMM
+    case YYMMDD
+    case YYMMDDhh
+    case YYMMDDhhmm
+    case YYMMDDhhmmss
+}

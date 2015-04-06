@@ -93,7 +93,7 @@ class DateUtils : NSObject {
         return ""
     }
 
-    class func getDateDiff(fromDate: NSDate, toDate : NSDate, format : String) -> String {
+    class func getDateDiff(fromDate: NSDate, toDate : NSDate, format : Int) -> String {
         let gregorianCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
 
         if let calendar = gregorianCalendar {
@@ -102,41 +102,41 @@ class DateUtils : NSObject {
             var unitFlags : NSCalendarUnit
 
             switch format {
-                case "日" :
-                    unitFlags = NSCalendarUnit.CalendarUnitDay
+            case 0 : // "日" :
+                unitFlags = NSCalendarUnit.CalendarUnitDay
 
-                case "年月" :
-                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
-                        NSCalendarUnit.CalendarUnitMonth
+            case 1 : // "年月" :
+                unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                    NSCalendarUnit.CalendarUnitMonth
 
-                case "年月日" :
-                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
-                        NSCalendarUnit.CalendarUnitMonth |
-                        NSCalendarUnit.CalendarUnitDay
+            case 2 : //"年月日" :
+                unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                    NSCalendarUnit.CalendarUnitMonth |
+                    NSCalendarUnit.CalendarUnitDay
 
-                case "年月日 时" :
-                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
-                        NSCalendarUnit.CalendarUnitMonth |
-                        NSCalendarUnit.CalendarUnitDay |
-                        NSCalendarUnit.CalendarUnitHour
+            case 3: //"年月日 时" :
+                unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                    NSCalendarUnit.CalendarUnitMonth |
+                    NSCalendarUnit.CalendarUnitDay |
+                    NSCalendarUnit.CalendarUnitHour
 
-                case "年月日 时分" :
-                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
-                        NSCalendarUnit.CalendarUnitMonth |
-                        NSCalendarUnit.CalendarUnitDay |
-                        NSCalendarUnit.CalendarUnitHour |
-                        NSCalendarUnit.CalendarUnitMinute
+            case 4 : //"年月日 时分" :
+                unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                    NSCalendarUnit.CalendarUnitMonth |
+                    NSCalendarUnit.CalendarUnitDay |
+                    NSCalendarUnit.CalendarUnitHour |
+                    NSCalendarUnit.CalendarUnitMinute
 
-                case "年月日 时分秒" :
-                    unitFlags = NSCalendarUnit.CalendarUnitYear  |
-                        NSCalendarUnit.CalendarUnitMonth |
-                        NSCalendarUnit.CalendarUnitDay |
-                        NSCalendarUnit.CalendarUnitHour |
-                        NSCalendarUnit.CalendarUnitMinute |
-                        NSCalendarUnit.CalendarUnitSecond
+            case 5: //"年月日 时分秒" :
+                unitFlags = NSCalendarUnit.CalendarUnitYear  |
+                    NSCalendarUnit.CalendarUnitMonth |
+                    NSCalendarUnit.CalendarUnitDay |
+                    NSCalendarUnit.CalendarUnitHour |
+                    NSCalendarUnit.CalendarUnitMinute |
+                    NSCalendarUnit.CalendarUnitSecond
 
-                default:
-                    unitFlags = NSCalendarUnit.CalendarUnitDay
+            default:
+                unitFlags = NSCalendarUnit.CalendarUnitDay
             }
 
             let components = calendar.components(unitFlags, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.allZeros)
@@ -151,26 +151,26 @@ class DateUtils : NSObject {
 
             var str = ""
             switch format {
-                case "日" :
-                    str = "\(day)日"
+            case 0 : // "日"
+                str = "\(day)日"
 
-                case "年月" :
-                    str = "\(year)年\(month)月"
+            case 1: //"年月"
+                str = "\(year)年\(month)月"
 
-                case "年月日" :
-                    str = "\(year)年\(month)月\(day)日"
+            case 2: //"年月日"
+                str = "\(year)年\(month)月\(day)日"
 
-                case "年月日 时" :
-                    str = "\(year)年\(month)月\(day)日 \(hour)时"
+            case 3: //"年月日 时"
+                str = "\(year)年\(month)月\(day)日 \(hour)时"
 
-                case "年月日 时分" :
-                    str = "\(year)年\(month)月\(day)日 \(hour)时\(minute)分"
+            case 4: //"年月日 时分"
+                str = "\(year)年\(month)月\(day)日 \(hour)时\(minute)分"
 
-                case "年月日 时分秒" :
-                    str = "\(year)年\(month)月\(day)日 \(hour)时\(minute)分\(second)秒"
+            case 5://"年月日 时分秒"
+                str = "\(year)年\(month)月\(day)日 \(hour)时\(minute)分\(second)秒"
 
-                default :
-                    str = "\(day)日"
+            default :
+                str = "\(day)日"
             }
 
             return str

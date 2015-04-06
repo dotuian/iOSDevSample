@@ -14,7 +14,7 @@
 		474001681ACE5EC900034D4A /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EAA90B1ACE420D008B30D6 /* data.plist */; };
 		4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
 		4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */; };
-		4760FFE11AC3B95000421609 /* TWExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* TWExtension.swift */; };
+		4760FFE11AC3B95000421609 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* Extension.swift */; };
 		4763A6EA1AC3A03900FF7F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A6E91AC3A03900FF7F3D /* AppDelegate.swift */; };
 		4763A6ED1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4763A6EB1AC3A03A00FF7F3D /* TimerWidget.xcdatamodeld */; };
 		4763A6F21AC3A03A00FF7F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4763A6F01AC3A03A00FF7F3D /* Main.storyboard */; };
@@ -32,7 +32,7 @@
 		477079181ACD362A0029BF8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477079171ACD362A0029BF8C /* MessageUI.framework */; };
 		4770791A1ACD41830029BF8C /* FormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477079191ACD41830029BF8C /* FormatViewController.swift */; };
 		47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFDC1AC3A8CB00421609 /* DateUtils.swift */; };
-		47815A211AC3DDB400CB877B /* TWExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* TWExtension.swift */; };
+		47815A211AC3DDB400CB877B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760FFE01AC3B95000421609 /* Extension.swift */; };
 		47815A261AC3E6C100CB877B /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47815A251AC3E6C100CB877B /* FontViewController.swift */; };
 		479BDD031ACCDFA100A50CAD /* settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 479BDD021ACCDFA100A50CAD /* settings-50.png */; };
 		479BDD051ACCE00A00A50CAD /* settings-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 479BDD041ACCE00A00A50CAD /* settings-32.png */; };
@@ -94,7 +94,7 @@
 		473F72111AC3FD35002A0486 /* LineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineViewController.swift; sourceTree = "<group>"; };
 		4760FFDC1AC3A8CB00421609 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		4760FFDE1AC3B2CF00421609 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
-		4760FFE01AC3B95000421609 /* TWExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWExtension.swift; sourceTree = "<group>"; };
+		4760FFE01AC3B95000421609 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4763A6E41AC3A03900FF7F3D /* TimerWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4763A6E81AC3A03900FF7F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4763A6E91AC3A03900FF7F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 		47DF9B771ACA66B1007F90BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				4760FFE01AC3B95000421609 /* TWExtension.swift */,
+				4760FFE01AC3B95000421609 /* Extension.swift */,
 				47DF9B781ACA6996007F90BD /* TWConstants.swift */,
 				47DF9B7A1ACA6D17007F90BD /* TWSettingManager.swift */,
 				47DF9B7C1ACA6D34007F90BD /* TWDataManager.swift */,
@@ -441,7 +441,7 @@
 				4760FFDD1AC3A8CB00421609 /* DateUtils.swift in Sources */,
 				47815A261AC3E6C100CB877B /* FontViewController.swift in Sources */,
 				4763A6EA1AC3A03900FF7F3D /* AppDelegate.swift in Sources */,
-				4760FFE11AC3B95000421609 /* TWExtension.swift in Sources */,
+				4760FFE11AC3B95000421609 /* Extension.swift in Sources */,
 				4760FFDF1AC3B2CF00421609 /* TimerTableViewCell.swift in Sources */,
 				476B7F2E1ACD0EE9004FAF35 /* ControllerType.swift in Sources */,
 				47EAA90E1ACE438F008B30D6 /* PDataUtils.swift in Sources */,
@@ -459,7 +459,7 @@
 				47DF9B801ACA6D98007F90BD /* TWSettingManager.swift in Sources */,
 				47DF9B811ACA6D98007F90BD /* TWDataManager.swift in Sources */,
 				47DF9B7E1ACA6D8D007F90BD /* Record.swift in Sources */,
-				47815A211AC3DDB400CB877B /* TWExtension.swift in Sources */,
+				47815A211AC3DDB400CB877B /* Extension.swift in Sources */,
 				47815A201AC3DD9D00CB877B /* DateUtils.swift in Sources */,
 				4763A7221AC3A5CD00FF7F3D /* TodayViewController.swift in Sources */,
 				473BE75B1AC929E6009DB9BC /* ExtTableViewCell.swift in Sources */,

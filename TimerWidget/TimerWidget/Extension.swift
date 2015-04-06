@@ -15,6 +15,29 @@ let DAY_IN_SECONDS     = 60 * 60 * 24
 let MONTH_IN_SECONDS   = 60 * 60 * 24 * 30
 let YEAR_IN_SECONDS    = 60 * 60 * 24 * 30 * 365
 
+
+extension Array{
+
+    func getIndexByValue(str : String) -> Int{
+
+        for (index, value) in enumerate(self){
+            if "\(value)" == str {
+                return index
+            }
+        }
+        return 0
+    }
+}
+
+
+extension String {
+    // 字符串国际化
+    var localized : String {
+        return NSLocalizedString(self, comment: "")
+    }
+}
+
+
 extension NSIndexPath{
     var next : NSIndexPath {
         let section = self.section
@@ -96,9 +119,9 @@ extension NSTimeInterval {
 
         var result : String = ""
         if left > 0 {
-            result += "[将来] "
+            result += "[" + NSLocalizedString("D_FUNTURE", comment: "") + "] "
         } else {
-            result += "[过去] "
+            result += "[" + NSLocalizedString("D_PASSED", comment: "") + "] "
             left = abs(left)
         }
 
@@ -121,21 +144,21 @@ extension NSTimeInterval {
 
         // 表示结果
         if years > 0 {
-            result += String(format: "%02d年", years)
+            result += String(format: "%02d" + "D_YEARS".localized, years)
         }
         if months > 0 {
-            result += String(format: "%02d月", arguments: [months])
+            result += String(format: "%02d" + "D_MONTHS".localized, arguments: [months])
         }
         if days > 0 {
-            result += String(format: "%02d日", arguments: [days])
+            result += String(format: "%02d" + "D_DAYS".localized, arguments: [days])
         }
         if hours > 0 {
-            result += String(format: "%02d时", arguments: [hours])
+            result += String(format: "%02d" + "D_HOURS".localized, arguments: [hours])
         }
         if minutes > 0 {
-            result += String(format: "%02d分", arguments: [minutes])
+            result += String(format: "%02d" + "D_MINUTES".localized, arguments: [minutes])
         }
-        result += String(format: "%02d秒", arguments: [seconds])
+        result += String(format: "%02d" + "D_SECONDS".localized, arguments: [seconds])
 
         return result
     }

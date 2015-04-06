@@ -85,10 +85,8 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     func hanldeFormatChanged(notication : NSNotification) {
         // 格式选择
         if let cell = self.formatCell {
-            let dict = notication.userInfo as [String : String]
-            if let format = dict["format"]{
-                self.formatCell?.detailTextLabel!.text = format
-            }
+            let dict = notication.userInfo as [String : Int]
+            self.formatCell?.detailTextLabel!.text = TWConstants.DISPLAY_FORMAT[dict["format"]!]
         }
     }
 
@@ -123,7 +121,8 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
         // 在通知中心显示
         self.record.display = self.displaySwitch.on
         // 表示格式
-        self.record.format = (self.formatCell?.detailTextLabel?.text)!
+        let value = self.formatCell.detailTextLabel?.text!
+        self.record.format = TWConstants.DISPLAY_FORMAT.getIndexByValue(value!)
         // 颜色
         self.record.color = (self.colorCell.detailTextLabel?.text)!
 
@@ -161,7 +160,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
         var number = 5
         if self.datePickerTitleIndexPath.section == section && self.indexPathOfVisibleDatePicker != nil {
-           number += 1
+           number++
         }
 
         return number
@@ -213,7 +212,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             if indexPath.section == 0 && indexPath.row == 0 {
                 // 标题
                 titleTextField = UITextField(frame: cell!.frame)
-                titleTextField.placeholder = "标题"
+                titleTextField.placeholder = NSLocalizedString("V_CREATE_TITLE", comment: "title")
 
                 let paddingView = UIView(frame: CGRectMake(0, 0, 10, 20))
                 titleTextField.leftView = paddingView; // 左视图,提供padding的功能
@@ -243,7 +242,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
                 switch(indexPath.row) {
 
                 case 0: // 是否只显示日期
-                    cell?.textLabel!.text = "只显示日期"
+                    cell?.textLabel!.text = NSLocalizedString("V_CREATE_IS_DATE_ONLY", comment : "date only")
                     cell?.selectionStyle = UITableViewCellSelectionStyle.None
 
                     dayUnitSwitch = UISwitch()
@@ -253,7 +252,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
                     cell?.accessoryView = dayUnitSwitch
 
                 case 1: // 日期
-                    cell?.textLabel!.text = "日期"
+                    cell?.textLabel!.text = NSLocalizedString("V_CREATE_DATE", comment : "date")
                     // 日期格式
                     let dateFormat = self.record.dayUnit ? DateUtils.DATE_FOMART.DATE_ONLY : DateUtils.DATE_FOMART.DATE_AND_TIME
                     // 设置日期
@@ -261,7 +260,7 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
 
                     self.dateCell = cell!
                 case 2: // 是否显示在通知中心
-                    cell?.textLabel!.text = "通知中心显示"
+                    cell?.textLabel!.text = NSLocalizedString("V_CREATE_EXTENSION_SHOW", comment : "date")
                     cell?.selectionStyle = UITableViewCellSelectionStyle.None
 
                     displaySwitch = UISwitch()
@@ -271,15 +270,16 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
                     cell?.accessoryView = displaySwitch
 
                 case 3: // 表示的格式
-                    cell?.textLabel!.text = "格式"
-                    cell?.detailTextLabel?.text = record.format
+                    cell?.textLabel!.text = NSLocalizedString("V_CREATE_FORMAT", comment : "format")
+                    cell?.detailTextLabel?.text = TWConstants.DISPLAY_FORMAT[record.format]
                     cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
                     self.formatCell = cell
 
                 case 4: // 显示的颜色
-                    cell?.textLabel!.text = "颜色"
+                    cell?.textLabel!.text = NSLocalizedString("V_CREATE_COLOR", comment : "color")
                     cell?.detailTextLabel!.text = record.color
+                    cell?.detailTextLabel!.textColor = UIColor.getColorWithName(record.color)
                     cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
                     self.colorCell = cell
@@ -344,7 +344,6 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
             self.indexPathOfVisibleDatePicker = nil
 
             tableView.deleteRowsAtIndexPaths([datePickerIndexPath], withRowAnimation: UITableViewRowAnimation.Middle)
-
         }
 
         tableView.endUpdates()
@@ -356,10 +355,11 @@ class CreateViewController : UIViewController, UITableViewDelegate, UITableViewD
     func datePickerValueChanged(datepicker : UIDatePicker){
         let indexPath = NSIndexPath(forRow: self.indexPathOfVisibleDatePicker!.row - 1, inSection: self.indexPathOfVisibleDatePicker!.section)
 
-        if let cell : UITableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) {
-            cell.detailTextLabel!.text = self.record.strDate
+        println("datepicker = \(datepicker.date)")
 
+        if let cell : UITableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) {
             record.date = datepicker.date
+            cell.detailTextLabel!.text = self.record.strDate
         }
     }
 

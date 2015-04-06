@@ -7,4 +7,35 @@
 */
 CFBundleDisplayName = "つつ";
 
+// CreateViewController
+V_CREATE_TITLE          = "タイトル";
+V_CREATE_IS_DATE_ONLY   = "表示項目日付だけ";
+V_CREATE_DATE           ="日付";
+V_CREATE_EXTENSION_SHOW ="通知センターに表示";
+V_CREATE_FORMAT         ="フォマット";
+V_CREATE_COLOR          ="文字色";
+
+// SettingViewController
+V_SETTING_FONT  = "フォオント";
+V_SETTING_COLOR = "色";
+V_SETTING_SHOW_ROWS = "表示レコード数";
+V_SETTING_SEND_MAIL = "メール送信";
+V_SETTING_SEND_SMS  = "SMS送信";
+V_SETTING_TODAY_EXTENSION = "通知センター";
+V_SETTING_CONTACT_US = "開発者に連絡";
+V_SETTING_APPLICATION = "アプリケーション";
+
+// FormatViewController
+V_FORMAT = "フォマット";
+
+//年月日 时分秒
+D_YEARS   = "年";
+D_MONTHS  = "ヶ月";
+D_DAYS    = "日";
+D_HOURS   = "時間";
+D_MINUTES = "分";
+D_SECONDS = "秒";
+
+D_FUNTURE = "将来";
+D_PASSED  = "過去";
 

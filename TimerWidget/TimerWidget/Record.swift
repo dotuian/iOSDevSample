@@ -16,7 +16,7 @@ class Record : NSObject, NSCoding{
     var display : Bool = false
     var dayUnit : Bool = true
 
-    var format : String = "日"
+    var format : Int = 0
 
     var color : String = "Blue"
 
@@ -40,7 +40,7 @@ class Record : NSObject, NSCoding{
         self.date = aDecoder.decodeObjectForKey("date") as NSDate
         self.display = aDecoder.decodeBoolForKey("display")
         self.dayUnit = aDecoder.decodeBoolForKey("dayUnit")
-        self.format = aDecoder.decodeObjectForKey("format") as String
+        self.format = aDecoder.decodeIntegerForKey("format")
         self.color = aDecoder.decodeObjectForKey("color") as String
     }
 
@@ -52,7 +52,8 @@ class Record : NSObject, NSCoding{
         aCoder.encodeObject(date, forKey: "date")
         aCoder.encodeBool(display, forKey: "display")
         aCoder.encodeBool(dayUnit, forKey: "dayUnit")
-        aCoder.encodeObject(format, forKey : "format")
+        aCoder.encodeInteger(format, forKey: "format")
+
         aCoder.encodeObject(color, forKey : "color")
     }
 

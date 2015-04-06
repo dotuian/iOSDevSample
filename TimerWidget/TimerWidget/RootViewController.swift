@@ -112,7 +112,6 @@ class RootViewController : UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TimerTableViewCell {
-
         let cellIdentifier = "cellIdentifier"
 
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? TimerTableViewCell

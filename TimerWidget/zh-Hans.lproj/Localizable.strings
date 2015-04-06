@@ -8,3 +8,39 @@
 CFBundleDisplayName = "嘟嘟";
 
 
+// CreateViewController
+V_CREATE_TITLE          = "标题";
+V_CREATE_IS_DATE_ONLY   = "只显示日期";
+V_CREATE_DATE           ="日期";
+V_CREATE_EXTENSION_SHOW ="通知中心显示";
+V_CREATE_FORMAT         ="格式";
+V_CREATE_COLOR          ="颜色";
+
+
+// SettingViewController
+V_SETTING_FONT  = "字体";
+V_SETTING_COLOR = "颜色";
+V_SETTING_SHOW_ROWS = "显示记录数";
+V_SETTING_SEND_MAIL = "发送邮件";
+V_SETTING_SEND_SMS  = "发送短信";
+
+V_SETTING_APPLICATION = "应用程序";
+V_SETTING_TODAY_EXTENSION = "通知中心";
+V_SETTING_CONTACT_US = "联系我们";
+
+// FormatViewController
+V_FORMAT = "格式";
+
+
+//年月日 时分秒
+D_YEARS   = "年";
+D_MONTHS  = "个月";
+D_DAYS    = "天";
+D_HOURS   = "小时";
+D_MINUTES = "分";
+D_SECONDS = "秒";
+
+D_FUNTURE = "还有";
+D_PASSED  = "过去";
+
+

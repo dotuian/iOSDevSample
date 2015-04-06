@@ -11,9 +11,9 @@ import UIKit
 import MessageUI
 
 protocol UpdateSettingDelegate {
-    func updateAppFont(label:UILabel, font : UIFont);
+    func updateAppFont(label:UILabel, font : UIFont, fontName : String);
 
-    func updateExtensionFont(label:UILabel, font : UIFont);
+    func updateExtensionFont(label:UILabel, font : UIFont, fontName : String);
 
     func updateColor(label:UILabel, color:UIColor, colorName : String);
 
@@ -62,16 +62,16 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
     func initData(){
         // 菜单名称
         self.titles = [
-            ["字体"],
-            ["字体", "显示记录数"],
-            ["发送邮件", "发送短信"]
+            [NSLocalizedString("V_SETTING_FONT", comment: "")],
+            [NSLocalizedString("V_SETTING_FONT", comment: ""), NSLocalizedString("V_SETTING_SHOW_ROWS", comment: "")],
+            [NSLocalizedString("V_SETTING_SEND_MAIL", comment: ""), NSLocalizedString("V_SETTING_SEND_SMS", comment: "")]
         ]
 
         // 菜单组名称
         self.sectionHeader = [
-            "应用程序",
-            "通知中心",
-            "联系我们"
+            NSLocalizedString("V_SETTING_APPLICATION", comment: ""),
+            NSLocalizedString("V_SETTING_TODAY_EXTENSION", comment: ""),
+            NSLocalizedString("V_SETTING_CONTACT_US", comment: "")
         ]
     }
 
@@ -110,7 +110,7 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
                 let font = settingManager.getObjectForKey(TWConstants.SETTING_APP_FONT) as? UIFont
                 if font != nil {
                     cell?.detailTextLabel!.font = font!
-                    cell?.detailTextLabel!.text = font!.fontName
+                    cell?.detailTextLabel!.text = font!.familyName
                 }
 
             default:
@@ -125,7 +125,7 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
                 let font = settingManager.getObjectForKey(TWConstants.SETTING_EXTENSION_FONT) as? UIFont
                 if font != nil {
                     cell?.detailTextLabel!.font = font!
-                    cell?.detailTextLabel!.text = font!.fontName
+                    cell?.detailTextLabel!.text = font!.familyName
                 }
 
             case 1 : // 显示记录数
@@ -160,6 +160,7 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
                 let fontViewController = FontViewController();
                 fontViewController.updateLabel = cell?.detailTextLabel!
                 fontViewController.delegate = self
+                fontViewController.flag = "app"
                 self.navigationController?.pushViewController(fontViewController, animated: true)
                 break
             default:
@@ -174,6 +175,7 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
                 let fontViewController = FontViewController()
                 fontViewController.updateLabel = cell?.detailTextLabel!
                 fontViewController.delegate = self
+                fontViewController.flag = "extension"
                 self.navigationController?.pushViewController(fontViewController, animated: true)
                 break
 
@@ -300,16 +302,16 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
     // ==========================================
     // 自定义代理方法
     // ==========================================
-    func updateAppFont(label : UILabel, font : UIFont) {
-        label.text = font.fontName
+    func updateAppFont(label : UILabel, font : UIFont, fontName : String) {
+        label.text = fontName
         label.font = font
 
         // 保存到UserDefaults
         settingManager.insert(TWConstants.SETTING_APP_FONT, value: font)
     }
 
-    func updateExtensionFont(label : UILabel, font : UIFont) {
-        label.text = font.fontName
+    func updateExtensionFont(label : UILabel, font : UIFont, fontName : String) {
+        label.text = fontName
         label.font = font
 
         // 保存到UserDefaults

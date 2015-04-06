@@ -57,7 +57,6 @@ class TWDataManager {
         var data = self.getAllData()
         data.append(record)
 
-
         NSKeyedArchiver.setClassName("Record", forClass: Record.self)
         userDefaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(data), forKey: TIMER_DATA_KEY)
         userDefaults.synchronize()
