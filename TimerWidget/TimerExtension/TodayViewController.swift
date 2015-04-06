@@ -131,12 +131,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     // Widgets wishing to customize the default margin insets can return their preferred values.
     // Widgets that choose not to implement this method will receive the default margin insets.
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets{
-//        println(defaultMarginInsets)
-//        var newMargins = defaultMarginInsets
-//        newMargins.left = 20
-//        newMargins.bottom = 5
 
-        return UIEdgeInsetsZero
+        var newMargins = defaultMarginInsets
+//        newMargins.left = 20
+        newMargins.bottom = 0
+
+        return defaultMarginInsets
     }
 
     
