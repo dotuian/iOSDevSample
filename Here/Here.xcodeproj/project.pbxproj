@@ -10,6 +10,10 @@
 		4725BD701AD3CE0B001CED74 /* settings-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 4725BD6F1AD3CE0B001CED74 /* settings-25.png */; };
 		4725BD721AD3D00C001CED74 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4725BD711AD3D00C001CED74 /* SettingViewController.swift */; };
 		4725BD761AD3D4C3001CED74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4725BD751AD3D4C3001CED74 /* Constants.swift */; };
+		4725BD791AD4C75D001CED74 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4725BD781AD4C75C001CED74 /* MyAnnotation.swift */; };
+		4725BD7B1AD4D800001CED74 /* drafting_compass-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 4725BD7A1AD4D800001CED74 /* drafting_compass-25.png */; };
+		4725BD7D1AD4D875001CED74 /* trash-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 4725BD7C1AD4D875001CED74 /* trash-25.png */; };
+		4725BD7F1AD4F496001CED74 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4725BD7E1AD4F496001CED74 /* LocationUtils.swift */; };
 		47A556ED1AD3B17B0018E119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A556EC1AD3B17B0018E119 /* AppDelegate.swift */; };
 		47A556F01AD3B17B0018E119 /* Here.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47A556EE1AD3B17B0018E119 /* Here.xcdatamodeld */; };
 		47A556F21AD3B17B0018E119 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A556F11AD3B17B0018E119 /* ViewController.swift */; };
@@ -36,6 +40,10 @@
 		4725BD6F1AD3CE0B001CED74 /* settings-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-25.png"; sourceTree = "<group>"; };
 		4725BD711AD3D00C001CED74 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4725BD751AD3D4C3001CED74 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Constants.swift; sourceTree = "<group>"; };
+		4725BD781AD4C75C001CED74 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
+		4725BD7A1AD4D800001CED74 /* drafting_compass-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drafting_compass-25.png"; sourceTree = "<group>"; };
+		4725BD7C1AD4D875001CED74 /* trash-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trash-25.png"; sourceTree = "<group>"; };
+		4725BD7E1AD4F496001CED74 /* LocationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
 		47A556E71AD3B17B0018E119 /* Here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Here.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A556EB1AD3B17B0018E119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47A556EC1AD3B17B0018E119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +121,8 @@
 				47A556F81AD3B17B0018E119 /* LaunchScreen.xib */,
 				47A556EE1AD3B17B0018E119 /* Here.xcdatamodeld */,
 				47A556EA1AD3B17B0018E119 /* Supporting Files */,
+				4725BD781AD4C75C001CED74 /* MyAnnotation.swift */,
+				4725BD7E1AD4F496001CED74 /* LocationUtils.swift */,
 			);
 			path = Here;
 			sourceTree = "<group>";
@@ -120,6 +130,8 @@
 		47A556EA1AD3B17B0018E119 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4725BD7C1AD4D875001CED74 /* trash-25.png */,
+				4725BD7A1AD4D800001CED74 /* drafting_compass-25.png */,
 				4725BD6F1AD3CE0B001CED74 /* settings-25.png */,
 				47A556EB1AD3B17B0018E119 /* Info.plist */,
 			);
@@ -227,6 +239,8 @@
 				47A556FA1AD3B17B0018E119 /* LaunchScreen.xib in Resources */,
 				47A556F71AD3B17B0018E119 /* Images.xcassets in Resources */,
 				4725BD701AD3CE0B001CED74 /* settings-25.png in Resources */,
+				4725BD7B1AD4D800001CED74 /* drafting_compass-25.png in Resources */,
+				4725BD7D1AD4D875001CED74 /* trash-25.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4725BD7F1AD4F496001CED74 /* LocationUtils.swift in Sources */,
+				4725BD791AD4C75D001CED74 /* MyAnnotation.swift in Sources */,
 				4725BD721AD3D00C001CED74 /* SettingViewController.swift in Sources */,
 				47A556F21AD3B17B0018E119 /* ViewController.swift in Sources */,
 				47A556ED1AD3B17B0018E119 /* AppDelegate.swift in Sources */,

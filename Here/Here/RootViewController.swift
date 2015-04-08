@@ -12,10 +12,15 @@ import CoreLocation
 import MapKit
 
 class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    // 定位管理器
     var locationManager : CLLocationManager!
-
+    // 地图视图
     var mapView : MKMapView!
+    // 地图上显示的自定标注
+    var annotations = Array<MKAnnotation>()
+
+    // 当前用户的位置
+    var userLocation : CLLocation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +33,16 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
         self.view.backgroundColor = UIColor.whiteColor()
 
         //==============================================================
+        // 导航栏
+        let calDistanceItem = UIBarButtonItem(image: UIImage(named: "drafting_compass-25"), style: UIBarButtonItemStyle.Plain, target: self, action: "calcDistance")
+        self.navigationItem.rightBarButtonItem = calDistanceItem
+
+        //==============================================================
         // 工具栏
-        let settingItem = UIBarButtonItem(image: UIImage(named: "settings-25"), style: UIBarButtonItemStyle.Done, target: self, action: "hanlderSetting")
+        let clearAnnotationsItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash, target: self, action: "clearAnnotations")
         let spaceItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        self.toolbarItems = [spaceItem, settingItem]
+        let settingItem = UIBarButtonItem(image: UIImage(named: "settings-25"), style: UIBarButtonItemStyle.Done, target: self, action: "hanlderSetting")
+        self.toolbarItems = [clearAnnotationsItem, spaceItem, settingItem]
 
         //==============================================================
         // 定位服务
@@ -62,7 +73,7 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
         // 经纬度
         let centerCoordinate2D = CLLocationCoordinate2D(latitude: 35.6020691, longitude: 139.8753269)
         // 显示范围精度
-        let coordinateSpan = MKCoordinateSpanMake(1, 1)
+        let coordinateSpan = MKCoordinateSpanMake(100, 100)
         // 显示区域
         let coordinateRegion = MKCoordinateRegionMake(centerCoordinate2D, coordinateSpan)
         // 设置地图的显示区域
@@ -71,6 +82,12 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
         self.mapView.delegate = self
         // 添加到子视图
         self.view.addSubview(mapView)
+
+        // 向地图添加手势
+        let recognizer = UILongPressGestureRecognizer(target: self, action: "addAnnotation:")
+        recognizer.minimumPressDuration = 1.2 // user needs to press for 2 seconds
+        self.mapView.addGestureRecognizer(recognizer)
+        self.mapView.userInteractionEnabled = true
     }
 
     func loadData(){
@@ -138,6 +155,69 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
 
+
+    //===================================
+    func addAnnotation(recognizer : UILongPressGestureRecognizer){
+        println("long press status = \(recognizer.state.rawValue)")
+        // UIGestureRecognizerState.Began 长按事件达到,手指还未松开的时候
+        // UIGestureRecognizerState.End   手指松开的时候
+        if recognizer.state != UIGestureRecognizerState.Began {
+            return
+        }
+
+        if self.annotations.count >= 2 {
+            let alertController = UIAlertController(title: "添加位置", message: "指定的位置信息已经达到上限!", preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alertController.addAction(okAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return
+        }
+
+        // 获取地图上的地理位置
+        let point : CGPoint = recognizer.locationInView(self.mapView)
+        let coordinate : CLLocationCoordinate2D = self.mapView.convertPoint(point, toCoordinateFromView: self.mapView)
+
+        // 创建一个自定义标注对象
+        let pin = MyAnnotation(coordinate: coordinate, userLocation: self.userLocation)
+        pin.reverseLocation()
+
+        // 向地图上添加自定义标注
+        self.mapView.addAnnotation(pin)
+
+        self.annotations.append(pin)
+    }
+
+    func clearAnnotations(){
+        self.mapView.removeAnnotations(self.annotations)
+        self.annotations.removeAll(keepCapacity: true)
+
+        self.navigationItem.title = ""
+    }
+
+    func calcDistance(){
+        let count = self.annotations.count
+
+        if count == 2 {
+            // 标注
+            let fromAnnotation = self.annotations[count - 1]
+            let toAnnotation = self.annotations[count - 2]
+
+            // 位置
+            let fromLocation = CLLocation(latitude: fromAnnotation.coordinate.latitude, longitude: fromAnnotation.coordinate.longitude)
+            let toLocation = CLLocation(latitude: toAnnotation.coordinate.latitude, longitude: toAnnotation.coordinate.longitude)
+
+            // 距离
+            let distance : CLLocationDistance = fromLocation.distanceFromLocation(toLocation)
+
+            self.navigationItem.title = "\(Int(distance))m"
+        } else {
+
+            // 错误提示
+            let alertController = UIAlertController(title: "计算距离", message: "位置信息不足,无法进行计算!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
 
     //====================================
     // CLLocationManagerDelegate
@@ -216,19 +296,53 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
     }
 
     // 返回标注视图
+    // 当通过MKMapView的addAnnotation方法向地图上添加标注时,会调用该方法绘制标注的样式
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        let identifier = "annotation"
+
+        // 检查时候有可以复用的View
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+
+        if annotation.isKindOfClass(MyAnnotation) {
+            // 标注的颜色
+            pinView?.pinColor = MKPinAnnotationColor.Purple
+            // 选择该标注是,是否显示详细信息的气泡视图
+            pinView?.canShowCallout = true
+            // 气泡视图中的右视图
+            pinView?.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIView
+            // 标注落下的动画效果
+            pinView?.animatesDrop = true
+            // 标注
+            pinView?.annotation = annotation
+
+            return pinView!
+        } else {
+            // 当前位置标注,返回nil,当前位置会自动的创建一个标注视图
+
+        }
+
         return nil
     }
 
     // 更新当前位置
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-
+        println("用户位置更新")
+        self.userLocation = userLocation.location
     }
 
     // 选中标注地图
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
 
     }
+
+    // 长按MKMapView,添加一个标注
+    // http://stackoverflow.com/questions/3959994/how-to-add-a-push-pin-to-a-mkmapviewios-when-touching/3960754#3960754
+
+
+
 
 
 
