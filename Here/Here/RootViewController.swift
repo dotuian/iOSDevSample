@@ -245,7 +245,7 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
 
         // 获取最新的位置信息
         var locationArray = locations as NSArray
-        var locationObj = locationArray.lastObject as CLLocation
+        var locationObj = locationArray.lastObject as! CLLocation
         var coordinate: CLLocationCoordinate2D = locationObj.coordinate
         println("时间 \(NSDate()) 经度: \(coordinate.longitude)  纬度:\(coordinate.latitude)  高度:\(locationObj.altitude)")
 
@@ -312,7 +312,7 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
             // 选择该标注是,是否显示详细信息的气泡视图
             pinView?.canShowCallout = true
             // 气泡视图中的右视图
-            pinView?.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIView
+            pinView?.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure)as! UIView
             // 标注落下的动画效果
             pinView?.animatesDrop = true
             // 标注

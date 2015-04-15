@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import UIKIt
+import UIKit
 import MapKit
 import CoreLocation
 

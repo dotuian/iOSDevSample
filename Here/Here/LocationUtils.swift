@@ -26,14 +26,14 @@ class LocationUtils {
 
         println("经纬度地址解析用URL : \(strUrl)")
 
-        let url = NSURL(string: strUrl)
+        let url = NSURL(string: strUrl as String)
         let data = NSData(contentsOfURL: url!)
         var error : NSError?
 
         if data != nil {
             if let json = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error) as? NSDictionary {
-                let result = json.objectForKey("results") as NSArray
-                let status = json.objectForKey("status") as String
+                let result = json.objectForKey("results") as! NSArray
+                let status = json.objectForKey("status")as! String
 
                 if status == "OK" && result.count > 0 {
                     // http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,116.22&sensor=true
@@ -42,7 +42,7 @@ class LocationUtils {
                     // geometry
                     // place_id
                     // types
-                    let info = result.objectAtIndex(0) as NSDictionary
+                    let info = result.objectAtIndex(0) as! NSDictionary
 
                     if let address = info.objectForKey("formatted_address") as? String{
                         return address
