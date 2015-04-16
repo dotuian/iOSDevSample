@@ -74,6 +74,7 @@ class SettingViewController : UIViewController, UITableViewDelegate, UITableView
         return self.titleList[section]
     }
 
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifier = "CellIdentifier"
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? UITableViewCell

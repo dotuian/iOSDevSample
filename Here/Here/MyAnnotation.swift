@@ -35,6 +35,7 @@ class MyAnnotation : NSObject, MKAnnotation {
     }
 
     func reverseLocation() {
+        // 通过经纬度获取地址API
         let location = CLLocation(latitude: self.coordinate.latitude, longitude: self.coordinate.longitude)
 
         // 创建异步线程

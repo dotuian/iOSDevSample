@@ -14,17 +14,35 @@ import CoreLocation
 // https://developers.google.com/maps/documentation/geocoding/
 // ===========================================
 
+extension String{
+    func replace(target: String, withString: String) -> String
+    {
+        return self.stringByReplacingOccurrencesOfString(target, withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
+
+}
+
 class LocationUtils {
+
+    class func reverseLocation(latitude : Double, longitude : Double) -> String?{
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        return LocationUtils.reverseLocation(location)
+    }
 
     class func reverseLocation(location : CLLocation) -> String?{
         // API URL
-        let apiURL = "http://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&sensor=true&language=zh-cn"
+        //   let apiURL = "http://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&sensor=true&language=zh-cn"
+
+        let apiURL = "http://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&language=ja-jp&sensor=true"
 
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
-        let strUrl = NSString(format: apiURL, latitude, longitude)
 
-        println("经纬度地址解析用URL : \(strUrl)")
+        var strUrl = apiURL
+        strUrl = strUrl.replace("{0}", withString: String(format: "%f", arguments: [latitude]))
+        strUrl = strUrl.replace("{1}", withString: String(format: "%f", arguments: [longitude]))
+
+        println(strUrl)
 
         let url = NSURL(string: strUrl as String)
         let data = NSData(contentsOfURL: url!)

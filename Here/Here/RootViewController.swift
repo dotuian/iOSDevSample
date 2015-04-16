@@ -25,6 +25,7 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 加载视图
         self.initSubViews()
         self.loadData()
     }
@@ -161,11 +162,11 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
         println("long press status = \(recognizer.state.rawValue)")
         // UIGestureRecognizerState.Began 长按事件达到,手指还未松开的时候
         // UIGestureRecognizerState.End   手指松开的时候
-        if recognizer.state != UIGestureRecognizerState.Began {
+        if (recognizer.state != UIGestureRecognizerState.Began) {
             return
         }
 
-        if self.annotations.count >= 2 {
+        if (self.annotations.count >= 2) {
             let alertController = UIAlertController(title: "添加位置", message: "指定的位置信息已经达到上限!", preferredStyle: UIAlertControllerStyle.Alert)
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
             alertController.addAction(okAction)
@@ -248,7 +249,6 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
         var locationObj = locationArray.lastObject as! CLLocation
         var coordinate: CLLocationCoordinate2D = locationObj.coordinate
         println("时间 \(NSDate()) 经度: \(coordinate.longitude)  纬度:\(coordinate.latitude)  高度:\(locationObj.altitude)")
-
 
         // 通过经纬度获取地址信息
         let geocoder = CLGeocoder()
@@ -340,10 +340,6 @@ class RootViewController : UIViewController, CLLocationManagerDelegate, MKMapVie
 
     // 长按MKMapView,添加一个标注
     // http://stackoverflow.com/questions/3959994/how-to-add-a-push-pin-to-a-mkmapviewios-when-touching/3960754#3960754
-
-
-
-
 
 
 }
